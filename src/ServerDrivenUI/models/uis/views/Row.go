@@ -9,6 +9,7 @@ type row struct {
 	Type     string              `json:"type" binding:"required"`
 	Modifier properties.Modifier `json:"modifier"`
 	Children []interface{}       `json:"children"`
+	Value    properties.Value    `json:"value,omitempty"`
 }
 
 func Row(modifier properties.Modifier, children []interface{}) *row {
@@ -16,9 +17,9 @@ func Row(modifier properties.Modifier, children []interface{}) *row {
 	row.Type = types.ROW.String()
 	row.Modifier = modifier
 	row.Children = children
+	row.Value = properties.Value{Width: -1}
 	return row
 }
-
 
 func RowDummy_Count1() *row {
 	var modifier = properties.ModifierDummy("Row Modifier")

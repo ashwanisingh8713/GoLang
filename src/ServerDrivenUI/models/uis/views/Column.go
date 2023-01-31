@@ -9,14 +9,16 @@ type column struct {
 	Type     string              `json:"type" binding:"required"`
 	Modifier properties.Modifier `json:"modifier"`
 	Children []interface{}       `json:"children"`
+	Value    properties.Value    `json:"value,omitempty"`
 }
 
 func Column(modifier properties.Modifier, children []interface{}) *column {
-	row := new(column)
-	row.Type = types.ROW.String()
-	row.Modifier = modifier
-	row.Children = children
-	return row
+	column := new(column)
+	column.Type = types.COLUMN.String()
+	column.Modifier = modifier
+	column.Children = children
+	column.Value = properties.Value{Width: -1}
+	return column
 }
 
 func ColumnDummy_Count1() *column {

@@ -8,8 +8,8 @@ import (
 func main() {
 
 	route := gin.Default()
-	route.GET("/books", controller.Response)
-	route.Run("192.168.13.86:8080")
+	route.GET("/ui", controller.Response)
+	route.Run("192.168.13.87:8080")
 	//route.Run()
 
 }

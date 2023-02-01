@@ -2,6 +2,7 @@ package controller
 
 import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/views"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -16,7 +17,7 @@ func Response(c *gin.Context) {
 	// Banner
 	verticalViewChildren = Banner(verticalViewChildren)
 	// Category Title
-	verticalViewChildren = CategoryTitle("Title", "Explore", verticalViewChildren)
+	verticalViewChildren = CategoryTitle("Top Categories", "Explore all", verticalViewChildren)
 	// Horizontal ListView
 	verticalViewChildren = HorizontalList_1(verticalViewChildren)
 
@@ -54,15 +55,15 @@ func CategoryTitle(title string, ctaTitle string, listChildren []interface{}) []
 	var rowModifier = properties.ModifierDummy("Row Modifier")
 
 	// Title
-	var titleValue = properties.Value{Label: title, TextSize: 20, Weight: 300}
-	var titleColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
+	var titleValue = properties.Value{Label: title, TextSize: 20, Weight: 700, FontStyle: types.FontStyleType.String(types.MontBold)}
+	var titleColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.26, Alpha: 1.0}
 	var titleTvmodifier = properties.Modifier{Color: titleColor}
 	var titleTv = views.TextView(titleTvmodifier, titleValue)
 	rowChildren = append(rowChildren, titleTv)
 
 	// CTA Title
-	var ctaValue = properties.Value{Label: ctaTitle, TextSize: 20, Weight: 300}
-	var ctaColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
+	var ctaValue = properties.Value{Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: types.FontStyleType.String(types.MontSemiBold)}
+	var ctaColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
 	var ctaTvmodifier = properties.Modifier{Color: ctaColor}
 	var ctaTv = views.TextView(ctaTvmodifier, ctaValue)
 	rowChildren = append(rowChildren, ctaTv)

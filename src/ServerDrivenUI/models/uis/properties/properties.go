@@ -10,6 +10,7 @@ type Value struct {
 	Height     int    `json:"height,omitempty"`
 	ImageUrl   string `json:"imageUrl,omitempty"`
 	ImageScale string `json:"imageScale,omitempty"`
+	FontStyle  string `json:"fontStyle,omitempty"`
 }
 
 type Color struct {

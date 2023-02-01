@@ -9,7 +9,7 @@ func main() {
 
 	route := gin.Default()
 	route.GET("/ui", controller.Response)
-	route.Run("192.168.13.87:8080")
+	route.Run("192.168.13.20:8080")
 	//route.Run()
 
 }

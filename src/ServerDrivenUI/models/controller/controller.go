@@ -13,9 +13,13 @@ func Response(c *gin.Context) {
 
 	var verticalListModifier = properties.ModifierDummy("Vertical List Modifier")
 	var verticalViewChildren []interface{}
+	// Banner
 	verticalViewChildren = Banner(verticalViewChildren)
+	// Category Title
 	verticalViewChildren = CategoryTitle("Title", "Explore", verticalViewChildren)
+	// Horizontal ListView
 	verticalViewChildren = HorizontalList_1(verticalViewChildren)
+
 	var verticalListView = views.VerticalList(verticalListModifier, verticalViewChildren)
 
 	// App Bar
@@ -77,7 +81,7 @@ func HorizontalList_1(listChildren []interface{}) []interface{} {
 
 		// ImageView
 		var imgViewValue = properties.Value{ImageUrl: "https://images.all-free-download.com/images/graphicwebp/rosa_red_beautiful_girl_219903.webp",
-			Width: 100, Height: 100}
+			Width: 100, Height: 100, ImageScale: "Crop"}
 		var imgViewModifier = properties.Modifier{Color: properties.ColorDummy(), PaddingL: 10}
 		var imgView = views.ImageView(imgViewModifier, imgViewValue)
 		columnChildren = append(columnChildren, imgView)

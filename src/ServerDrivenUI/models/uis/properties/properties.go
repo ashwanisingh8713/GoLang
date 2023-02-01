@@ -3,12 +3,13 @@ package properties
 import "ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
 
 type Value struct {
-	TextSize int    `json:"textSize,omitempty"`
-	Weight   int    `json:"weight,omitempty"`
-	Label    string `json:"label,omitempty"`
-	Width    int    `json:"width,omitempty"`
-	Height   int    `json:"height,omitempty"`
-	ImageUrl string `json:"imageUrl,omitempty"`
+	TextSize   int    `json:"textSize,omitempty"`
+	Weight     int    `json:"weight,omitempty"`
+	Label      string `json:"label,omitempty"`
+	Width      int    `json:"width,omitempty"`
+	Height     int    `json:"height,omitempty"`
+	ImageUrl   string `json:"imageUrl,omitempty"`
+	ImageScale string `json:"imageScale,omitempty"`
 }
 
 type Color struct {

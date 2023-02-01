@@ -2,7 +2,7 @@ package views
 
 import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/viewgrouptype"
 )
 
 type row struct {
@@ -14,7 +14,7 @@ type row struct {
 
 func Row(modifier properties.Modifier, children []interface{}) *row {
 	row := new(row)
-	row.Type = types.ROW.String()
+	row.Type = viewgrouptype.ROW.String()
 	row.Modifier = modifier
 	row.Children = children
 	row.Value = properties.Value{Width: -1}

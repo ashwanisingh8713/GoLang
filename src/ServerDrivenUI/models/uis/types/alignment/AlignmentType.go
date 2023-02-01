@@ -1,4 +1,4 @@
-package types
+package alignment
 
 type ColumnAlignment int
 

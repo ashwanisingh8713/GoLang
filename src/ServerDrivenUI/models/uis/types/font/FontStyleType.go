@@ -1,4 +1,4 @@
-package types
+package font
 
 type FontStyleType int
 

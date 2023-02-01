@@ -1,4 +1,4 @@
-package types
+package viewgrouptype
 
 type ViewGroup int
 

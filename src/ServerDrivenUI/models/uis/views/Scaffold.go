@@ -1,7 +1,7 @@
 package views
 
 import (
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/viewgrouptype"
 )
 
 type scaffold struct {
@@ -12,7 +12,7 @@ type scaffold struct {
 
 func Scaffold(children []interface{}, appBar []interface{}) *scaffold {
 	scaffold := new(scaffold)
-	scaffold.Type = types.SCAFFOLD.String()
+	scaffold.Type = viewgrouptype.SCAFFOLD.String()
 	scaffold.Children = children
 	scaffold.APP_BAR = appBar
 	return scaffold

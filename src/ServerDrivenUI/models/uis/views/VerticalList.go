@@ -2,7 +2,7 @@ package views
 
 import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/viewgrouptype"
 )
 
 type verticalList struct {
@@ -14,7 +14,7 @@ type verticalList struct {
 
 func VerticalList(modifier properties.Modifier, children []interface{}) *verticalList {
 	verticalList := new(verticalList)
-	verticalList.Type = types.VERTICAL_LIST.String()
+	verticalList.Type = viewgrouptype.VERTICAL_LIST.String()
 	verticalList.Modifier = modifier
 	verticalList.Children = children
 	verticalList.Value = properties.Value{Width: -1, Height: -1}

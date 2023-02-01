@@ -2,7 +2,7 @@ package views
 
 import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/viewgrouptype"
 )
 
 type column struct {
@@ -14,7 +14,7 @@ type column struct {
 
 func Column(modifier properties.Modifier, children []interface{}) *column {
 	column := new(column)
-	column.Type = types.COLUMN.String()
+	column.Type = viewgrouptype.COLUMN.String()
 	column.Modifier = modifier
 	column.Children = children
 	column.Value = properties.Value{Width: -1}

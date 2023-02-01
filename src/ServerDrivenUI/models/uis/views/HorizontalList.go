@@ -2,7 +2,7 @@ package views
 
 import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/viewgrouptype"
 )
 
 type horizontalList struct {
@@ -14,7 +14,7 @@ type horizontalList struct {
 
 func HorizontalList(modifier properties.Modifier, children []interface{}) *horizontalList {
 	horizontalListView := new(horizontalList)
-	horizontalListView.Type = types.HORIZONTAL_LIST.String()
+	horizontalListView.Type = viewgrouptype.HORIZONTAL_LIST.String()
 	horizontalListView.Modifier = modifier
 	horizontalListView.Children = children
 	horizontalListView.Value = properties.Value{Width: -1}

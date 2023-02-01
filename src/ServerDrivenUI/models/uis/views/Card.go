@@ -2,7 +2,7 @@ package views
 
 import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/viewtype"
 )
 
 type cardView struct {
@@ -13,7 +13,7 @@ type cardView struct {
 
 func CardView(modifier properties.Modifier, value properties.Value) *cardView {
 	tv := new(cardView)
-	tv.Type = types.TEXT.String()
+	tv.Type = viewtype.TEXT.String()
 	tv.Modifier = modifier
 	tv.Value = value
 	return tv

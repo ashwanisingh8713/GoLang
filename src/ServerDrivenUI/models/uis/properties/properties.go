@@ -1,6 +1,8 @@
 package properties
 
-import "ServerDrivenUI/src/ServerDrivenUI/models/uis/types"
+import (
+	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/corner"
+)
 
 type Value struct {
 	TextSize   int    `json:"textSize,omitempty"`
@@ -55,5 +57,5 @@ func BorderColorDummy() Color {
 
 func ModifierDummy(label string) Modifier {
 	var col = ColorDummy()
-	return ModifierObject(label, col, 5, 5, 5, 5, types.CornerType.String(types.ROUNDED_CORNER))
+	return ModifierObject(label, col, 5, 5, 5, 5, corner.CornerType.String(corner.ROUNDED_CORNER))
 }

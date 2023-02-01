@@ -18,11 +18,3 @@ func AppBar(modifier properties.Modifier, children []interface{}) *appBar {
 	appBar.Children = children
 	return appBar
 }
-
-func AppBarDummy() *appBar {
-	var modifier = properties.ModifierDummy("App Bar Dummy")
-	var children []interface{}
-	var titleTextView = TitleTextView("App Bar Title")
-	children = append(children, titleTextView)
-	return AppBar(modifier, children)
-}

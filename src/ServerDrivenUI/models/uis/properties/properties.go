@@ -21,17 +21,19 @@ type Color struct {
 }
 
 type Modifier struct {
-	Label       string `json:"label"`
-	Color       Color  `json:"color"`
-	BorderColor Color  `json:"borderColor"`
-	BorderWidth int    `json:"borderWidth"`
-	PaddingL    int    `json:"paddingL"`
-	PaddingT    int    `json:"paddingT"`
-	PaddingR    int    `json:"paddingR"`
-	PaddingB    int    `json:"paddingB"`
-	Corner      string `json:"corner"`
-	IsEnable    bool   `json:"isEnable"`
-	Radius      int    `json:"radius"`
+	Label           string `json:"label"`
+	Color           Color  `json:"color"`
+	BorderColor     Color  `json:"borderColor"`
+	BorderWidth     int    `json:"borderWidth"`
+	PaddingL        int    `json:"paddingL"`
+	PaddingT        int    `json:"paddingT"`
+	PaddingR        int    `json:"paddingR"`
+	PaddingB        int    `json:"paddingB"`
+	Corner          string `json:"corner"`
+	IsEnable        bool   `json:"isEnable"`
+	Radius          int    `json:"radius"`
+	ColumnAlignment string `json:"columnAlignment"`
+	TextAlignment   string `json:"textAlignment"`
 }
 
 func ColorObject(hue int, saturation float64, lighting float64, alpha float64) Color {
@@ -44,7 +46,7 @@ func ModifierObject(Label string, color Color, paddingLeft int, paddingTop int, 
 }
 
 func ColorDummy() Color {
-	return ColorObject(100, 1.0, 0.9, 0.9)
+	return ColorObject(0, 0.0, 0.0, 0.0)
 }
 
 func BorderColorDummy() Color {

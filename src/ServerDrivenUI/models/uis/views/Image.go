@@ -25,38 +25,3 @@ func ImageModifier() properties.Modifier {
 }
 
 var image1 = "https://www.shutterstock.com/image-vector/group-abstract-diverse-people-friends-600w-2121864335.jpg"
-
-func ImageBanner() *imageView {
-	var modifier = ImageModifier()
-	var value = properties.Value{Width: -1, Height: -1, ImageUrl: image1}
-	var imageView = ImageView(modifier, value)
-	return imageView
-}
-
-func ImageThumb() *imageView {
-	var modifier = ImageModifier()
-	var value = properties.Value{Width: 100, Height: 100, ImageUrl: image1}
-	var imageView = ImageView(modifier, value)
-	return imageView
-}
-
-func ImageRect_100x200() *imageView {
-	var modifier = ImageModifier()
-	var value = properties.Value{Width: 100, Height: 200, ImageUrl: image1}
-	var imageView = ImageView(modifier, value)
-	return imageView
-}
-
-func ImageRect_200x200() *imageView {
-	var modifier = ImageModifier()
-	var value = properties.Value{Width: 200, Height: 200, ImageUrl: image1}
-	var imageView = ImageView(modifier, value)
-	return imageView
-}
-
-func ImageRect_300x200() *imageView {
-	var modifier = ImageModifier()
-	var value = properties.Value{Width: 300, Height: 200, ImageUrl: image1}
-	var imageView = ImageView(modifier, value)
-	return imageView
-}

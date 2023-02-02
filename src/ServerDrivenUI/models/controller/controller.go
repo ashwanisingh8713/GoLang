@@ -13,9 +13,21 @@ import (
 	"net/http"
 )
 
+func page2(c *gin.Context) {
+
+	// Main Listing Children
+	var verticalViewChildren []interface{}
+	// Horizontal GridView
+	verticalViewChildren = horizontalGrid(verticalViewChildren)
+
+	c.JSON(http.StatusOK, gin.H{"data": verticalViewChildren})
+}
+
 func Response(c *gin.Context) {
 
 	var verticalListModifier = properties.ModifierDummy("Vertical List Modifier")
+
+	// Main Listing Children
 	var verticalViewChildren []interface{}
 
 	// Banner
@@ -102,7 +114,7 @@ func horizontalList(listChildren []interface{}) []interface{} {
 
 		// ImageView
 		var imgViewValue = properties.Value{
-			ImageUrl:   constants.ImagePath_4x + "banana.jpg",
+			ImageUrl:   constants.FruitsImagePath4x + "banana.jpg",
 			Width:      70,
 			Height:     70,
 			ImageScale: imgscale.ImgScale.String(imgscale.FillBounds)}
@@ -154,7 +166,7 @@ func horizontalGrid(listChildren []interface{}) []interface{} {
 
 		// ImageView
 		var imgViewValue = properties.Value{
-			ImageUrl:   constants.ImagePath_4x + "banana.jpg",
+			ImageUrl:   constants.FruitsImagePath4x + "banana.jpg",
 			Width:      70,
 			Height:     70,
 			ImageScale: imgscale.ImgScale.String(imgscale.FillBounds)}

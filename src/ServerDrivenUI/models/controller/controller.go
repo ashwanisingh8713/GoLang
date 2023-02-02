@@ -8,6 +8,8 @@ import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/font"
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/imgscale"
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/views"
+	"ServerDrivenUI/src/ServerDrivenUI/templates/banner"
+	"ServerDrivenUI/src/ServerDrivenUI/templates/categoryTitle"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -31,9 +33,9 @@ func Response(c *gin.Context) {
 	var verticalViewChildren []interface{}
 
 	// Banner
-	verticalViewChildren = Banner(verticalViewChildren)
+	verticalViewChildren = banner.Banner(verticalViewChildren)
 	// Category Title
-	verticalViewChildren = CategoryTitle("Top Categories", "Explore all", verticalViewChildren)
+	verticalViewChildren = categoryTitle.CategoryTitle("Top Categories", "Explore all", verticalViewChildren)
 	// Horizontal ListView
 	verticalViewChildren = horizontalList(verticalViewChildren)
 
@@ -68,41 +70,6 @@ func AppBar() []interface{} {
 	children = append(children, titleTv)
 	var appBar = views.AppBar(modifier, children)
 	listChildren = append(listChildren, appBar)
-	return listChildren
-}
-
-func Banner(listChildren []interface{}) []interface{} {
-	//var imgViewValue = properties.Value{ImageUrl: "https://cdn.pixabay.com/photo/2015/10/30/18/04/banner-1014539_1280.jpg",
-	var imgViewValue = properties.Value{
-		ImageUrl: "https://images.all-free-download.com/images/graphicwebp/rosa_red_beautiful_girl_219903.webp",
-		Width:    500, Height: 240, ImageScale: imgscale.ImgScale.String(imgscale.FillBounds)}
-	var imgViewModifier = properties.Modifier{Color: properties.ColorDummy(), BorderColor: properties.BorderColorDummy()}
-	var imgView = views.ImageView(imgViewModifier, imgViewValue)
-	listChildren = append(listChildren, imgView)
-	return listChildren
-}
-
-func CategoryTitle(title string, ctaTitle string, listChildren []interface{}) []interface{} {
-	var rowChildren []interface{}
-	var rowModifier = properties.Modifier{PaddingT: 10}
-
-	// Title
-	var titleValue = properties.Value{Label: title, TextSize: 22, Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold)}
-	var titleColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.26, Alpha: 1.0}
-	//var borderColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
-	var titleTvModifier = properties.Modifier{Color: titleColor, BorderWidth: 1, PaddingL: 10}
-	var titleTv = views.TextView(titleTvModifier, titleValue)
-	rowChildren = append(rowChildren, titleTv)
-
-	// CTA Title
-	var ctaValue = properties.Value{Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: font.FontStyleType.String(font.MontSemiBold)}
-	var ctaColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
-	var ctaTvModifier = properties.Modifier{Color: ctaColor, PaddingR: 15}
-	var ctaTv = views.TextView(ctaTvModifier, ctaValue)
-	rowChildren = append(rowChildren, ctaTv)
-
-	var row = views.Row(rowModifier, rowChildren)
-	listChildren = append(listChildren, row)
 	return listChildren
 }
 

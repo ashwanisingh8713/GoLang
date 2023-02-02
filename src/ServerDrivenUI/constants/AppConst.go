@@ -20,16 +20,16 @@ const DrawableFolderPath_2x = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/
 const Image_Relative_Path_2x = "/image2x"
 const ImagePath_2x = PROTOCOL + IpAddress + Image_Relative_Path_2x + "/"
 
-// Fruits
+// Banner
 const (
-	fruitsSubFolder    = "/fruits/"
-	fruitsFolderPath   = drawableFolder + fruitsSubFolder
-	fruitsRelativePath = "/image" + fruitsSubFolder
-	fruitsImagePath    = PROTOCOL + IpAddress + fruitsFolderPath
+	bannerSubFolder    = "/banner/"
+	bannerFolderPath   = drawableFolder + bannerSubFolder
+	bannerRelativePath = "/image" + bannerSubFolder
+	bannerImagePath    = PROTOCOL + IpAddress + bannerFolderPath
 
-	FruitsRelativePath4x = fruitsRelativePath + x4
-	FruitsFolderPath4x   = fruitsFolderPath + x4
-	FruitsImagePath4x    = PROTOCOL + IpAddress + FruitsRelativePath4x
+	BannerRelativePath4x = bannerRelativePath + x4
+	BannerFolderPath4x   = bannerFolderPath + x4
+	BannerImagePath4x    = PROTOCOL + IpAddress + BannerRelativePath4x
 )
 
 // Bakery Items
@@ -78,6 +78,18 @@ const (
 	FeaturedItemsRelativePath4x = featuredItemsRelativePath + x4
 	FeaturedItemsFolderPath4x   = featuredItemsFolderPath + x4
 	FeaturedItemsImagePath4x    = PROTOCOL + IpAddress + FeaturedItemsRelativePath4x
+)
+
+// Fruits
+const (
+	fruitsSubFolder    = "/fruits/"
+	fruitsFolderPath   = drawableFolder + fruitsSubFolder
+	fruitsRelativePath = "/image" + fruitsSubFolder
+	fruitsImagePath    = PROTOCOL + IpAddress + fruitsFolderPath
+
+	FruitsRelativePath4x = fruitsRelativePath + x4
+	FruitsFolderPath4x   = fruitsFolderPath + x4
+	FruitsImagePath4x    = PROTOCOL + IpAddress + FruitsRelativePath4x
 )
 
 // Groceries

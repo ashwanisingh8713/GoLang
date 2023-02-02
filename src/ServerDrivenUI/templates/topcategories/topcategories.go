@@ -11,10 +11,13 @@ import (
 	"fmt"
 )
 
-// CategoryTitle Category Title
-func CategoryTitle(title string, ctaTitle string, listChildren []interface{}) []interface{} {
+// TopCategoryTitle Category Title
+func TopCategoryTitle(listChildren []interface{}) []interface{} {
 	var rowChildren []interface{}
 	var rowModifier = properties.Modifier{PaddingT: 10}
+
+	var title = "Top Categories"
+	var ctaTitle = "Explore all"
 
 	// Title
 	var titleValue = properties.Value{Label: title, TextSize: 22, Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold)}

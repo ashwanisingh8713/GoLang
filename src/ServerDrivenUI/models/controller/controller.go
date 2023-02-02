@@ -4,6 +4,7 @@ import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/views"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/appbar"
+	"ServerDrivenUI/src/ServerDrivenUI/templates/bakeryitems"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/banner"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/topcategories"
 	"github.com/gin-gonic/gin"
@@ -30,12 +31,18 @@ func Response(c *gin.Context) {
 	// Banner
 	verticalViewChildren = banner.Banner(verticalViewChildren)
 	// Top Category - Title
-	verticalViewChildren = topcategories.CategoryTitle("Top Categories", "Explore all", verticalViewChildren)
+	verticalViewChildren = topcategories.TopCategoryTitle(verticalViewChildren)
 	// Top Category  - Horizontal ListView
 	verticalViewChildren = topcategories.HorizontalList(verticalViewChildren)
 	// Top Category - Horizontal GridView
 	verticalViewChildren = topcategories.HorizontalGrid(verticalViewChildren)
 
+	// Top Category - Title
+	verticalViewChildren = bakeryitems.BakeryTitle(verticalViewChildren)
+	// Top Category  - Horizontal ListView
+	verticalViewChildren = bakeryitems.BakeryHorizontalList(verticalViewChildren)
+
+	// Below this, It should not be Touched
 	var verticalListView = views.VerticalList(verticalListModifier, verticalViewChildren)
 
 	// App Bar

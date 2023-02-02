@@ -20,17 +20,20 @@ func TopCategoryTitle(listChildren []interface{}) []interface{} {
 	var ctaTitle = "Explore all"
 
 	// Title
-	var titleValue = properties.Value{Label: title, TextSize: 22, Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold)}
-	var titleColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.26, Alpha: 1.0}
-	//var borderColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
-	var titleTvModifier = properties.Modifier{Color: titleColor, BorderWidth: 1, PaddingL: 10}
+	var textColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
+	var titleValue = properties.Value{TextColor: textColor, Label: title, TextSize: 22, Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold)}
+	var borderColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
+
+	// Modifier
+	var backgroundColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
+	var titleTvModifier = properties.Modifier{BorderColor: borderColor, BackgroundColor: backgroundColor, BorderWidth: 1, PaddingL: 10}
 	var titleTv = views.TextView(titleTvModifier, titleValue)
 	rowChildren = append(rowChildren, titleTv)
 
 	// CTA Title
 	var ctaValue = properties.Value{Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: font.FontStyleType.String(font.MontSemiBold)}
 	var ctaColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
-	var ctaTvModifier = properties.Modifier{Color: ctaColor, PaddingR: 15}
+	var ctaTvModifier = properties.Modifier{BackgroundColor: ctaColor, PaddingR: 15}
 	var ctaTv = views.TextView(ctaTvModifier, ctaValue)
 	rowChildren = append(rowChildren, ctaTv)
 
@@ -51,21 +54,21 @@ func HorizontalList(listChildren []interface{}) []interface{} {
 			Width:      70,
 			Height:     70,
 			ImageScale: imgscale.ImgScale.String(imgscale.FillBounds)}
-		var imgViewModifier = properties.Modifier{Color: properties.ColorDummy()}
+		var imgViewModifier = properties.Modifier{BackgroundColor: properties.ColorDummy()}
 		var imgView = views.ImageView(imgViewModifier, imgViewValue)
 		columnChildren = append(columnChildren, imgView)
 
 		// Title
 		var titleStr = fmt.Sprintf("Groceries %d", i)
-		var titleValue = properties.Value{Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
-		var titleColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
-		var titleModifier = properties.Modifier{Color: titleColor, PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
+		var textColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
+		var titleValue = properties.Value{TextColor: textColor, Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
+		var titleModifier = properties.Modifier{PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
 		var titleTv = views.TextView(titleModifier, titleValue)
 		columnChildren = append(columnChildren, titleTv)
 
 		// Column Child
 		var columnColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
-		var columnModifier = properties.Modifier{Color: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
+		var columnModifier = properties.Modifier{BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
 		var columnItem = views.Column(columnModifier, columnChildren)
 		var columnValue = properties.Value{Width: 100}
 		columnItem.Value = columnValue
@@ -103,7 +106,7 @@ func HorizontalGrid(listChildren []interface{}) []interface{} {
 			Width:      70,
 			Height:     70,
 			ImageScale: imgscale.ImgScale.String(imgscale.FillBounds)}
-		var imgViewModifier = properties.Modifier{Color: properties.ColorDummy()}
+		var imgViewModifier = properties.Modifier{BackgroundColor: properties.ColorDummy()}
 		var imgView = views.ImageView(imgViewModifier, imgViewValue)
 		columnChildren = append(columnChildren, imgView)
 
@@ -111,13 +114,13 @@ func HorizontalGrid(listChildren []interface{}) []interface{} {
 		var titleStr = fmt.Sprintf("Groceries %d", i)
 		var titleValue = properties.Value{Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
 		var titleColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
-		var titleModifier = properties.Modifier{Color: titleColor, PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
+		var titleModifier = properties.Modifier{BackgroundColor: titleColor, PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
 		var titleTv = views.TextView(titleModifier, titleValue)
 		columnChildren = append(columnChildren, titleTv)
 
 		// Column Child
 		var columnColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
-		var columnModifier = properties.Modifier{Color: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
+		var columnModifier = properties.Modifier{BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
 		var columnItem = views.Column(columnModifier, columnChildren)
 		var columnValue = properties.Value{Width: 100}
 		columnItem.Value = columnValue

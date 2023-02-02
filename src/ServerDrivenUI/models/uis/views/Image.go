@@ -21,7 +21,7 @@ func ImageView(modifier properties.Modifier, value properties.Value) *imageView 
 }
 
 func ImageModifier() properties.Modifier {
-	return properties.Modifier{Label: "ImageModifier", Color: properties.ColorDummy(), PaddingL: 5,
+	return properties.Modifier{Label: "ImageModifier", BackgroundColor: properties.ColorDummy(), PaddingL: 5,
 		PaddingT: 5, PaddingR: 5, PaddingB: 5, Corner: corner.CornerType.String(corner.CUT_CORNER)}
 }
 

@@ -5,6 +5,7 @@ import (
 )
 
 type Value struct {
+	TextColor  Color  `json:"textColor"`
 	TextSize   int    `json:"textSize,omitempty"`
 	Weight     int    `json:"weight,omitempty"`
 	Label      string `json:"label,omitempty"`
@@ -24,7 +25,7 @@ type Color struct {
 
 type Modifier struct {
 	Label           string `json:"label"`
-	Color           Color  `json:"color"`
+	BackgroundColor Color  `json:"backgroundColor"`
 	BorderColor     Color  `json:"borderColor"`
 	BorderWidth     int    `json:"borderWidth"`
 	PaddingL        int    `json:"paddingL"`
@@ -38,12 +39,19 @@ type Modifier struct {
 	TextAlignment   string `json:"textAlignment"`
 }
 
+type ProductInfo struct {
+	OfferPercentage int    `json:"offerPercentage,omitempty"`
+	Quantity        int    `json:"quantity,omitempty"`
+	Price           int    `json:"price,omitempty"`
+	SellingScale    string `json:"sellingScale,omitempty"` // $3/kg
+}
+
 func ColorObject(hue int, saturation float64, lighting float64, alpha float64) Color {
 	return Color{Hue: hue, Saturation: saturation, Lighting: lighting, Alpha: alpha}
 }
 
 func ModifierObject(Label string, color Color, paddingLeft int, paddingTop int, paddingRight int, paddingBottom int, corner string) Modifier {
-	return Modifier{Label: Label, Color: color, PaddingL: paddingLeft,
+	return Modifier{Label: Label, BackgroundColor: color, PaddingL: paddingLeft,
 		PaddingT: paddingTop, PaddingR: paddingRight, PaddingB: paddingBottom, Corner: corner}
 }
 

@@ -7,6 +7,7 @@ import (
 	"ServerDrivenUI/src/ServerDrivenUI/templates/bakeryitems"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/banner"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/topcategories"
+	"ServerDrivenUI/src/ServerDrivenUI/templates/topproduct"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -37,9 +38,14 @@ func Response(c *gin.Context) {
 	// Top Category - Horizontal GridView
 	verticalViewChildren = topcategories.HorizontalGrid(verticalViewChildren)
 
-	// Top Category - Title
+	// Top Product - Title
+	verticalViewChildren = topproduct.TopProductTitle(verticalViewChildren)
+	// Top Product  - Vertical GridView
+	verticalViewChildren = topproduct.VerticalGrid(verticalViewChildren)
+
+	// Bakery - Title
 	verticalViewChildren = bakeryitems.BakeryTitle(verticalViewChildren)
-	// Top Category  - Horizontal ListView
+	// Bakery  - Horizontal ListView
 	verticalViewChildren = bakeryitems.BakeryHorizontalList(verticalViewChildren)
 
 	// Below this, It should not be Touched

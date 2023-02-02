@@ -31,9 +31,9 @@ func TopCategoryTitle(listChildren []interface{}) []interface{} {
 	rowChildren = append(rowChildren, titleTv)
 
 	// CTA Title
-	var ctaValue = properties.Value{Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: font.FontStyleType.String(font.MontSemiBold)}
-	var ctaColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
-	var ctaTvModifier = properties.Modifier{BackgroundColor: ctaColor, PaddingR: 15}
+	var ctaTextColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
+	var ctaValue = properties.Value{TextColor: ctaTextColor, Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: font.FontStyleType.String(font.MontSemiBold)}
+	var ctaTvModifier = properties.Modifier{PaddingR: 15}
 	var ctaTv = views.TextView(ctaTvModifier, ctaValue)
 	rowChildren = append(rowChildren, ctaTv)
 
@@ -112,9 +112,9 @@ func HorizontalGrid(listChildren []interface{}) []interface{} {
 
 		// Title
 		var titleStr = fmt.Sprintf("Groceries %d", i)
-		var titleValue = properties.Value{Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
-		var titleColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
-		var titleModifier = properties.Modifier{BackgroundColor: titleColor, PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
+		var textColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
+		var titleValue = properties.Value{TextColor: textColor, Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
+		var titleModifier = properties.Modifier{PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
 		var titleTv = views.TextView(titleModifier, titleValue)
 		columnChildren = append(columnChildren, titleTv)
 

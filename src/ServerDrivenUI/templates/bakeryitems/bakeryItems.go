@@ -20,17 +20,17 @@ func BakeryTitle(listChildren []interface{}) []interface{} {
 	var ctaTitle = "Explore all"
 
 	// Title
-	var titleValue = properties.Value{Label: title, TextSize: 22, Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold)}
-	var titleColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.26, Alpha: 1.0}
+	var titleTextColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.26, Alpha: 1.0}
+	var titleValue = properties.Value{TextColor: titleTextColor, Label: title, TextSize: 22, Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold)}
 	//var borderColor = properties.BackgroundColor{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
-	var titleTvModifier = properties.Modifier{BackgroundColor: titleColor, BorderWidth: 1, PaddingL: 10}
+	var titleTvModifier = properties.Modifier{BorderWidth: 1, PaddingL: 10}
 	var titleTv = views.TextView(titleTvModifier, titleValue)
 	rowChildren = append(rowChildren, titleTv)
 
 	// CTA Title
-	var ctaValue = properties.Value{Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: font.FontStyleType.String(font.MontSemiBold)}
-	var ctaColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
-	var ctaTvModifier = properties.Modifier{BackgroundColor: ctaColor, PaddingR: 15}
+	var ctaTextColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
+	var ctaValue = properties.Value{TextColor: ctaTextColor, Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: font.FontStyleType.String(font.MontSemiBold)}
+	var ctaTvModifier = properties.Modifier{PaddingR: 15}
 	var ctaTv = views.TextView(ctaTvModifier, ctaValue)
 	rowChildren = append(rowChildren, ctaTv)
 
@@ -57,9 +57,9 @@ func BakeryHorizontalList(listChildren []interface{}) []interface{} {
 
 		// Title
 		var titleStr = fmt.Sprintf("Groceries %d", i)
-		var titleValue = properties.Value{Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
-		var titleColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
-		var titleModifier = properties.Modifier{BackgroundColor: titleColor, PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
+		var textColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
+		var titleValue = properties.Value{TextColor: textColor, Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
+		var titleModifier = properties.Modifier{PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
 		var titleTv = views.TextView(titleModifier, titleValue)
 		columnChildren = append(columnChildren, titleTv)
 

@@ -32,7 +32,7 @@ type Modifier struct {
 	PaddingT        int    `json:"paddingT"`
 	PaddingR        int    `json:"paddingR"`
 	PaddingB        int    `json:"paddingB"`
-	Corner          string `json:"corner"`
+	Corner          string `json:"cornerType"`
 	IsEnable        bool   `json:"isEnable"`
 	Radius          int    `json:"radius"`
 	ColumnAlignment string `json:"columnAlignment"`

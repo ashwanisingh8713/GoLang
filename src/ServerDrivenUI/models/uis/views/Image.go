@@ -9,7 +9,7 @@ import (
 type imageView struct {
 	Type string `json:"type" binding:"required"`
 	//Modifier properties.Modifier `json:"modifier"`
-	Value ImageValue `json:"value,omitempty"`
+	Value ImageValue `json:"imageValue,omitempty"`
 }
 
 func ImageView(value ImageValue) *imageView {

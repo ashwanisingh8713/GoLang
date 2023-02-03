@@ -20,6 +20,11 @@ func EditText(value EditTextValue) *editText {
 type EditTextValue struct {
 	Width           int              `json:"width,omitempty"`
 	Height          int              `json:"height,omitempty"`
+	FontStyle       string           `json:"fontStyle,omitempty"`
+	Weight          int              `json:"weight,omitempty"`
+	Label           string           `json:"label,omitempty"`
+	TextSize        int              `json:"textSize,omitempty"`
+	TextColor       properties.Color `json:"textColor,omitempty"`
 	BackgroundColor properties.Color `json:"backgroundColor"`
 	BorderColor     properties.Color `json:"borderColor"`
 	BorderWidth     int              `json:"borderWidth"`

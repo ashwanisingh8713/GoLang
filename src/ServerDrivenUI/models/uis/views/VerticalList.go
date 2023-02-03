@@ -6,17 +6,26 @@ import (
 )
 
 type verticalList struct {
-	Type     string              `json:"type,omitempty" binding:"required"`
-	Modifier properties.Modifier `json:"modifier,omitempty"`
-	Children []interface{}       `json:"children,omitempty"`
-	Value    properties.Value    `json:"value,omitempty"`
+	Type     string            `json:"type,omitempty" binding:"required"`
+	Children []interface{}     `json:"children,omitempty"`
+	Value    VerticalListValue `json:"verticalListValue,omitempty"`
 }
 
-func VerticalList(modifier properties.Modifier, children []interface{}) *verticalList {
+func VerticalList(verticalListValue VerticalListValue, children []interface{}) *verticalList {
 	verticalList := new(verticalList)
 	verticalList.Type = viewgrouptype.VERTICAL_LIST.String()
-	verticalList.Modifier = modifier
 	verticalList.Children = children
-	verticalList.Value = properties.Value{Width: -1, Height: -1}
+	verticalList.Value = verticalListValue
 	return verticalList
+}
+
+type VerticalListValue struct {
+	Width           int              `json:"width,omitempty"`
+	Height          int              `json:"height,omitempty"`
+	BackgroundColor properties.Color `json:"backgroundColor,omitempty"`
+	PaddingL        int              `json:"paddingL,omitempty"`
+	PaddingT        int              `json:"paddingT,omitempty"`
+	PaddingR        int              `json:"paddingR,omitempty"`
+	PaddingB        int              `json:"paddingB,omitempty"`
+	IsEnable        bool             `json:"isEnable,omitempty"`
 }

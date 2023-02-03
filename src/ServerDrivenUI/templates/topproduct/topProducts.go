@@ -21,20 +21,20 @@ func TopProductTitle(listChildren []interface{}) []interface{} {
 
 	// Title
 	var textColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
-	var titleValue = properties.Value{TextColor: textColor, Label: title, TextSize: 22, Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold)}
-	var borderColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
-
-	// Modifier
-	var backgroundColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
-	var titleTvModifier = properties.Modifier{BorderColor: borderColor, BackgroundColor: backgroundColor, BorderWidth: 1, PaddingL: 10}
-	var titleTv = views.TextView(titleTvModifier, titleValue)
+	//var borderColor = properties.Color{Hue: 0, Saturation: 0.0, Lighting: 0.0, Alpha: 1.0}
+	//var backgroundColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
+	var titleTvValue = views.TextViewValue{TextColor: textColor, Label: title, TextSize: 22,
+		Weight: 700, FontStyle: font.FontStyleType.String(font.MontBold),
+		BorderWidth: 1, PaddingL: 10}
+	var titleTv = views.TextView(titleTvValue)
 	rowChildren = append(rowChildren, titleTv)
 
 	// CTA Title
 	var ctaTextColor = properties.Color{Hue: 128, Saturation: 0.34, Lighting: 0.5, Alpha: 1.0}
-	var ctaValue = properties.Value{TextColor: ctaTextColor, Label: ctaTitle, TextSize: 16, Weight: 600, FontStyle: font.FontStyleType.String(font.MontSemiBold)}
-	var ctaTvModifier = properties.Modifier{PaddingR: 15}
-	var ctaTv = views.TextView(ctaTvModifier, ctaValue)
+	var ctaTvValue = views.TextViewValue{PaddingR: 15, TextColor: ctaTextColor,
+		Label: ctaTitle, TextSize: 16, Weight: 600,
+		FontStyle: font.FontStyleType.String(font.MontSemiBold)}
+	var ctaTv = views.TextView(ctaTvValue)
 	rowChildren = append(rowChildren, ctaTv)
 
 	var row = views.Row(rowModifier, rowChildren)
@@ -60,9 +60,8 @@ func VerticalGrid(listChildren []interface{}) []interface{} {
 		// Title
 		var titleStr = fmt.Sprintf("Groceries %d", i)
 		var textColor = properties.Color{Hue: 240, Saturation: 0.76, Lighting: 0.5, Alpha: 1.0}
-		var titleValue = properties.Value{TextColor: textColor, Label: titleStr, TextSize: 10, Weight: 400, Width: 100}
-		var titleModifier = properties.Modifier{PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
-		var titleTv = views.TextView(titleModifier, titleValue)
+		var titleValue = views.TextViewValue{TextColor: textColor, Label: titleStr, TextSize: 10, Weight: 400, Width: 100, PaddingL: 16, PaddingT: 5, PaddingB: 5, TextAlignment: alignment.ColumnAlignment.String(alignment.Start)}
+		var titleTv = views.TextView(titleValue)
 		columnChildren = append(columnChildren, titleTv)
 
 		// Column Child
@@ -87,8 +86,9 @@ func VerticalGrid(listChildren []interface{}) []interface{} {
 
 		verticalGridChildren = append(verticalGridChildren, columnParent)
 	}
-	var verticalGridModifier = properties.Modifier{PaddingT: 10}
-	var verticalGridView = views.VerticalGrid(4, 350, verticalGridModifier, verticalGridChildren)
+	var verticalGridValue = views.VerticalGridValue{GridColumn: 4, GridHeight: 350,
+		VerticalArrangement: 10, HorizontalArrangement: 10, PaddingT: 10}
+	var verticalGridView = views.VerticalGrid(verticalGridValue, verticalGridChildren)
 	listChildren = append(listChildren, verticalGridView)
 	return listChildren
 }

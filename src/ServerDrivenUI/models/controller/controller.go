@@ -1,10 +1,8 @@
 package controller
 
 import (
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/views"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/appbar"
-	"ServerDrivenUI/src/ServerDrivenUI/templates/bakeryitems"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/banner"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/topcategories"
 	"ServerDrivenUI/src/ServerDrivenUI/templates/topproduct"
@@ -24,8 +22,6 @@ func page2(c *gin.Context) {
 
 func Response(c *gin.Context) {
 
-	var verticalListModifier = properties.ModifierDummy("Vertical List Modifier")
-
 	// Main Listing Children
 	var verticalViewChildren []interface{}
 
@@ -44,12 +40,13 @@ func Response(c *gin.Context) {
 	verticalViewChildren = topproduct.VerticalGrid(verticalViewChildren)
 
 	// Bakery - Title
-	verticalViewChildren = bakeryitems.BakeryTitle(verticalViewChildren)
+	//verticalViewChildren = bakeryitems.BakeryTitle(verticalViewChildren)
 	// Bakery  - Horizontal ListView
-	verticalViewChildren = bakeryitems.BakeryHorizontalList(verticalViewChildren)
+	//verticalViewChildren = bakeryitems.BakeryHorizontalList(verticalViewChildren)
 
 	// Below this, It should not be Touched
-	var verticalListView = views.VerticalList(verticalListModifier, verticalViewChildren)
+	var verticalListValue = views.VerticalListValue{Width: -1, Height: -1}
+	var verticalListView = views.VerticalList(verticalListValue, verticalViewChildren)
 
 	// App Bar
 	var appBarChildren = appbar.AppBar()

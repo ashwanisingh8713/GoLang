@@ -7,17 +7,15 @@ import (
 
 type horizontalList struct {
 	Type     string              `json:"type" binding:"required"`
-	Modifier properties.Modifier `json:"modifier"`
 	Children []interface{}       `json:"children"`
-	Value    HorizontalListValue `json:"value,omitempty"`
+	Value    HorizontalListValue `json:"horizontalListValue,omitempty"`
 }
 
-func HorizontalList(modifier properties.Modifier, children []interface{}) *horizontalList {
+func HorizontalList(horizontalListValue HorizontalListValue, children []interface{}) *horizontalList {
 	horizontalListView := new(horizontalList)
 	horizontalListView.Type = viewgrouptype.HORIZONTAL_LIST.String()
-	horizontalListView.Modifier = modifier
 	horizontalListView.Children = children
-	horizontalListView.Value = HorizontalListValue{Width: -1}
+	horizontalListView.Value = horizontalListValue
 	return horizontalListView
 }
 
@@ -29,7 +27,7 @@ type HorizontalListValue struct {
 	PaddingR        int              `json:"paddingR"`
 	PaddingB        int              `json:"paddingB"`
 	BackgroundColor properties.Color `json:"backgroundColor"`
-	Corner          string           `json:"corner"`
+	Corner          string           `json:"cornerType"`
 	IsEnable        bool             `json:"isEnable"`
 	Radius          int              `json:"radius"`
 }

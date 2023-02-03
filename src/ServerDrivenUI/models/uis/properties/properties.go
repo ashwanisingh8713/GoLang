@@ -46,6 +46,11 @@ type ProductInfo struct {
 	SellingScale    string `json:"sellingScale,omitempty"` // $3/kg
 }
 
+type Action struct {
+	Url    string `json:"url,omitempty"`
+	Method string `json:"method"`
+}
+
 func ColorObject(hue int, saturation float64, lighting float64, alpha float64) Color {
 	return Color{Hue: hue, Saturation: saturation, Lighting: lighting, Alpha: alpha}
 }

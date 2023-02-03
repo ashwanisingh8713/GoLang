@@ -46,13 +46,12 @@ func BakeryHorizontalList(listChildren []interface{}) []interface{} {
 		var columnChildren []interface{}
 
 		// ImageView
-		var imgViewValue = properties.Value{
+		var imgViewValue = views.ImageValue{
 			ImageUrl:   constants.BakeryItemsImagePath4x + "banana.jpg",
 			Width:      70,
 			Height:     70,
 			ImageScale: imgscale.ImgScale.String(imgscale.FillBounds)}
-		var imgViewModifier = properties.Modifier{BackgroundColor: properties.ColorDummy()}
-		var imgView = views.ImageView(imgViewModifier, imgViewValue)
+		var imgView = views.ImageView(imgViewValue)
 		columnChildren = append(columnChildren, imgView)
 
 		// Title

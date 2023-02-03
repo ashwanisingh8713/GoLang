@@ -49,13 +49,12 @@ func VerticalGrid(listChildren []interface{}) []interface{} {
 		var columnChildren []interface{}
 
 		// ImageView
-		var imgViewValue = properties.Value{
+		var imgViewValue = views.ImageValue{
 			ImageUrl:   constants.FruitsImagePath4x + "banana.jpg",
 			Width:      70,
 			Height:     70,
 			ImageScale: imgscale.ImgScale.String(imgscale.FillBounds)}
-		var imgViewModifier = properties.Modifier{BackgroundColor: properties.ColorDummy()}
-		var imgView = views.ImageView(imgViewModifier, imgViewValue)
+		var imgView = views.ImageView(imgViewValue)
 		columnChildren = append(columnChildren, imgView)
 
 		// Title
@@ -70,15 +69,15 @@ func VerticalGrid(listChildren []interface{}) []interface{} {
 		var columnColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
 		var columnModifier = properties.Modifier{BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
 		var columnItem = views.Column(columnModifier, columnChildren)
-		var columnValue = properties.Value{Width: 100}
-		columnItem.Value = columnValue
+		//var columnValue = properties.Value{Width: 100}
+		//columnItem.Value = columnValue
 
 		// Horizontal Grid Items List
 		var columnParentChildren []interface{}
 		columnParentChildren = append(columnParentChildren, columnItem)
 
 		var parentModifier = properties.Modifier{
-			PaddingL: 5, PaddingT: 10, PaddingR: 5, PaddingB: 10,
+			PaddingL: 55, PaddingT: 10, PaddingR: 15, PaddingB: 10,
 			Corner:          corner.CornerType.String(corner.ROUNDED_CORNER),
 			Radius:          10,
 			ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally),

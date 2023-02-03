@@ -2,7 +2,6 @@ package views
 
 import (
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/properties"
-	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/corner"
 	"ServerDrivenUI/src/ServerDrivenUI/models/uis/types/viewtype"
 )
 
@@ -34,10 +33,3 @@ type ImageValue struct {
 	Height          int              `json:"height,omitempty"`
 	BorderWidth     int              `json:"borderWidth"`
 }
-
-func ImageModifier() properties.Modifier {
-	return properties.Modifier{Label: "ImageModifier", BackgroundColor: properties.ColorDummy(), PaddingL: 5,
-		PaddingT: 5, PaddingR: 5, PaddingB: 5, Corner: corner.CornerType.String(corner.CUT_CORNER)}
-}
-
-var image1 = "https://www.shutterstock.com/image-vector/group-abstract-diverse-people-friends-600w-2121864335.jpg"

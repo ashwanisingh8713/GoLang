@@ -6,22 +6,20 @@ import (
 )
 
 type webView struct {
-	Type     string              `json:"type" binding:"required"`
-	Modifier properties.Modifier `json:"modifier"`
-	Value    WebViewValue    `json:"value,omitempty"`
+	Type  string       `json:"type" binding:"required"`
+	Value WebViewValue `json:"value,omitempty"`
 }
 
-func WebView(modifier properties.Modifier, value WebViewValue) *webView {
+func WebView(value WebViewValue) *webView {
 	webView := new(webView)
 	webView.Type = viewtype.WEBVIEW.String()
-	webView.Modifier = modifier
 	webView.Value = value
 	return webView
 }
 
 type WebViewValue struct {
-	URL string `json:"url"`
-	Width      int    `json:"width,omitempty"`
-	Height     int    `json:"height,omitempty"`
-	BackgroundColor properties.Color  `json:"backgroundColor"`
+	URL             string           `json:"url"`
+	Width           int              `json:"width,omitempty"`
+	Height          int              `json:"height,omitempty"`
+	BackgroundColor properties.Color `json:"backgroundColor"`
 }

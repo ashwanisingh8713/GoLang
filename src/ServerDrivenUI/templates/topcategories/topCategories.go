@@ -14,7 +14,7 @@ import (
 // TopCategoryTitle Category Title
 func TopCategoryTitle(listChildren []interface{}) []interface{} {
 	var rowChildren []interface{}
-	var rowModifier = properties.Modifier{PaddingT: 10}
+	var rowViewValue = views.RowViewValue{PaddingT: 10, Width: -1}
 
 	var title = "Top Categories"
 	var ctaTitle = "Explore all"
@@ -36,7 +36,7 @@ func TopCategoryTitle(listChildren []interface{}) []interface{} {
 	var ctaTv = views.TextView(ctaTvValue)
 	rowChildren = append(rowChildren, ctaTv)
 
-	var row = views.Row(rowModifier, rowChildren)
+	var row = views.Row(rowViewValue, rowChildren)
 	listChildren = append(listChildren, row)
 	return listChildren
 }
@@ -66,16 +66,14 @@ func HorizontalList(listChildren []interface{}) []interface{} {
 
 		// Column Child
 		var columnColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
-		var columnModifier = properties.Modifier{BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
+		var columnModifier = views.ColumnViewValue{Width: 100, BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
 		var columnItem = views.Column(columnModifier, columnChildren)
-		var columnValue = properties.Value{Width: 100}
-		columnItem.Value = columnValue
 
 		// Horizontal List Items List
 		var columnParentChildren []interface{}
 		columnParentChildren = append(columnParentChildren, columnItem)
 
-		var parentModifier = properties.Modifier{
+		var parentModifier = views.ColumnViewValue{
 			PaddingL: 5, PaddingT: 10, PaddingR: 5, PaddingB: 10,
 			Corner:          corner.CornerType.String(corner.ROUNDED_CORNER),
 			Radius:          10,
@@ -117,16 +115,14 @@ func HorizontalGrid(listChildren []interface{}) []interface{} {
 
 		// Column Child
 		var columnColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
-		var columnModifier = properties.Modifier{BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
+		var columnModifier = views.ColumnViewValue{BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
 		var columnItem = views.Column(columnModifier, columnChildren)
-		var columnValue = properties.Value{Width: 100}
-		columnItem.Value = columnValue
 
 		// Horizontal Grid Items List
 		var columnParentChildren []interface{}
 		columnParentChildren = append(columnParentChildren, columnItem)
 
-		var parentModifier = properties.Modifier{
+		var parentModifier = views.ColumnViewValue{
 			PaddingL: 5, PaddingT: 10, PaddingR: 5, PaddingB: 10,
 			Corner:          corner.CornerType.String(corner.ROUNDED_CORNER),
 			Radius:          10,

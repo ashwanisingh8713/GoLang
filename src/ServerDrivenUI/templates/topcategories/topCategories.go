@@ -114,8 +114,8 @@ func HorizontalGrid(listChildren []interface{}) []interface{} {
 		columnChildren = append(columnChildren, titleTv)
 
 		// Column Child
-		var columnColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
-		var columnModifier = views.ColumnViewValue{BackgroundColor: columnColor, PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
+		//var columnBgColor = properties.Color{Hue: 132, Saturation: 0.63, Lighting: 0.97, Alpha: 0.3}
+		var columnModifier = views.ColumnViewValue{ /*BackgroundColor: columnBgColor,*/ PaddingT: 10, ColumnAlignment: alignment.ColumnAlignment.String(alignment.CenterHorizontally)}
 		var columnItem = views.Column(columnModifier, columnChildren)
 
 		// Horizontal Grid Items List
@@ -134,9 +134,9 @@ func HorizontalGrid(listChildren []interface{}) []interface{} {
 		horizontalChildren = append(horizontalChildren, columnParent)
 	}
 	var horizontalGridValue = views.HorizontalGridValue{GridHeight: 220, GridColumn: 2,
-		VerticalArrangement: 5, HorizontalArrangement: 0, PaddingL: 20,
+		VerticalArrangement: 5, HorizontalArrangement: 0,
 		BackgroundColor: properties.Color{
-			Hue: 300, Saturation: .76, Lighting: 0.72, Alpha: 0.5,
+			Hue: 300, Saturation: .76, Lighting: 0.72, Alpha: 0.3,
 		}}
 	var horizontalGridView = views.HorizontalGrid(horizontalGridValue, horizontalChildren)
 	listChildren = append(listChildren, horizontalGridView)

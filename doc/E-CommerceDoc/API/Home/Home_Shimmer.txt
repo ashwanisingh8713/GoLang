@@ -1,0 +1,2 @@
+Based on Last Home API response it will take data and show the shimmer effect.
+

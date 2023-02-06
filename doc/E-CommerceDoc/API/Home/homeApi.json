@@ -1,0 +1,56 @@
+{
+  "data": [
+
+    {
+      "header": {
+        "type": 1,
+        "title": "Top Categories",
+        "ctaTitle": "Explore All",
+        "backgroundColor": "hsl, saturation, lighting, alpha",
+        "action": {
+          "method":"Get",
+          "api":""
+        }
+      },
+      "children": [
+        {
+          "productId": "prod_01",
+          "type": 1,
+          "title": "Groceries",
+          "value": "image url",
+          "backgroundColor": "hsl, saturation, lighting, alpha",
+          "productInfo": {
+            "offerPercentage": "37% Off",
+            "quantity": 1,
+            "displaySellingScale": "$3/kg",
+            "unitPrice": "200"
+          },
+          "action": {
+            "method":"Get",
+            "api":""
+          }
+        },
+        {
+          "productId": "prod_02",
+          "type": 1,
+          "title": "Groceries_2",
+          "value": "image url",
+          "backgroundColor": "hsl, saturation, lighting, alpha",
+          "productInfo": {
+            "offerPercentage": "37% Off",
+            "quantity": 1,
+            "displaySellingScale": "$3/kg",
+            "unitPrice": "200"
+          },
+          "action": {
+            "method":"Get",
+            "api":""
+          }
+        }
+
+      ]
+    }
+
+  ]
+
+}

@@ -1,24 +1,14 @@
-package constants
+package ec_constant
 
-const PROTOCOL = "http://"
-const IpAddress = "192.168.13.28:8080"
+const (
+	PROTOCOL       = "http://"
+	IpAddress      = "192.168.13.28:8080"
+	drawableFolder = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable"
 
-const drawableFolder = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable"
-const x2 = "2x/"
-const x3 = "3x/"
-const x4 = "4x/"
-
-const DrawableFolderPath_4x = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable/4x"
-const Image_Relative_Path_4x = "/image4x"
-const ImagePath_4x = "http://" + IpAddress + Image_Relative_Path_4x + "/"
-
-const DrawableFolderPath_3x = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable/3x"
-const Image_Relative_Path_3x = "/image3x"
-const ImagePath_3x = "http://" + IpAddress + Image_Relative_Path_3x + "/"
-
-const DrawableFolderPath_2x = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable/2x"
-const Image_Relative_Path_2x = "/image2x"
-const ImagePath_2x = PROTOCOL + IpAddress + Image_Relative_Path_2x + "/"
+	x2 = "2x/"
+	x3 = "3x/"
+	x4 = "4x/"
+)
 
 // Banner
 const (
@@ -126,6 +116,18 @@ const (
 	TopProductsRelativePath4x = topProductsRelativePath + x4
 	TopProductsFolderPath4x   = topProductsFolderPath + x4
 	TopProductsImagePath4x    = PROTOCOL + IpAddress + TopProductsRelativePath4x
+)
+
+// Top Products
+const (
+	topViewpagerSubFolder    = "/top_viewpager/"
+	topViewpagerFolderPath   = drawableFolder + topViewpagerSubFolder
+	topViewpagerRelativePath = "/image" + topViewpagerSubFolder
+	topViewpagerImagePath    = PROTOCOL + IpAddress + topViewpagerFolderPath
+
+	TopViewpagerRelativePath4x = topViewpagerRelativePath + x4
+	TopViewpagerFolderPath4x   = topViewpagerFolderPath + x4
+	TopViewpagerImagePath4x    = PROTOCOL + IpAddress + TopViewpagerRelativePath4x
 )
 
 // Vegetables

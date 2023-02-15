@@ -35,7 +35,7 @@ type ProductInfo struct {
 	OfferPercentage     string `json:"offer_percentage"`
 	Quantity            int    `json:"quantity"`
 	DisplaySellingScale string `json:"display_selling_scale"`
-	UnitPrice           int    `json:"unit-price"`
+	UnitPrice           int    `json:"unit_price"`
 	OfferPrice          int    `json:"offer_price"`
 }
 

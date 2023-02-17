@@ -30,7 +30,7 @@ func TopCategories(parentChildren []interface{}) []interface{} {
 	}
 
 	var value2 = data.Value{
-		Banner4x: ec_constant.TopViewpagerImagePath4x + "tomato.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "soft_drink.png",
 	}
 	var product2 = data.Product{
 		Type:   templateType,
@@ -40,7 +40,7 @@ func TopCategories(parentChildren []interface{}) []interface{} {
 	}
 
 	var value3 = data.Value{
-		Banner4x: ec_constant.TopViewpagerImagePath4x + "fruits.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tea.png",
 	}
 	var product3 = data.Product{
 		Type:   templateType,
@@ -49,7 +49,7 @@ func TopCategories(parentChildren []interface{}) []interface{} {
 		Value:  value3,
 	}
 	var value4 = data.Value{
-		Banner4x: ec_constant.TopViewpagerImagePath4x + "fruits.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "potato.png",
 	}
 	var product4 = data.Product{
 		Type:   templateType,

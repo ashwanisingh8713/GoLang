@@ -19,7 +19,7 @@ func FeaturedItems(parentChildren []interface{}) []interface{} {
 	var viewGrpChildren []data.Product
 
 	var value1 = data.Value{
-		Banner4x: ec_constant.TopCategoriesImagePath4x + "fortune_rice.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "soft_drink.png",
 	}
 
 	var product1 = data.Product{
@@ -30,7 +30,7 @@ func FeaturedItems(parentChildren []interface{}) []interface{} {
 	}
 
 	var value2 = data.Value{
-		Banner4x: ec_constant.TopViewpagerImagePath4x + "avacado.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tea.png",
 	}
 	var product2 = data.Product{
 		Type:   templateType,
@@ -40,7 +40,7 @@ func FeaturedItems(parentChildren []interface{}) []interface{} {
 	}
 
 	var value3 = data.Value{
-		Banner4x: ec_constant.TopViewpagerImagePath4x + "orange.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "potato.png",
 	}
 	var product3 = data.Product{
 		Type:   templateType,

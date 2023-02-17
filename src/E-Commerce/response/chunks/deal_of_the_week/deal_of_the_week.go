@@ -7,6 +7,8 @@ import (
 )
 
 func DealOfTheWeek(parentChildren []interface{}) []interface{} {
+	var templateType = ui_type.Vt05.String()
+
 	var header = data.Header{
 		Type:     ui_type.Header_01.String(),
 		Title:    "Deals Of the week",
@@ -21,7 +23,7 @@ func DealOfTheWeek(parentChildren []interface{}) []interface{} {
 	}
 
 	var product1 = data.Product{
-		Type:   ui_type.Vt03.String(),
+		Type:   templateType,
 		Title:  "Soft Drinks",
 		Action: data.Action{},
 		Value:  value1,
@@ -31,7 +33,7 @@ func DealOfTheWeek(parentChildren []interface{}) []interface{} {
 		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tea.png",
 	}
 	var product2 = data.Product{
-		Type:   ui_type.Vt03.String(),
+		Type:   templateType,
 		Title:  "Tea",
 		Action: data.Action{},
 		Value:  value2,
@@ -41,7 +43,7 @@ func DealOfTheWeek(parentChildren []interface{}) []interface{} {
 		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "potato.png",
 	}
 	var product3 = data.Product{
-		Type:   ui_type.Vt03.String(),
+		Type:   templateType,
 		Title:  "Potato",
 		Action: data.Action{},
 		Value:  value3,

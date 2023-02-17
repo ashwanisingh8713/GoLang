@@ -29,8 +29,36 @@ func TopViewpager(parentChildren []interface{}) []interface{} {
 			OfferPercentage:     "10",
 		},
 	}
+	var product1 = data.Product{
+		Type:   ui_type.Vt01.String(),
+		Title:  "EveryDay Essential",
+		Value:  productValue,
+		Action: action,
+		ProductInfo: data.ProductInfo{
+			DisplaySellingScale: "10% Off",
+			UnitPrice:           20,
+			OfferPrice:          15,
+			Quantity:            1,
+			OfferPercentage:     "10",
+		},
+	}
+	var product2 = data.Product{
+		Type:   ui_type.Vt01.String(),
+		Title:  "EveryDay Essential",
+		Value:  productValue,
+		Action: action,
+		ProductInfo: data.ProductInfo{
+			DisplaySellingScale: "10% Off",
+			UnitPrice:           20,
+			OfferPrice:          15,
+			Quantity:            1,
+			OfferPercentage:     "10",
+		},
+	}
 
 	viewGrpChildren = append(viewGrpChildren, product)
+	viewGrpChildren = append(viewGrpChildren, product1)
+	viewGrpChildren = append(viewGrpChildren, product2)
 
 	var header = data.Header{
 		Type:   "",

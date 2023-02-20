@@ -63,6 +63,7 @@ func TopViewpager(parentChildren []interface{}) []interface{} {
 	var header = data.Header{
 		Type:   "",
 		Action: data.Action{},
+		Title:  "Header View Group",
 	}
 	var viewGroup = data.ViewGroup{
 		ViewGroupType: ui_type.ViewPager.String(),

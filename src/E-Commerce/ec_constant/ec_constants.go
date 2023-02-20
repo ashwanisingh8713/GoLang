@@ -2,7 +2,7 @@ package ec_constant
 
 const (
 	PROTOCOL       = "http://"
-	IpAddress      = "192.168.13.28:8080"
+	IpAddress      = "192.168.13.137:8080"
 	drawableFolder = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable"
 
 	x2 = "2x/"

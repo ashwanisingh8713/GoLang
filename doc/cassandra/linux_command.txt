@@ -1,0 +1,3 @@
+cat /first/file/same_name > /second/file/same_name
+
+cat /Users/ashwani/cassandra/cassandra/cassandra.yaml > /opt/homebrew/etc/cassandra/cassandra.yaml

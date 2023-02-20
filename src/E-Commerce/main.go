@@ -10,7 +10,8 @@ func main() {
 
 	route := gin.Default()
 
-	route.GET("/ec", response.Response)
+	route.GET("/ec", response.Home)
+	route.GET("/explore", response.ExploreTopCategory)
 
 	// Bakery Items
 	route.Static(ec_constant.BakeryItemsRelativePath4x, ec_constant.BakeryItemsFolderPath4x)

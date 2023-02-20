@@ -1,0 +1,1 @@
+https://cassandra.apache.org/doc/latest/cassandra/data_modeling/intro.html

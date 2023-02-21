@@ -1,0 +1,58 @@
+// =========================================================== //
+## To Create UDT action
+CREATE TYPE ecommerce.action (
+method text,
+api text );
+// =========================================================== //
+## To Create UDT background_color
+CREATE TYPE ecommerce.background_color (
+hue text,
+saturation text,
+lighting text,
+alpha text );
+// =========================================================== //
+## To Create UDT thumb_img
+CREATE TYPE ecommerce.thumb_img (
+thumb_1x text,
+thumb_2x text,
+thumb_3x text,
+thumb_4x text,
+banner_1x text,
+banner_2x text,
+banner_3x text,
+banner_4x text );
+// =========================================================== //
+## To Create UDT product_info
+CREATE TYPE ecommerce.product_info (
+offer_percentage text,
+quantity text,
+display_selling_scale text,
+price text,
+offer_price text,
+discount_id text,
+created_at timestamp,
+modified_at timestamp,
+category list<text>
+ );
+// =========================================================== //
+## To Create UDT header
+CREATE TYPE ecommerce.header (
+type text,
+title text,
+cta_title text,
+background_color frozen<background_color>,
+action frozen<action> );
+// =========================================================== //
+## To Create UDT template
+CREATE TYPE ecommerce.template (
+product_id text,
+type text,
+title text,
+background_color frozen<background_color>,
+thumb_img frozen<thumb_img>,
+product_info frozen<product_info>,
+action frozen<action> );
+// =========================================================== //
+CREATE TYPE ecommerce.address (
+type text,
+

@@ -1,0 +1,8 @@
+user_id
+name
+mobile
+email
+list<address>
+list<wishlist>
+carts
+subscription

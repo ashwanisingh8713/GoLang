@@ -19,3 +19,8 @@ Configuration File
 Connecting to Cassandra Database via cqlsh
     https://www.caclusters.com/docs/cassandra/Connecting%20to%20Cassandra%E2%84%A2%20Server%20via%20Shell1618889130.html
 
+####### To Change the IP address in Cassandra Config ##############
+cassandra.yaml
+    seeds
+    listen_address
+    rpc_address

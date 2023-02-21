@@ -1,1 +1,14 @@
-https://cassandra.apache.org/doc/latest/cassandra/data_modeling/intro.html
+
+    https://cassandra.apache.org/doc/latest/cassandra/data_modeling/intro.html
+
+#### Defining Database Schema
+    https://cassandra.apache.org/doc/latest/cassandra/data_modeling/data_modeling_schema.html
+
+#### Creating advanced data types in tables
+    https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/useSet.html
+
+#### Design a Shopping Cart Database for E-Commerce
+    https://fabric.inc/blog/shopping-cart-database-design/
+
+#### Cassandra for e-commerce cart & checkout
+    https://jagadish-ramachandran.medium.com/cassandra-for-e-commerce-cart-checkout-de06ecfaead2

@@ -1,0 +1,10 @@
+# To create Table coupon
+
+CREATE TABLE ecommerce.coupon (
+coupon_id   uuid,
+coupon_code text,
+coupon_desc text,
+created_at  timestamp,
+modified_at timestamp,
+expired_at  timestamp,
+is_active   boolean );

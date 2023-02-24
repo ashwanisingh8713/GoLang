@@ -1,0 +1,5 @@
+# To create Table seller
+
+CREATE TABLE ecommerce.seller (
+seller_id uuid,
+seller_name text );

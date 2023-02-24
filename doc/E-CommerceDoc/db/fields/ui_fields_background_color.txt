@@ -1,0 +1,5 @@
+hue         decimal
+saturation  decimal
+lighting    decimal
+alpha       decimal
+name        text

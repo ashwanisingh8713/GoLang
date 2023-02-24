@@ -1,0 +1,17 @@
+# To create Table subscriptions
+
+CREATE TABLE ecommerce.subscriptions (
+subscription_id uuid,
+product_id text,
+order_id text,
+user_id text,
+start_date timestamp,
+end_date timestamp,
+monday boolean,
+tuesday boolean,
+wednesday boolean,
+thursday boolean,
+friday boolean,
+saturday boolean,
+sunday boolean,
+pause_dates list<date> );

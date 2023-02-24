@@ -1,0 +1,10 @@
+# To create Table order_status
+
+CREATE TABLE ecommerce.order_status (
+parent_order_id uuid,
+related_order_id text,
+payment_id text,
+user_id text,
+mobile text,
+email_id text,
+created_at timestamp );

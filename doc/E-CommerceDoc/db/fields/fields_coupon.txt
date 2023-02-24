@@ -4,3 +4,4 @@ coupon_desc text
 created_at  timestamp
 modified_at timestamp
 expired_at  timestamp
+is_active   boolean

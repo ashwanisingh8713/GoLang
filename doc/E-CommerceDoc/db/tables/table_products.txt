@@ -1,0 +1,18 @@
+# To create Table products
+
+CREATE TABLE ecommerce.products (
+product_id uuid,
+category_id text,
+dimension text,
+manufacturer_id text,
+name text,
+picture text,
+price text,
+description text,
+seller_id text,
+sku text,
+sub_category_id text,
+weight double,
+units int,
+last_updated timestamp
+subscription  boolean );

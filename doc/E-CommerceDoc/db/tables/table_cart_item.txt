@@ -1,0 +1,9 @@
+# To create Table cart_item
+
+CREATE TABLE ecommerce.cart_item (
+cart_id     uuid,
+user_id     text,
+product_id  text,
+quantity    int,
+created_at  timestamp,
+modified_at timestamp );

@@ -1,0 +1,7 @@
+# To create Table payment
+
+CREATE TABLE ecommerce.payment (
+payment_id              uuid
+order_id                text
+payment_mode            text
+amount                  double );

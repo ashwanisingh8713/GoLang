@@ -1,7 +1,7 @@
-category_id             uuid
+product_id              uuid
+category_id             text
 dimension               text
 manufacturer_id         text
-product_id              text
 name                    text
 picture                 text
 price                   text

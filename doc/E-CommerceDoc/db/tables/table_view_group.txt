@@ -1,7 +1,4 @@
 
-## To Create Cluster
-CREATE KEYSPACE ecommerce WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
-
 
 ## To Create Table view_group
 CREATE TABLE ecommerce.view_group (

@@ -1,0 +1,11 @@
+### It will be helpful to track payment and order status in scenario of Cash on delivery
+### When user completed the payment then it takes the order_init_id, and "payment_id"
+parent_order_id     uuid
+related_order_id    text
+payment_id          text
+user_id             text
+mobile              text
+email_id            text
+created_at          timestamp
+
+

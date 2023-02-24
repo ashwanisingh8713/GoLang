@@ -1,0 +1,14 @@
+# To create Table address
+
+CREATE TABLE ecommerce.address(
+user_id text,
+address_id text,
+address_type text,
+address_line1 text,
+address_line2 text,
+zip text,
+city text,
+state text,
+country text,
+mobile1 text,
+mobile2 text );

@@ -1,0 +1,8 @@
+category_id     uuid
+name            text
+desc            text
+created_at      timestamp
+modified_at     timestamp
+deleted_at      timestamp
+
+

@@ -12,3 +12,6 @@
 
 #### Cassandra for e-commerce cart & checkout
     https://jagadish-ramachandran.medium.com/cassandra-for-e-commerce-cart-checkout-de06ecfaead2
+
+#### https://1000projects.org/online-grocery-management-store-php-mysql-database-project.html
+    Online Grocery Management Store

@@ -1,0 +1,6 @@
+coupon_id   uuid
+coupon_code text
+coupon_desc text
+created_at  timestamp
+modified_at timestamp
+expired_at  timestamp

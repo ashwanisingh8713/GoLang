@@ -1,0 +1,7 @@
+user_id         uuid
+first_name      text
+last_name       text
+mobile          text
+email           text
+password        text
+login_mode      text

@@ -1,0 +1,4 @@
+payment_id              uuid
+order_id                text
+payment_mode            text
+amount                  double

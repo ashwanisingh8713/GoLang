@@ -1,9 +1,12 @@
 # To create Table cart_item
 
 CREATE TABLE ecommerce.cart_item (
-cart_id     uuid,
-user_id     text,
-product_id  text,
-quantity    int,
-created_at  timestamp,
-modified_at timestamp );
+cart_item_id uuid,
+user_id text,
+product_id text,
+quantity int,
+created_at timestamp,
+modified_at timestamp,
+PRIMARY KEY ((cart_item_id), user_id)
+)
+WITH comment = 'Q2. Find cart items of the User';

@@ -2,13 +2,16 @@
 
 CREATE TABLE ecommerce.address(
 user_id text,
-address_id text,
+address_id uuid,
 address_type text,
 address_line1 text,
 address_line2 text,
+is_preferred boolean,
 zip text,
 city text,
 state text,
 country text,
 mobile1 text,
-mobile2 text );
+mobile2 text,
+PRIMARY KEY ((address_id), user_id, is_preferred, zip) )
+WITH comment = 'Q1. Find addresses of the User';

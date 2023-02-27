@@ -1,7 +1,7 @@
 
     https://cassandra.apache.org/doc/latest/cassandra/data_modeling/intro.html
 
-#### Defining Database Schema
+#### Defining Database QUERY and Schema ***********************
     https://cassandra.apache.org/doc/latest/cassandra/data_modeling/data_modeling_schema.html
 
 #### Creating advanced data types in tables

@@ -1,18 +1,18 @@
-product_id              uuid
-category_id             text
+product_id              uuid            (PK)
+category_id             text            (CK)
 dimension               text
-manufacturer_id         text
-name                    text
+manufacturer_id         text            (CK)
+name                    text            (CK)
 picture                 text
 price                   text
 description             text
-seller_id               text
-sku                     text
-sub_category_id         text
+seller_id               text            (CK)
+sku                     text            (CK)
+sub_category_id         text            (CK)
 weight                  double
 units                   int
 last_updated            timestamp
-subscription            boolean
+subscription            boolean         (CK)
 
 
 

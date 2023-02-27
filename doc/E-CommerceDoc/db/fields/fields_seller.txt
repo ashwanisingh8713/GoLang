@@ -1,2 +1,2 @@
-seller_id     uuid
-seller_name   text
+seller_id     uuid      (PK)
+seller_name   text      (CK)

@@ -1,8 +1,9 @@
-category_id     uuid
+category_id     uuid        (PK)
 name            text
 desc            text
 created_at      timestamp
 modified_at     timestamp
 deleted_at      timestamp
+is_deleted      boolean     (CK)
 
 

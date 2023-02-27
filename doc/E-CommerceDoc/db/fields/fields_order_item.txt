@@ -1,11 +1,12 @@
 ## Before making payment this table's items will be created.
 
-item_id         uuid
-order_id        text
+item_id         uuid        (PK)
+order_id        text        (CK)
 quantity        text
 address_id      text
 product_id      text
 updated         timestamp
+create_date     date        (CK)
 
 
 

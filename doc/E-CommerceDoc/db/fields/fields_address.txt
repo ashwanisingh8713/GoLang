@@ -1,9 +1,10 @@
-user_id         text
-address_id      text
+address_id      uuid    (PK)
+user_id         text    (CK)
 address_type    text
 address_line1   text
 address_line2   text
-zip             text
+is_preferred    boolean (CK)
+zip             text    (CK)
 city            text
 state           text
 country         text

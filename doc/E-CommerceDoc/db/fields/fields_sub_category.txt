@@ -1,6 +1,6 @@
-category_id     text
-sub_category_id uuid
-name            text
+sub_category_id uuid        (PK)
+category_id     text        (CK)
+name            text        (CK)
 desc            text
 created_at      timestamp
 modified_at     timestamp

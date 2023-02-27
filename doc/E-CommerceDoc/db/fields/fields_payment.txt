@@ -1,4 +1,4 @@
-payment_id              uuid
+payment_id              uuid        (PK)
 order_id                text
-payment_mode            text
-amount                  double
+payment_mode            text        (CK)
+amount                  double      (CK)

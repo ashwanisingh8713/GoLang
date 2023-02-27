@@ -5,8 +5,9 @@ subscription_id uuid,
 product_id text,
 order_id text,
 user_id text,
-start_date timestamp,
-end_date timestamp,
+created_at timestamp,
+start_date date,
+end_date date,
 monday boolean,
 tuesday boolean,
 wednesday boolean,
@@ -14,4 +15,8 @@ thursday boolean,
 friday boolean,
 saturday boolean,
 sunday boolean,
-pause_dates list<date> );
+pause_dates list<date>
+PRIMARY KEY ((subscription_id), product_id, order_id, user_id, monday, tuesday,
+wednesday, thursday, friday, saturday, sunday, start_date, end_date)
+ )
+WITH comment = 'Q13. Find subscription.';

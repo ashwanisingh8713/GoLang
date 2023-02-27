@@ -6,4 +6,8 @@ user_id text,
 product_id text,
 quantity int,
 created_at timestamp,
-modified_at timestamp );
+modified_at timestamp,
+date date
+PRIMARY KEY ((wishlist_id), user_id, product_id, date) )
+WITH comment = 'Q16. Find wishlist of User'
+;

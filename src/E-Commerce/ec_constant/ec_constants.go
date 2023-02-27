@@ -1,9 +1,10 @@
 package ec_constant
 
 const (
-	PROTOCOL       = "http://"
-	IpAddress      = "192.168.13.137:8080"
-	drawableFolder = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable"
+	PROTOCOL = "http://"
+	//IpAddress      = "192.168.1.6:8080"
+	IpAddress      = "192.168.13.20:8080"
+	drawableFolder = "D:\\CompleteOfficeProject\\ServerDriven\\GoLang\\src\\E-Commerce\\res\\drawable"
 
 	x2 = "2x/"
 	x3 = "3x/"
@@ -140,4 +141,28 @@ const (
 	VegetablesRelativePath4x = vegetablesRelativePath + x4
 	VegetablesFolderPath4x   = vegetablesFolderPath + x4
 	VegetablesImagePath4x    = PROTOCOL + IpAddress + VegetablesRelativePath4x
+)
+
+const (
+	PATH_HOME    = "/ec"
+	PATH_EXPLORE = "/explore/"
+	PATH_PRODUCT = "/product/:id"
+)
+
+// Api URl consts
+const (
+	URL_EXPLORE = IpAddress + PATH_EXPLORE
+	URL_PRODUCT = IpAddress + PATH_PRODUCT
+)
+
+const (
+	Destination_Explore = "Explore"
+	Destination_Detail  = "Detail"
+)
+
+const (
+	TOP_CAT_EXPLORE_ID  = "1"
+	TOP_CAT_PRODUCT_ID  = "2"
+	TOP_PRODUCT_EXPLORE = "3"
+	PRODUCT_DETAIL_ID   = "4"
 )

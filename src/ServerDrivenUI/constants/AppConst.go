@@ -1,7 +1,7 @@
 package constants
 
 const PROTOCOL = "http://"
-const IpAddress = "192.168.13.28:8080"
+const IpAddress = "192.168.13.20:8080"
 
 const drawableFolder = "/Users/ashwani/GolandProjects/ServerDrivenUI/src/ServerDrivenUI/res/drawable"
 const x2 = "2x/"

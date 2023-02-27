@@ -57,7 +57,7 @@ func TopProducts(parentChildren []interface{}) []interface{} {
 		ViewGroupType: ui_type.HorizontalGrid.String(),
 		Header:        header,
 		Children:      viewGrpChildren,
-		GridColumn:    2,
+		GridColumn:    1,
 	}
 
 	return append(parentChildren, viewGroup)

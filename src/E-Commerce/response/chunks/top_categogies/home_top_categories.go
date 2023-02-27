@@ -8,15 +8,18 @@ import (
 
 func TopCategories(parentChildren []interface{}) []interface{} {
 	var templateType = ui_type.Vt02.String()
+	var explore_api = ec_constant.IpAddress + ec_constant.ROUTE_EXPLORE + "?" + ec_constant.QUERY_KEY_CATEGORY + "="
+	// http://192.168.1.13/explore?category=
 
 	var header = data.Header{
 		Type:     ui_type.Header_01.String(),
 		Title:    "Top Categories",
 		CtaTitle: "Explore All",
 		Action: data.Action{
-			API:      ec_constant.URL_EXPLORE,
-			Method:   "",
-			PageType: ec_constant.Destination_Explore,
+			API:         explore_api,
+			Query:       ec_constant.QUERY_VALUE_TOPCATEGORY,
+			Method:      "Get",
+			Destination: ec_constant.Destination_Explore,
 		},
 	}
 
@@ -30,9 +33,10 @@ func TopCategories(parentChildren []interface{}) []interface{} {
 		Type:  templateType,
 		Title: "Groceries",
 		Action: data.Action{
-			API:      ec_constant.URL_EXPLORE,
-			Method:   "",
-			PageType: ec_constant.Destination_Explore,
+			API:         explore_api,
+			Query:       ec_constant.QUERY_VALUE_TOPPRODUCT,
+			Method:      "Get",
+			Destination: ec_constant.Destination_Explore,
 		},
 		Value: value1,
 	}
@@ -44,9 +48,10 @@ func TopCategories(parentChildren []interface{}) []interface{} {
 		Type:  templateType,
 		Title: "Vegetables",
 		Action: data.Action{
-			API:      ec_constant.URL_EXPLORE,
-			Method:   "",
-			PageType: ec_constant.Destination_Explore,
+			API:         explore_api,
+			Query:       ec_constant.QUERY_VALUE_TOPPRODUCT,
+			Method:      "Get",
+			Destination: ec_constant.Destination_Explore,
 		},
 		Value: value2,
 	}
@@ -58,9 +63,10 @@ func TopCategories(parentChildren []interface{}) []interface{} {
 		Type:  templateType,
 		Title: "Fruits",
 		Action: data.Action{
-			API:      ec_constant.URL_EXPLORE,
-			Method:   "",
-			PageType: ec_constant.Destination_Explore,
+			API:         explore_api,
+			Query:       ec_constant.QUERY_VALUE_TOPPRODUCT,
+			Method:      "Get",
+			Destination: ec_constant.Destination_Explore,
 		},
 		Value: value3,
 	}
@@ -71,9 +77,10 @@ func TopCategories(parentChildren []interface{}) []interface{} {
 		Type:  templateType,
 		Title: "Fruits",
 		Action: data.Action{
-			API:      ec_constant.URL_EXPLORE,
-			Method:   "",
-			PageType: ec_constant.Destination_Explore,
+			API:         explore_api,
+			Query:       ec_constant.QUERY_VALUE_TOPPRODUCT,
+			Method:      "Get",
+			Destination: ec_constant.Destination_Explore,
 		},
 		Value: value4,
 	}

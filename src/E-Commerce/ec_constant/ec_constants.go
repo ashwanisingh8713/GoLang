@@ -144,25 +144,23 @@ const (
 )
 
 const (
-	PATH_HOME    = "/ec"
-	PATH_EXPLORE = "/explore/"
-	PATH_PRODUCT = "/product/:id"
+	ROUTE_HOME    = "/ec"
+	ROUTE_EXPLORE = "/explore"
+	ROUTE_PRODUCT = "/product"
 )
 
-// Api URl consts
 const (
-	URL_EXPLORE = IpAddress + PATH_EXPLORE
-	URL_PRODUCT = IpAddress + PATH_PRODUCT
+	QUERY_KEY_CATEGORY = "category"
+	QUERY_KEY_PRODUCT  = "product"
+)
+
+const (
+	QUERY_VALUE_TOPCATEGORY = "TopCategory"
+	QUERY_VALUE_TOPPRODUCT  = "TopProduct"
+	QUERY_VALUE_PRODUCTID   = "TopProduct_"
 )
 
 const (
 	Destination_Explore = "Explore"
 	Destination_Detail  = "Detail"
-)
-
-const (
-	TOP_CAT_EXPLORE_ID  = "1"
-	TOP_CAT_PRODUCT_ID  = "2"
-	TOP_PRODUCT_EXPLORE = "3"
-	PRODUCT_DETAIL_ID   = "4"
 )

@@ -20,10 +20,10 @@ type Value struct {
 }
 
 type Action struct {
-	Method           string `json:"method"`
-	API              string `json:"api"`
-	PageType         string `json:"page_type"`
-	DestinationValue string `json:"destination_value"`
+	Method      string `json:"method"`
+	API         string `json:"api"`
+	Destination string `json:"destination"` //Screen destination
+	Query       string `json:"query"`       // API Query
 }
 
 type Color struct {

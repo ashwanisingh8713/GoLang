@@ -173,7 +173,7 @@ func ExploreCategory(parentChildren []interface{}) []interface{} {
 	viewGrpChildren = append(viewGrpChildren, product14)
 
 	var viewGroup = data.ViewGroup{
-		ViewGroupType: ui_type.HorizontalGrid.String(),
+		ViewGroupType: ui_type.VerticalGrid.String(),
 		Header:        header,
 		Children:      viewGrpChildren,
 		GridColumn:    2,

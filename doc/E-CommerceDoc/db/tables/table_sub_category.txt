@@ -4,9 +4,9 @@ CREATE TABLE ecommerce.sub_category (
 sub_category_id uuid,
 category_id text,
 name text,
-desc text,
+description text,
 created_at timestamp,
 modified_at timestamp,
-deleted_at timestamp
+deleted_at timestamp,
 PRIMARY KEY ((sub_category_id), category_id, name) )
 WITH comment = 'Q12. Find sub category.';

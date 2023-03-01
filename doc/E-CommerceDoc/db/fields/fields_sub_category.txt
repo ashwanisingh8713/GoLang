@@ -1,7 +1,7 @@
 sub_category_id uuid        (PK)
 category_id     text        (CK)
 name            text        (CK)
-desc            text
+description            text
 created_at      timestamp
 modified_at     timestamp
 deleted_at      timestamp

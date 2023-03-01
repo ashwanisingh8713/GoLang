@@ -53,6 +53,5 @@ thumb_img frozen<thumb_img>,
 product_info frozen<product_info>,
 action frozen<action> );
 // =========================================================== //
-CREATE TYPE ecommerce.address (
-type text,
+
 

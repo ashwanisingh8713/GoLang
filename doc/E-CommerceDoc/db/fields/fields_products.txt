@@ -12,7 +12,7 @@ sub_category_id         text            (CK)
 weight                  double
 units                   int
 last_updated            timestamp
-subscription            boolean         (CK)
+subscribable            boolean         (CK)
 
 
 

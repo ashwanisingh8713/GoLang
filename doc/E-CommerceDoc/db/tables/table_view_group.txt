@@ -5,7 +5,7 @@ CREATE TABLE ecommerce.view_group (
 created_at  uuid,
 view_group_type text,
 header header,
-children children
+children children,
 PRIMARY KEY ((uuid)) )
 WITH comment = 'Q15. Find ViewGroup';
 

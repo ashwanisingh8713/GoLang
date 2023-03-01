@@ -8,6 +8,7 @@ import (
 
 func Cashback(parentChildren []interface{}) []interface{} {
 	var templateType = ui_type.Vt04.String()
+	var explore_api = ec_constant.IpAddress + ec_constant.ROUTE_EXPLORE + "?" + ec_constant.QUERY_KEY_CATEGORY + "="
 
 	var header = data.Header{}
 
@@ -25,9 +26,14 @@ func Cashback(parentChildren []interface{}) []interface{} {
 	}
 
 	var product1 = data.Product{
-		Type:        templateType,
-		Title:       "on all baby products",
-		Action:      data.Action{},
+		Type:  templateType,
+		Title: "on all baby products",
+		Action: data.Action{
+			API:         explore_api,
+			Query:       ec_constant.QUERY_VALUE_DEAL_OF_WEEK,
+			Method:      "Get",
+			Destination: ec_constant.Destination_Explore,
+		},
 		Value:       value1,
 		ProductInfo: productInfo,
 	}

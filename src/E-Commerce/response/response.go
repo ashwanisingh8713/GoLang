@@ -26,7 +26,6 @@ func Home(c *gin.Context) {
 
 func ExploreTopCategory(c *gin.Context) {
 	var parentChildren []interface{}
-
 	var queryKey = c.Query(ec_constant.QUERY_KEY_CATEGORY)
 	if queryKey == ec_constant.QUERY_VALUE_TOPCATEGORY {
 		parentChildren = top_categogies.ExploreGroceries(parentChildren)
@@ -39,10 +38,28 @@ func ExploreTopCategory(c *gin.Context) {
 		var parentChildren []interface{}
 		parentChildren = explore_category.ExploreCategory(parentChildren)
 		c.JSON(http.StatusOK, gin.H{"data": parentChildren})
-	} else {
-
+	} else if queryKey == ec_constant.QUERY_VALUE_TOPPRODUCT_EXPLORE {
+		parentChildren = top_categogies.ExploreGroceries(parentChildren)
+		parentChildren = top_categogies.ExploreVegetables(parentChildren)
+		parentChildren = top_categogies.ExploreFruits(parentChildren)
+		parentChildren = top_categogies.ExploreDairyProduct(parentChildren)
+		parentChildren = top_categogies.ExploreBakeryProduct(parentChildren)
+		c.JSON(http.StatusOK, gin.H{"data": parentChildren})
+	} else if queryKey == ec_constant.QUERY_VALUE_DEAL_OF_WEEK {
+		parentChildren = top_categogies.ExploreGroceries(parentChildren)
+		parentChildren = top_categogies.ExploreVegetables(parentChildren)
+		parentChildren = top_categogies.ExploreFruits(parentChildren)
+		parentChildren = top_categogies.ExploreDairyProduct(parentChildren)
+		parentChildren = top_categogies.ExploreBakeryProduct(parentChildren)
+		c.JSON(http.StatusOK, gin.H{"data": parentChildren})
+	} else if queryKey == ec_constant.QUERY_VALUE_FEATURED_ITEM {
+		parentChildren = top_categogies.ExploreGroceries(parentChildren)
+		parentChildren = top_categogies.ExploreVegetables(parentChildren)
+		parentChildren = top_categogies.ExploreFruits(parentChildren)
+		parentChildren = top_categogies.ExploreDairyProduct(parentChildren)
+		parentChildren = top_categogies.ExploreBakeryProduct(parentChildren)
+		c.JSON(http.StatusOK, gin.H{"data": parentChildren})
 	}
-
 }
 
 func ExploreCategory(c *gin.Context) {

@@ -155,9 +155,12 @@ const (
 )
 
 const (
-	QUERY_VALUE_TOPCATEGORY = "TopCategory"
-	QUERY_VALUE_TOPPRODUCT  = "TopProduct"
-	QUERY_VALUE_PRODUCTID   = "TopProduct_"
+	QUERY_VALUE_TOPCATEGORY        = "TopCategory"
+	QUERY_VALUE_TOPPRODUCT         = "TopProduct"
+	QUERY_VALUE_PRODUCTID          = "TopProduct_"
+	QUERY_VALUE_TOPPRODUCT_EXPLORE = "TopProductExplore"
+	QUERY_VALUE_DEAL_OF_WEEK       = "DealOfWeek"
+	QUERY_VALUE_FEATURED_ITEM      = "FeaturedItem"
 )
 
 const (

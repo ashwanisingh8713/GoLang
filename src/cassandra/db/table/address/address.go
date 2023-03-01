@@ -71,15 +71,18 @@ func Insert(session gocql.Session, address Address) {
 
 func Read(session gocql.Session, userId string) {
 	var address = Address{}
-	iter := session.Query(`SELECT 
-    			* FROM`+
+	iter := session.Query(` SELECT 
+    			* FROM `+
 		table.TABLE_Address+
-		`WHERE`+
+		` WHERE `+
 		UserId+` = ? `,
 		userId).Iter()
 
 	for iter.Scan(&address.AddressId, &address.UserId, &address.isPreferred, &address.zip, &address.addressLine1,
 		&address.addressLine2, &address.addressType, &address.city, &address.country, &address.mobile1, &address.mobile2, &address.state) {
 		fmt.Println("Address : ", address.AddressId, address.zip)
+	}
+	if err := iter.Close(); err != nil {
+		log.Fatal(err)
 	}
 }

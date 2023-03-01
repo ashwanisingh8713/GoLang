@@ -3,7 +3,7 @@
 CREATE TABLE ecommerce.category (
 category_id uuid,
 name text,
-desc text,
+description text,
 created_at timestamp,
 modified_at timestamp,
 deleted_at timestamp,

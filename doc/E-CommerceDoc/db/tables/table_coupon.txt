@@ -8,6 +8,9 @@ created_at  timestamp,
 created_date date,
 modified_at timestamp,
 expired_at  timestamp,
-is_active   boolean
-PRIMARY KEY ((coupon_id), date) )
+is_active   boolean,
+PRIMARY KEY ((coupon_id), created_date, is_active) )
 WITH comment = 'Q4. Find Coupons';
+
+
+

@@ -21,6 +21,6 @@ Connecting to Cassandra Database via cqlsh
 
 ####### To Change the IP address in Cassandra Config ##############
 cassandra.yaml
-    seeds
-    listen_address
-    rpc_address
+    553 - seeds
+    764 - listen_address
+    860 - rpc_address

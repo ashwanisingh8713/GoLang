@@ -8,6 +8,6 @@ payment_id text,
 user_id text,
 mobile text,
 email_id text,
-created_at timestamp
+created_at timestamp,
 PRIMARY KEY ((parent_order_id), created_at) )
 WITH comment = 'Q8. Find Order Status of the User';

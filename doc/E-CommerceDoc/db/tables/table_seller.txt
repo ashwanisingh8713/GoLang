@@ -2,6 +2,6 @@
 
 CREATE TABLE ecommerce.seller (
 seller_id uuid,
-seller_name text
+seller_name text,
 PRIMARY KEY ((seller_id), seller_name) )
 WITH comment = 'Q11. Find seller.';

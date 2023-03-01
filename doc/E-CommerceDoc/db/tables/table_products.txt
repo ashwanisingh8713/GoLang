@@ -14,7 +14,7 @@ sku text,
 sub_category_id text,
 weight double,
 units int,
-last_updated timestamp
-subscription  boolean
-PRIMARY KEY ((product_id), category_id, sub_category_id, name, seller_id, manufacturer_id, sku, subscription) )
+last_updated timestamp,
+subscribable  boolean,
+PRIMARY KEY ((product_id), category_id, sub_category_id, name, seller_id, manufacturer_id, sku, subscribable) )
 WITH comment = 'Q10. Find the product';

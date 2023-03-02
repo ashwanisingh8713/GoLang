@@ -1,0 +1,9 @@
+https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/useCreateTable.html
+Create Table
+    ##### with only one Primary Key
+        CREATE TABLE ecommerce.sample ( id UUID PRIMARY KEY, lastname text, birthday text, nationality text, weight text, height text );
+    ##### with only one Primary Key
+        CREATE TABLE ecommerce.sample ( id UUID PRIMARY KEY, lastname text, birthday text, nationality text, weight text, height text );
+
+Insert Into Table
+    INSERT INTO ecommerce.sample (id,lastname,nationality) VALUES (5b6962dd-3f90-4c93-8f61-eabfa4a803e2, 'Singh', 'Indian' );

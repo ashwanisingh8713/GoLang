@@ -1,4 +1,25 @@
 product_id              uuid            (PK)
+category_id             uuid
+dimension               text
+manufacturer_id         uuid
+name                    text
+picture                 text
+price                   decimal
+description             text
+seller_id               uuid
+sku                     text
+sub_category_id         uuid
+weight                  decimal
+units                   int
+last_updated            timestamp
+subscribable            boolean
+seller_name              text
+about_product            text
+
+Below is V-1 #############################################################################################################
+
+
+product_id              uuid            (PK)
 category_id             uuid            (CK)
 dimension               text            (CK)
 manufacturer_id         uuid            (CK)
@@ -14,7 +35,4 @@ units                   int             (CK)
 last_updated            timestamp       (CK)
 subscribable            boolean         (CK)
 seller_name            text         (CK)
-about_product            text
-
-
-
+about_product            text         (CK)

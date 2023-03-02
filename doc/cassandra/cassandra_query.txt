@@ -6,3 +6,4 @@ Add new Column
 
 DROP Table
     DROP TABLE <tablename>
+

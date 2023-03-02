@@ -9,5 +9,20 @@ created_at timestamp,
 modified_at timestamp,
 deleted_at timestamp,
 picture text,
+PRIMARY KEY (sub_category_id) )
+WITH comment = 'Q12. Find sub category.';
+
+
+Below is V-1 #############################################################################################################
+
+CREATE TABLE ecommerce.sub_category (
+sub_category_id uuid,
+category_id text,
+name text,
+description text,
+created_at timestamp,
+modified_at timestamp,
+deleted_at timestamp,
+picture text,
 PRIMARY KEY ((sub_category_id), category_id, name, description, picture) )
 WITH comment = 'Q12. Find sub category.';

@@ -1,3 +1,19 @@
+
+address_id      uuid    (PK)
+user_id         text
+address_type    text
+address_line1   text
+address_line2   text
+is_preferred    boolean
+zip             text
+city            text
+state           text
+country         text
+mobile1         text
+mobile2         text
+
+Below is V-1 #############################################################################################################
+
 address_id      uuid    (PK)
 user_id         text    (CK)
 address_type    text

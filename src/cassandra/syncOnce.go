@@ -11,7 +11,7 @@ var once sync.Once
 
 var dbInstance *gocql.Session
 
-func getInstance() *gocql.Session {
+func createDBSession() *gocql.Session {
 	if dbInstance == nil {
 		once.Do(
 			func() {

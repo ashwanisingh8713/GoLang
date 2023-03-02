@@ -1,0 +1,8 @@
+Delete Column
+    ALTER TABLE ecommerce.products DROP weight;
+
+Add new Column
+    ALTER TABLE ecommerce.category ADD picture text;
+
+DROP Table
+    DROP TABLE <tablename>

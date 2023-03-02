@@ -8,5 +8,6 @@ description text,
 created_at timestamp,
 modified_at timestamp,
 deleted_at timestamp,
-PRIMARY KEY ((sub_category_id), category_id, name) )
+picture text,
+PRIMARY KEY ((sub_category_id), category_id, name, description, picture) )
 WITH comment = 'Q12. Find sub category.';

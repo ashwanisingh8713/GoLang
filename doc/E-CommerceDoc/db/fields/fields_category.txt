@@ -1,9 +1,10 @@
 category_id     uuid        (PK)
-name            text
-description     text
+name            text        (CK)
+description     text        (CK)
 created_at      timestamp
 modified_at     timestamp
 deleted_at      timestamp
 is_deleted      boolean     (CK)
+picture         text        (CK)
 
 

@@ -8,6 +8,7 @@ created_at timestamp,
 modified_at timestamp,
 deleted_at timestamp,
 is_deleted boolean,
-PRIMARY KEY ((category_id), is_deleted)
+picture text,
+PRIMARY KEY ((category_id), is_deleted, name, description, picture)
 )
 WITH comment = 'Q3. Find category';

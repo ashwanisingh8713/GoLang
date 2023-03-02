@@ -16,19 +16,21 @@ const (
 	modified_at = "modified_at"
 	deleted_at  = "deleted_at"
 	is_deleted  = "is_deleted"
+	picture     = "picture"
 )
 
 type Category struct {
-	CategoryId  string
+	CategoryId  gocql.UUID
 	Name        string
 	Description string
 	CreatedAt   time.Time
 	ModifiedAt  time.Time
 	DeletedAt   time.Time
 	IsDeleted   bool
+	Picture     string
 }
 
-func Insert(session *gocql.Session, catName string, catDescription string) {
+func Insert(session *gocql.Session, catName string, catDescription string, catPicture string) {
 	var category = Category{}
 	category.Name = catName
 	category.Description = catDescription
@@ -42,14 +44,16 @@ func Insert(session *gocql.Session, catName string, catDescription string) {
 		`+description+`,
 		`+created_at+`,
 		`+modified_at+`,
-		`+is_deleted+`
-		) VALUES (?, ?, ?, ?, ?, ?)`,
+		`+is_deleted+`,
+		`+picture+`
+		) VALUES (?, ?, ?, ?, ?, ?, ?)`,
 		gocql.TimeUUID(),
 		category.Name,
 		category.Description,
 		category.CreatedAt,
 		category.ModifiedAt,
 		category.IsDeleted,
+		category.Picture,
 	).Exec(); err != nil {
 		log.Fatal("Error! insert into Category ::::    ", err)
 	}

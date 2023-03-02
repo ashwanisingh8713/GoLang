@@ -1,8 +1,9 @@
 sub_category_id uuid        (PK)
-category_id     text        (CK)
+category_id     uuid        (CK)
 name            text        (CK)
-description            text
+description     text        (CK)
 created_at      timestamp
 modified_at     timestamp
 deleted_at      timestamp
+picture text    text        (CK)
 

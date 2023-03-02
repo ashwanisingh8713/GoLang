@@ -7,3 +7,5 @@ Add new Column
 DROP Table
     DROP TABLE <tablename>
 
+Update Table
+    UPDATE ecommerce.products SET units = '10' WHERE product_id = cb3fcd06-b8ec-11ed-81d5-16ab030fa2fa;

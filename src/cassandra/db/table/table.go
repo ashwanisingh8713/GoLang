@@ -9,7 +9,7 @@ const (
 	TABLE_Order_item    = "order_item"
 	TABLE_Order_status  = "order_status"
 	TABLE_Payment       = "payment"
-	TABLE_Products      = "products"
+	TABLE_Products      = "products"     // In Progress
 	TABLE_Seller        = "seller"       // In Progress
 	TABLE_Sub_category  = "sub_category" // In Progress
 	TABLE_Subscriptions = "subscriptions"

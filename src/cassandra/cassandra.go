@@ -7,10 +7,10 @@ import (
 	"ServerDrivenUI/src/cassandra/db/table/sub_category"
 )
 
-var sellerIdFresho = "68c610a4-b8d8-11ed-88b6-16ab030fa2fa"
+var sellerIdFresho = "61a58bb6-b8eb-11ed-9dee-16ab030fa2fa"
 var sellerNameFresho = "Fresho"
-var catIdVeggies = "cc9df97a-b8d3-11ed-9d8f-16ab030fa2fa"
-var subCatIdLeafyVegetables = "68fe3078-b8d4-11ed-8c00-16ab030fa2fa"
+var catIdVeggies = "580d281a-b8ec-11ed-bdf4-16ab030fa2fa"
+var subCatIdLeafyVegetables = "73cb51bc-b8ec-11ed-a60c-16ab030fa2fa"
 
 func TEST() {
 
@@ -18,11 +18,10 @@ func TEST() {
 
 func main() {
 	createDBSession()
-	sellerInsertQuery()
-	//subCategoryInsertQuery()
+	//sellerInsertQuery()
+	//categoryInsertQuery()
 	//subCategoryInsertQuery()
 	products.ProductInsertQuery(dbInstance, sellerIdFresho, sellerNameFresho, catIdVeggies, subCatIdLeafyVegetables)
-	//categoryInsertQuery()
 }
 
 func categoryInsertQuery() {

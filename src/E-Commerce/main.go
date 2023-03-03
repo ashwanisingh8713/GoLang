@@ -1,12 +1,17 @@
 package main
 
 import (
+	"ServerDrivenUI/src/E-Commerce/database"
 	"ServerDrivenUI/src/E-Commerce/ec_constant"
 	"ServerDrivenUI/src/E-Commerce/response"
+	"ServerDrivenUI/src/E-Commerce/userData"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+
+	// It creates singleton cassandra db instance
+	database.CreateDBSession()
 
 	route := gin.Default()
 
@@ -14,6 +19,8 @@ func main() {
 	route.GET(ec_constant.ROUTE_EXPLORE, response.ExploreTopCategory)
 	route.GET(ec_constant.ROUTE_PRODUCT, response.ExploreTopCategory)
 	//route.GET("/category/explore", response.ExploreCategory)
+
+	route.GET("/user", userData.GetUserInfo)
 
 	// Bakery Items
 	route.Static(ec_constant.BakeryItemsRelativePath4x, ec_constant.BakeryItemsFolderPath4x)

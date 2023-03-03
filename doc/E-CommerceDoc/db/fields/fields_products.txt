@@ -6,7 +6,7 @@ name                    text
 picture                 text
 price                   decimal
 description             text
-seller_id               uuid
+seller_id               uuid            (PK)
 sku                     text
 sub_category_id         uuid
 weight                  decimal

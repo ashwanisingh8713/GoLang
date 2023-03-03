@@ -1,5 +1,5 @@
 user_id         uuid        (PK)
-first_name      text        (CK)
+first_name      text
 last_name       text
 mobile          text
 email           text

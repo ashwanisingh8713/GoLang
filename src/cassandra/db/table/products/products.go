@@ -12,17 +12,17 @@ func ProductInsertQuery(session *gocql.Session, sellerId string, sellerName stri
 		catId,
 		"",
 		"",
-		"Coriander Leaves",
-		"https://www.bigbasket.com/media/uploads/p/s/10000097_19-fresho-coriander-leaves.jpg",
-		0.000,
-		"Coriander leaves are green, fragile with a decorative appearance. They contain minimal aroma and have a spicy sweet taste.",
+		"Methi Leaves",
+		"https://www.bigbasket.com/media/uploads/p/s/20000974_12-fresho-methiventhaya-keerai-cleaned-without-roots.jpg",
+		7.0,
+		"Methi leaves are a very popular ingredient in Indian dishes that has a bitter taste and a strong aroma.",
 		sellerId,
 		sellerName,
 		"",
 		subCatId,
-		0.2500,
+		0.100,
 		1,
-		false)
+		true)
 }
 
 const (

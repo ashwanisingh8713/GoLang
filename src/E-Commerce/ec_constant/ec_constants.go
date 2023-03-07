@@ -3,7 +3,7 @@ package ec_constant
 const (
 	PROTOCOL = "http://"
 	//IpAddress      = "192.168.1.6:8080"
-	IpAddress      = "192.168.13.77:8080"
+	IpAddress      = "192.168.13.20:8080"
 	drawableFolder = "D:\\CompleteOfficeProject\\ServerDriven\\GoLang\\src\\E-Commerce\\res\\drawable"
 
 	x2 = "2x/"

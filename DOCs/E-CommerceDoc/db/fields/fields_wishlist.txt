@@ -1,0 +1,8 @@
+wishlist_id     uuid        (PK)
+user_id     text            (CK)
+product_id  text            (CK)
+quantity    int
+created_at  timestamp
+modified_at timestamp
+date        date            (CK)
+

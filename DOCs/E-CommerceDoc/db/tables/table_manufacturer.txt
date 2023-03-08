@@ -1,0 +1,8 @@
+# To create Table manufacturer
+
+CREATE TABLE ecommerce.manufacturer (
+manufacturer_id uuid,
+manufacturer_name text,
+PRIMARY KEY ((manufacturer_id))
+)
+WITH comment = 'Q5. Hold Manufacturer name';

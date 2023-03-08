@@ -1,0 +1,2 @@
+manufacturer_id     uuid    (PK)
+manufacturer_name   text

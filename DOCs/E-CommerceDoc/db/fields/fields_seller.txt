@@ -1,0 +1,7 @@
+seller_id     uuid      (PK)
+seller_name   text
+
+
+Below is V-1 #############################################################################################################
+seller_id     uuid      (PK)
+seller_name   text      (CK)

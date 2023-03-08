@@ -1,0 +1,25 @@
+
+In my past working day I supposed to work on view_group table, but later realised it is not going to work,
+So to feed the data in nested fields super-column is required.
+
+So created structure for Super-Column with respective Fields and types.
+I have Designed and Categorised Shopping Cart Database for E-Commerce.
+
+	- Static Data
+		- view_group
+        - category
+        - product
+        - discount
+        - user
+        - manufacturer
+    - Session Data
+        - shopping_session
+        - cart_item
+        - wishlist
+    - Processed Data
+        - order_details
+        - order_items
+        - payment_details
+
+Currently defining the fields. once it is done I will start work on making Tables at DB end.
+Next, I will start work at server end coding for DB integration and DB's CRUD operation and making the data structure through the api request.

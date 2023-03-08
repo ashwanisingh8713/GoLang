@@ -1,0 +1,29 @@
+# To create Table category
+
+CREATE TABLE ecommerce.category (
+category_id uuid,
+name text,
+description text,
+created_at timestamp,
+modified_at timestamp,
+deleted_at timestamp,
+is_deleted boolean,
+picture text,
+PRIMARY KEY (category_id)
+)
+WITH comment = 'Q3. Find category';
+
+Below is V-1 #############################################################################################################
+
+CREATE TABLE ecommerce.category (
+category_id uuid,
+name text,
+description text,
+created_at timestamp,
+modified_at timestamp,
+deleted_at timestamp,
+is_deleted boolean,
+picture text,
+PRIMARY KEY ((category_id), is_deleted, name, description, picture)
+)
+WITH comment = 'Q3. Find category';

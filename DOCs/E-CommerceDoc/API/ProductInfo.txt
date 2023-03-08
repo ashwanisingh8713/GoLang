@@ -1,0 +1,15 @@
+- imageUrl
+- title
+- action
+    - method
+    - api
+
+- offerPercentage
+- quantity
+- displaySellingScale
+- price
+- productId
+
+- Subscribe Button -> it will have hardcoded functionality at App end
+- Buy Once Button -> it will have hardcoded functionality at App end
+

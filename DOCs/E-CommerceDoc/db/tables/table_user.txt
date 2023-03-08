@@ -1,0 +1,14 @@
+# To create Table user
+
+CREATE TABLE ecommerce.user (
+user_id uuid,
+first_name text,
+last_name text,
+mobile text,
+email text,
+password text,
+login_mode text,
+created_at timestamp,
+PRIMARY KEY ((user_id), first_name, created_at)
+)
+WITH comment = 'Q14. Find User';

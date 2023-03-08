@@ -1,0 +1,15 @@
+subscription_id uuid (PK)
+product_id      text (CK)
+order_id        text
+user_id         text
+created_at      timestamp
+start_date      date   (CK)
+end_date        date   (CK)
+monday          boolean (CK)
+tuesday         boolean (CK)
+wednesday       boolean (CK)
+thursday        boolean (CK)
+friday          boolean (CK)
+saturday        boolean (CK)
+sunday          boolean (CK)
+pause_dates     list<date>

@@ -1,0 +1,9 @@
+Pull swagger libraries.
+
+$ go get -v github.com/swaggo/swag/cmd/swag
+$ go get -v github.com/swaggo/gin-swagger
+$ go get -v github.com/swaggo/files
+
+
+go run ginsimple/main.go
+swag init -g ginsimple/main.go --output docs/ginsimple

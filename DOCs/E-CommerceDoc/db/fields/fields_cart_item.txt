@@ -1,0 +1,8 @@
+cart_item_id     uuid   (PK)
+user_id     text        (CK)
+product_id  text
+quantity    int
+created_at  timestamp
+modified_at timestamp
+create_date date        (CK)
+

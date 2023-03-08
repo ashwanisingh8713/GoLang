@@ -1,0 +1,38 @@
+product_id              uuid            (PK)
+category_id             uuid
+dimension               text
+manufacturer_id         uuid
+name                    text
+picture                 text
+price                   decimal
+description             text
+seller_id               uuid            (PK)
+sku                     text
+sub_category_id         uuid
+weight                  decimal
+units                   int
+last_updated            timestamp
+subscribable            boolean
+seller_name              text
+about_product            text
+
+Below is V-1 #############################################################################################################
+
+
+product_id              uuid            (PK)
+category_id             uuid            (CK)
+dimension               text            (CK)
+manufacturer_id         uuid            (CK)
+name                    text            (CK)
+picture                 text            (CK)
+price                   decimal            (CK)
+description             text            (CK)
+seller_id               uuid            (CK)
+sku                     text            (CK)
+sub_category_id         uuid            (CK)
+weight                  decimal         (CK)
+units                   int             (CK)
+last_updated            timestamp       (CK)
+subscribable            boolean         (CK)
+seller_name            text         (CK)
+about_product            text         (CK)

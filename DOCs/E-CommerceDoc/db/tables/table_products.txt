@@ -1,0 +1,47 @@
+# To create Table products
+
+CREATE TABLE ecommerce.products (
+product_id uuid,
+category_id text,
+dimension text,
+manufacturer_id text,
+name text,
+picture text,
+price float,
+description text,
+seller_id text,
+seller_name text,
+sku text,
+sub_category_id text,
+weight float,
+units int,
+last_updated timestamp,
+subscribable  boolean,
+about_product text,
+PRIMARY KEY (product_id) )
+WITH comment = 'Q10. Find the product';
+
+
+Below is V-1 #############################################################################################################
+
+CREATE TABLE ecommerce.products (
+product_id uuid,
+category_id text,
+dimension text,
+manufacturer_id text,
+name text,
+picture text,
+price float,
+description text,
+seller_id text,
+seller_name text,
+sku text,
+sub_category_id text,
+weight float,
+units int,
+last_updated timestamp,
+subscribable  boolean,
+about_product text,
+PRIMARY KEY ((product_id), category_id, sub_category_id, name, seller_id, manufacturer_id, sku,
+subscribable, picture, price, description, weight, units, dimension, seller_name) )
+WITH comment = 'Q10. Find the product';

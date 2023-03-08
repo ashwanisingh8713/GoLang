@@ -1,0 +1,19 @@
+Delete Column
+    ALTER TABLE ecommerce.products DROP weight;
+
+Add new Column
+    ALTER TABLE ecommerce.category ADD picture text;
+
+DROP Table
+    DROP TABLE <tablename>
+
+WHERE Clause (without clustering key)
+    select * from TableName WHERE lastname = 'Singh' ALLOW FILTERING ;
+
+Update Table
+    UPDATE ecommerce.products SET units = '10' WHERE product_id = cb3fcd06-b8ec-11ed-81d5-16ab030fa2fa;
+
+To Filter, Use Index Column in Where Clause
+    CREATE INDEX indexname ON tablename  (columnname );
+    Example: CREATE INDEX employee_age ON employee (age);
+    CREATE INDEX address_userId ON address (user_id);

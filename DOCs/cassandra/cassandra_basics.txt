@@ -1,0 +1,26 @@
+// Good Explanation Link
+https://www.youtube.com/watch?v=qXH9XKcsnmg
+https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/useQuerySystemTable.html
+
+To Start cassandra
+    brew services start cassandra
+    cassandra
+    cqlsh
+
+To Stop cassandra
+    brew services stop cassandra
+
+To give input using
+    cqlsh
+
+Configuration File
+    /opt/homebrew/etc/cassandra/cassandra.yaml
+
+Connecting to Cassandra Database via cqlsh
+    https://www.caclusters.com/docs/cassandra/Connecting%20to%20Cassandra%E2%84%A2%20Server%20via%20Shell1618889130.html
+
+####### To Change the IP address in Cassandra Config ##############
+cassandra.yaml
+    553 - seeds
+    764 - listen_address
+    860 - rpc_address

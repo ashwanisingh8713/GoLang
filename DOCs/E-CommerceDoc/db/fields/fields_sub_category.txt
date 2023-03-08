@@ -1,0 +1,21 @@
+sub_category_id uuid        (PK)
+category_id     uuid
+name            text
+description     text
+created_at      timestamp
+modified_at     timestamp
+deleted_at      timestamp
+picture text    text
+
+
+
+Below is V-1 #############################################################################################################
+
+sub_category_id uuid        (PK)
+category_id     uuid        (CK)
+name            text        (CK)
+description     text        (CK)
+created_at      timestamp
+modified_at     timestamp
+deleted_at      timestamp
+picture text    text        (CK)

@@ -1,0 +1,5 @@
+Tutorial: Generate Swagger Specification and SwaggerUI for Gin Go Web Framework
+    https://levelup.gitconnected.com/tutorial-generate-swagger-specification-and-swaggerui-for-gin-go-web-framework-9f0c038483b5
+
+
+    https://peggy-tsai.medium.com/golang-swag-command-not-found-error-handling-52e2cbc5240e

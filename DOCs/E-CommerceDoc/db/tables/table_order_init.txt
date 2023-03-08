@@ -1,0 +1,12 @@
+# To create Table order_init
+
+CREATE TABLE ecommerce.order_init (
+order_id uuid,
+user_id text,
+mobile  text,
+email_id text,
+order_date date,
+order_at timestamp,
+PRIMARY KEY ((order_id), user_id, mobile, order_date, order_at)
+ )
+ WITH comment = 'Q6. Find order initiated by User';

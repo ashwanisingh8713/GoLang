@@ -1,0 +1,8 @@
+coupon_id   uuid        (PK)
+coupon_code text
+coupon_desc text
+created_at  timestamp
+created_date date       (CK)
+modified_at timestamp
+expired_at  timestamp
+is_active   boolean     (CK)

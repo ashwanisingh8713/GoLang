@@ -1,0 +1,26 @@
+https://fabric.inc/blog/shopping-cart-database-design/
+https://1000projects.org/online-grocery-management-store-php-mysql-database-project.html
+
+Tables
+    - Static Data
+        - address
+        - category
+        - coupon
+        - manufacturer
+        - product
+        - seller
+        - sub_category
+        - user
+        - view_group
+
+    - Session Data
+        - cart_item
+        - subscriptions
+        - wishlist
+        - user_session***
+
+    - Processed Data
+        - order_status
+        - order_items
+        - payment
+

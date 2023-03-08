@@ -1,0 +1,15 @@
+# To create Table seller
+
+CREATE TABLE ecommerce.seller (
+seller_id uuid,
+seller_name text,
+PRIMARY KEY (seller_id) )
+WITH comment = 'Q11. Find seller.';
+
+Below is V-1 #############################################################################################################
+
+CREATE TABLE ecommerce.seller (
+seller_id uuid,
+seller_name text,
+PRIMARY KEY ((seller_id), seller_name) )
+WITH comment = 'Q11. Find seller.';

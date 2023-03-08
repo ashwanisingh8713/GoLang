@@ -1,0 +1,5 @@
+https://thenewstack.io/understanding-golang-packages/
+
+src – This directory contains source files organized as packages. You will write your Go applications inside this directory.
+pkg – This directory contains Go package objects.
+bin – This directory contains executable programs.

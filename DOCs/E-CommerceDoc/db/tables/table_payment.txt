@@ -1,0 +1,9 @@
+# To create Table payment
+
+CREATE TABLE ecommerce.payment (
+payment_id              uuid,
+order_id                text,
+payment_mode            text,
+amount                  double,
+PRIMARY KEY ((payment_id), payment_mode, amount) )
+WITH comment = 'Q9. Find the payment info which is done by User';

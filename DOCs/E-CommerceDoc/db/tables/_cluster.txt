@@ -1,0 +1,2 @@
+## To Create Cluster
+CREATE KEYSPACE ecommerce WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};

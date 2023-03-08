@@ -1,0 +1,13 @@
+# To create Table order_status
+# It takes the order_id as related_order_id from table order_init,
+
+CREATE TABLE ecommerce.order_status (
+parent_order_id uuid,
+related_order_id text,
+payment_id text,
+user_id text,
+mobile text,
+email_id text,
+created_at timestamp,
+PRIMARY KEY ((parent_order_id), created_at) )
+WITH comment = 'Q8. Find Order Status of the User';

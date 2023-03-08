@@ -1,13 +1,13 @@
 package database
 
 import (
+	"E-Commerce/ec_constant"
 	"fmt"
 	"github.com/gocql/gocql"
 	"sync"
 )
 
 const (
-	HOST_IP  = "192.168.13.77"
 	KEYSPACE = "ecommerce"
 )
 
@@ -20,7 +20,7 @@ func CreateDBSession() *gocql.Session {
 		once.Do(
 			func() {
 				fmt.Println("Creating KEYSPACE instance now.")
-				cluster := gocql.NewCluster(HOST_IP)
+				cluster := gocql.NewCluster(ec_constant.HOST)
 				cluster.Keyspace = KEYSPACE
 				cluster.Consistency = gocql.Quorum
 				DbInstance, _ = cluster.CreateSession()

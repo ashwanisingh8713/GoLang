@@ -35,8 +35,6 @@ func main() {
 	route.GET(ec_constant.ROUTE_PRODUCT, response.ExploreTopCategory)
 	//route.GET("/category/explore", response.ExploreCategory)
 
-	route.GET("/user", userData.GetUserInfo)
-
 	// Bakery Items
 	route.Static(ec_constant.BakeryItemsRelativePath4x, ec_constant.BakeryItemsFolderPath4x)
 	// Dairy Products
@@ -58,8 +56,12 @@ func main() {
 	// Vegetables
 	route.Static(ec_constant.VegetablesRelativePath4x, ec_constant.VegetablesFolderPath4x)
 
+	//
+	route.GET("/user", userData.GetUserInfo)
+
 	err := route.Run(ec_constant.IpAddress)
 	if err != nil {
 		return
 	}
+
 }

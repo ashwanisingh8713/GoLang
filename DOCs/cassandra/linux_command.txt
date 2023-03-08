@@ -1,5 +1,5 @@
 cat /first/file/same_name > /second/file/same_name
 
-cat /Users/ashwani/GolandProjects/ServerDrivenUI/doc/cassandra/cassandra.yaml > /opt/homebrew/etc/cassandra/cassandra.yaml
+cat /Users/ashwani/go/DOCs/cassandra/cassandra.yaml > /opt/homebrew/etc/cassandra/cassandra.yaml
 
-brew
+/Users/ashwani/go/DOCs/cassandra/cassandra.yaml

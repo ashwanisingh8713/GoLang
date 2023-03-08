@@ -13,4 +13,5 @@ func GetUserInfo(c *gin.Context) {
 	var user = user.Read(database.DbInstance)
 	var address = address.Read(database.DbInstance, user.UserId)
 	c.JSON(http.StatusOK, gin.H{"user": user, "address": address})
+	//c.JSON(http.StatusOK, gin.H{"Ashwani": "Singh"})
 }

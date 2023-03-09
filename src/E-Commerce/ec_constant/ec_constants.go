@@ -2,9 +2,9 @@ package ec_constant
 
 const (
 	PROTOCOL       = "http://"
-	HOST           = "192.168.13.75"
+	HOST           = "192.168.13.94"
 	IpAddress      = HOST + ":8080"
-	drawableFolder = "D:\\CompleteOfficeProject\\ServerDriven\\GoLang\\src\\E-Commerce\\res\\drawable"
+	drawableFolder = "/home/kamlesh/go/src/E-Commerce/res/drawable"
 
 	x2 = "2x/"
 	x3 = "3x/"
@@ -144,9 +144,22 @@ const (
 )
 
 const (
-	ROUTE_HOME    = "/ec"
-	ROUTE_EXPLORE = "/explore"
-	ROUTE_PRODUCT = "/product"
+	profileSubFolder    = "/profile/"
+	profileFolderPath   = drawableFolder + profileSubFolder
+	profileRelativePath = "/image" + profileSubFolder
+	profileImagePath    = PROTOCOL + IpAddress + profileFolderPath
+
+	ProfileRelativePath4x = profileRelativePath + x4
+	ProfileFolderPath4x   = profileFolderPath + x4
+	ProfileImagePath4x    = PROTOCOL + IpAddress + ProfileRelativePath4x
+)
+
+const (
+	ROUTE_HOME         = "/ec"
+	ROUTE_EXPLORE      = "/explore"
+	ROUTE_PRODUCT      = "/product"
+	ROUTE_SUBSCRIPTION = "/subscription"
+	ROUTE_PROFILE      = "/profile"
 )
 
 const (

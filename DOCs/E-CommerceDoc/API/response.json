@@ -1,0 +1,408 @@
+{
+  "data": [
+    {
+      "view_group_type": "ViewPager",
+      "header": {
+        "type": "",
+        "title": "",
+        "ctaTitle": "",
+        "background_color": {
+          "hue": 0,
+          "saturation": 0,
+          "lighting": 0,
+          "alpha": 0
+        },
+        "action": {
+          "method": "",
+          "api": ""
+        }
+      },
+      "children": [
+        {
+          "product_id": "",
+          "type": "Template_01",
+          "title": "EveryDay Essential",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+          },
+          "product_info": {
+            "offer_percentage": "10",
+            "quantity": 1,
+            "display_selling_scale": "10% Off",
+            "unit_price": 20,
+            "offer_price": 15
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        }
+      ],
+      "gridColumn": 0
+    },
+    {
+      "view_group_type": "HorizontalGrid",
+      "header": {
+        "type": "Header_01",
+        "title": "Top Categories",
+        "ctaTitle": "Explore All",
+        "background_color": {
+          "hue": 0,
+          "saturation": 0,
+          "lighting": 0,
+          "alpha": 0
+        },
+        "action": {
+          "method": "",
+          "api": ""
+        }
+      },
+      "children": [
+        {
+          "product_id": "",
+          "type": "Template_02",
+          "title": "Groceries",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/top_categories/4x/groceries.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        },
+        {
+          "product_id": "",
+          "type": "Template_02",
+          "title": "Vegetables",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/tomato.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        },
+        {
+          "product_id": "",
+          "type": "Template_02",
+          "title": "Fruits",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/fruits.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        }
+      ],
+      "gridColumn": 1
+    },
+    {
+      "view_group_type": "HorizontalGrid",
+      "header": {
+        "type": "Header_01",
+        "title": "Top Products",
+        "ctaTitle": "Explore All",
+        "background_color": {
+          "hue": 0,
+          "saturation": 0,
+          "lighting": 0,
+          "alpha": 0
+        },
+        "action": {
+          "method": "",
+          "api": ""
+        }
+      },
+      "children": [
+        {
+          "product_id": "",
+          "type": "Template_03",
+          "title": "Fortune Rice",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/top_categories/4x/fortune_rice.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        },
+        {
+          "product_id": "",
+          "type": "Template_03",
+          "title": "Fresh Avacado",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/avacado.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        },
+        {
+          "product_id": "",
+          "type": "Template_03",
+          "title": "Orange",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/orange.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        }
+      ],
+      "gridColumn": 1
+    },
+    {
+      "view_group_type": "HorizontalGrid",
+      "header": {
+        "type": "Header_01",
+        "title": "Deals Of the week",
+        "ctaTitle": "Explore All",
+        "background_color": {
+          "hue": 0,
+          "saturation": 0,
+          "lighting": 0,
+          "alpha": 0
+        },
+        "action": {
+          "method": "",
+          "api": ""
+        }
+      },
+      "children": [
+        {
+          "product_id": "",
+          "type": "Template_03",
+          "title": "Soft Drinks",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/deal_of_the_week/4x/soft_drink.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        },
+        {
+          "product_id": "",
+          "type": "Template_03",
+          "title": "Tea",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/deal_of_the_week/4x/tea.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        },
+        {
+          "product_id": "",
+          "type": "Template_03",
+          "title": "Potato",
+          "background_color": {
+            "hue": 0,
+            "saturation": 0,
+            "lighting": 0,
+            "alpha": 0
+          },
+          "value": {
+            "thumb_1x": "",
+            "thumb_2x": "",
+            "thumb_3x": "",
+            "thumb_4x": "",
+            "banner_1x": "",
+            "banner_2x": "",
+            "banner_3x": "",
+            "banner_4x": "http://192.168.13.137:8080/image/deal_of_the_week/4x/potato.png"
+          },
+          "product_info": {
+            "offer_percentage": "",
+            "quantity": 0,
+            "display_selling_scale": "",
+            "unit_price": 0,
+            "offer_price": 0
+          },
+          "action": {
+            "method": "",
+            "api": ""
+          }
+        }
+      ],
+      "gridColumn": 1
+    }
+  ]
+}

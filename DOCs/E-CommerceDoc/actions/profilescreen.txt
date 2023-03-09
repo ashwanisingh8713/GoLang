@@ -1,0 +1,61 @@
+
+My Order = "/Order"
+Action{
+			API:         "",
+			Query:       "/order",
+			Method:      "Get",
+			Destination: "Order",
+		}
+
+My Subscription = "/subscription"
+
+Action{
+			API:         "",
+			Query:       "/subscription",
+			Method:      "Get",
+			Destination: "Subscription",
+		}
+
+My Addresses = "/addresses"
+
+Action{
+			API:         "",
+			Query:       "/addresses",
+			Method:      "Get",
+			Destination: "Addresses",
+		}
+
+FAQ = "/faq"
+Action{
+			API:         "",
+			Query:       "/faq",
+			Method:      "Get",
+			Destination: "FAQ",
+		}
+
+Contact Us = "/contactus"
+
+Action{
+			API:         "",
+			Query:       "/contact_us",
+			Method:      "Get",
+			Destination: "ContactUs",
+		}
+
+
+About = "/about"
+
+Action{
+			API:         "",
+			Query:       "/about",
+			Method:      "Get",
+			Destination: "About",
+		}
+
+LogOut = "/logout"
+Action{
+			API:         "",
+			Query:       "/logout",
+			Method:      "Get",
+			Destination: "LogOut",
+		}

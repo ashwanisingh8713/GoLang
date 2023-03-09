@@ -2,7 +2,7 @@ package cart_item
 
 import (
 	"E-Commerce/database/table"
-	"fmt"
+	productTable "E-Commerce/database/table/products"
 	"github.com/gocql/gocql"
 	"log"
 	"time"
@@ -19,12 +19,13 @@ const (
 )
 
 type CartItem struct {
-	CartItemId gocql.UUID `json:"cart_item_id"`
-	UserId     string     `json:"user_id"`
-	ProductId  string     `json:"product_id"`
-	Quantity   int        `json:"quantity"`
-	CreatedAt  time.Time  `json:"created_at"`
-	ModifiedAt time.Time  `json:"modified_at"`
+	CartItemId gocql.UUID           `json:"cart_item_id"`
+	UserId     string               `json:"user_id"`
+	ProductId  string               `json:"product_id"`
+	Quantity   int                  `json:"quantity"`
+	CreatedAt  time.Time            `json:"created_at"`
+	ModifiedAt time.Time            `json:"modified_at"`
+	Product    productTable.Product `json:"product"`
 }
 
 func Insert(session *gocql.Session, userId string, productId string, productQuantity int) {
@@ -54,8 +55,9 @@ func Insert(session *gocql.Session, userId string, productId string, productQuan
 	}
 }
 
-func Read(session *gocql.Session, userId string) []interface{} {
-	var cartItemsArray []interface{}
+func Read(session *gocql.Session, userId string) []CartItem {
+	var cartItemsArray []CartItem
+	var productIds []string
 	var cartItem = CartItem{}
 
 	iter := session.Query(`SELECT `+
@@ -65,24 +67,25 @@ func Read(session *gocql.Session, userId string) []interface{} {
 		`,`+quantity+
 		`,`+created_at+
 		`,`+modified_at+
-		` FROM `+table.TABLE_Cart_item+` WHERE user_id = ? `, userId).Iter()
-
-	/*iter := session.Query(` SELECT
-	    			* FROM `+
-			table.TABLE_Address+
-			` WHERE `+
-			UserId+` = ?`,
-			userId).Iter()*/
-
+		` FROM `+table.TABLE_Cart_item+
+		` WHERE `+
+		user_id+
+		` = ? `, userId).Iter()
 	for iter.Scan(&cartItem.CartItemId, &cartItem.UserId,
 		&cartItem.ProductId, &cartItem.Quantity,
 		&cartItem.CreatedAt,
 		&cartItem.ModifiedAt) {
-		fmt.Println("Cart Item Success :: ", cartItem.CartItemId, cartItem.ProductId)
+		productIds = append(productIds, cartItem.ProductId)
 		cartItemsArray = append(cartItemsArray, cartItem)
 	}
 	if err := iter.Close(); err != nil {
 		log.Fatal("Address Error :: ", err)
+	}
+
+	// Reading products from Database
+	for i, v := range productIds {
+		var product = productTable.Read(session, v)
+		cartItemsArray[i].Product = product
 	}
 	return cartItemsArray
 }

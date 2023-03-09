@@ -45,22 +45,22 @@ const (
 )
 
 type Product struct {
-	ProductId      gocql.UUID //1
-	CategoryId     string     //2
-	Dimension      string     //3
-	ManufacturerId string     //4
-	Name           string     //5
-	Picture        string     //6
-	Price          float32    //7
-	Description    string     //8
-	SellerId       string     //9
-	SellerName     string     //10
-	Sku            string     //11
-	SubCategoryId  string     //12
-	Weight         float32    //13
-	Units          int        //14
-	LastUpdated    time.Time  //15
-	Subscribable   bool       //16
+	ProductId      gocql.UUID `json:"product_id"`      //1
+	CategoryId     string     `json:"category_id"`     //2
+	Dimension      string     `json:"dimension"`       //3
+	ManufacturerId string     `json:"manufacturer_id"` //4
+	Name           string     `json:"name"`            //5
+	Picture        string     `json:"picture"`         //6
+	Price          float32    `json:"price"`           //7
+	Description    string     `json:"description"`     //8
+	SellerId       string     `json:"seller_id"`       //9
+	SellerName     string     `json:"seller_name"`     //10
+	Sku            string     `json:"sku"`             //11
+	SubCategoryId  string     `json:"sub_category_id"` //12
+	Weight         float32    `json:"weight"`          //13
+	Units          int        `json:"units"`           //14
+	LastUpdated    time.Time  `json:"last_Updated"`    //15
+	Subscribable   bool       `json:"subscribable"`    //16
 }
 
 func Insert(session *gocql.Session, pCategoryId string, pDimension string, pManufacturerId string,
@@ -119,4 +119,41 @@ func Insert(session *gocql.Session, pCategoryId string, pDimension string, pManu
 	).Exec(); err != nil {
 		log.Fatal("Error! insert into Product ::::    ", err)
 	}
+}
+
+func Read(session *gocql.Session, productId string) Product {
+	var product = Product{}
+
+	iter := session.Query(`SELECT `+
+		product_id+
+		`,`+category_id+
+		`,`+dimension+
+		`,`+manufacturer_id+
+		`,`+name+
+		`,`+picture+
+		`,`+price+
+		`,`+description+
+		`,`+seller_id+
+		`,`+seller_name+
+		`,`+sku+
+		`,`+sub_category_id+
+		`,`+weight+
+		`,`+units+
+		`,`+last_updated+
+		`,`+subscribable+
+		` FROM `+table.TABLE_Products+
+		` WHERE `+
+		product_id+
+		` = ? `, productId).Iter()
+	for iter.Scan(&product.ProductId, &product.CategoryId,
+		&product.Dimension, &product.ManufacturerId, &product.Name,
+		&product.Picture, &product.Price, &product.Description,
+		&product.SellerId, &product.SellerName, &product.Sku,
+		&product.SubCategoryId, &product.Weight, &product.Units,
+		&product.LastUpdated, &product.Subscribable) {
+	}
+	if err := iter.Close(); err != nil {
+		log.Fatal("Address Error :: ", err)
+	}
+	return product
 }

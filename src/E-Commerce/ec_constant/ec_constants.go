@@ -2,7 +2,7 @@ package ec_constant
 
 const (
 	PROTOCOL       = "http://"
-	HOST           = "192.168.13.71"
+	HOST           = "192.168.13.75"
 	IpAddress      = HOST + ":8080"
 	drawableFolder = "D:\\CompleteOfficeProject\\ServerDriven\\GoLang\\src\\E-Commerce\\res\\drawable"
 

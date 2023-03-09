@@ -73,20 +73,20 @@ func Read(session *gocql.Session, userId string) []interface{} {
 	var addressArray []interface{}
 	var address = Address{}
 
-	iter := session.Query(`SELECT ` +
-		AddressId +
-		`,` + UserId +
-		`,` + AddressType +
-		`,` + AddressLine1 +
-		`,` + AddressLine2 +
-		`,` + IsPreferred +
-		`,` + Zip +
-		`,` + City +
-		`,` + State +
-		`,` + Country +
-		`,` + Mobile1 +
-		`,` + Mobile2 +
-		` FROM ` + table.TABLE_Address).Iter()
+	iter := session.Query(`SELECT `+
+		AddressId+
+		`,`+UserId+
+		`,`+AddressType+
+		`,`+AddressLine1+
+		`,`+AddressLine2+
+		`,`+IsPreferred+
+		`,`+Zip+
+		`,`+City+
+		`,`+State+
+		`,`+Country+
+		`,`+Mobile1+
+		`,`+Mobile2+
+		` FROM `+table.TABLE_Address+` WHERE user_id = ?`, userId).Iter()
 
 	/*iter := session.Query(` SELECT
 	    			* FROM `+

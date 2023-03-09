@@ -63,7 +63,7 @@ const (
 	created_at = "created_at"
 )
 
-func Read(session *gocql.Session) User {
+func Read(session *gocql.Session, userId string) User {
 	var user = User{}
 	iter := session.Query(`SELECT ` +
 		user_id +

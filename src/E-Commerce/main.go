@@ -56,8 +56,10 @@ func main() {
 	// Vegetables
 	route.Static(ec_constant.VegetablesRelativePath4x, ec_constant.VegetablesFolderPath4x)
 
-	//
-	route.GET("/user", userData.GetUserInfo)
+	// User Related Details
+	route.POST("/user", userData.GetUserInfo)
+	route.POST("/address", userData.GetUserAddress)
+	route.POST("/cart_item", userData.GetUserCartItem)
 
 	err := route.Run(ec_constant.IpAddress)
 	if err != nil {

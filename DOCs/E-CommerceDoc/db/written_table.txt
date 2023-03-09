@@ -1,0 +1,10 @@
+address (Insert, Read)
+cart_item (Insert )
+category (Insert, Read)
+
+products (Insert)
+
+sub_category (Insert, Read)
+seller (Insert)
+user (Insert, Read)
+

@@ -26,6 +26,19 @@ type Action struct {
 	Query       string `json:"query"`       // API Query
 }
 
+type Profile struct {
+	UserId     string       `json:"user_id"`
+	ProfilePic string       `json:"profile_pic"`
+	UserName   string       `json:"user_name"`
+	UserEmail  string       `json:"user_email"`
+	CtaProfile []ProfileCta `json:"cta_profile"`
+}
+type ProfileCta struct {
+	Value    Value  `json:"value"`
+	CtaTitle string `json:"title"`
+	Action   Action `json:"action"`
+}
+
 type Color struct {
 	Hue        int     `json:"hue"`
 	Saturation float64 `json:"saturation"`
@@ -39,6 +52,24 @@ type ProductInfo struct {
 	DisplaySellingScale string `json:"display_selling_scale"`
 	UnitPrice           int    `json:"unit_price"`
 	OfferPrice          int    `json:"offer_price"`
+}
+
+type SubscriptionInfo struct {
+	SubscriptionId string `json:"subscription_id"`
+	ProductId      string `json:"product_id"`
+	OrderId        string `json:"order_id"`
+	UserId         string `json:"user_id"`
+	CreatedAt      string `json:"created_at"`
+	StartDate      string `json:"start_date"`
+	EndDate        string `json:"end_date"`
+	Monday         bool   `json:"monday"`
+	Tuesday        bool   `json:"tuesday"`
+	Wednesday      bool   `json:"wednesday"`
+	Thursday       bool   `json:"thursday"`
+	Friday         bool   `json:"friday"`
+	Saturday       bool   `json:"saturday"`
+	Sunday         bool   `json:"sunday"`
+	PauseDates     string `json:"pause_dates"`
 }
 
 type Product struct {
@@ -56,4 +87,15 @@ type ViewGroup struct {
 	Header        Header    `json:"header"`
 	Children      []Product `json:"children"`
 	GridColumn    int       `json:"gridColumn" binding:"required"`
+}
+
+type ViewGroupSubscription struct {
+	ViewGroupType string             `json:"view_group_type"`
+	Children      []Product          `json:"children"`
+	Subscription  []SubscriptionInfo `json:"subscription"`
+	GridColumn    int                `json:"gridColumn" binding:"required"`
+}
+type ViewGroupProfile struct {
+	ViewGroupType string  `json:"view_group_type"`
+	Profile       Profile `json:"profile"`
 }

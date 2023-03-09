@@ -6,6 +6,7 @@ import (
 	"E-Commerce/response/chunks/deal_of_the_week"
 	"E-Commerce/response/chunks/explore_category"
 	"E-Commerce/response/chunks/featured_items"
+	"E-Commerce/response/chunks/subscription"
 	"E-Commerce/response/chunks/top_categogies"
 	"E-Commerce/response/chunks/top_products"
 	"E-Commerce/response/chunks/top_viewpager"
@@ -65,5 +66,11 @@ func ExploreTopCategory(c *gin.Context) {
 func ExploreCategory(c *gin.Context) {
 	var parentChildren []interface{}
 	parentChildren = explore_category.ExploreCategory(parentChildren)
+	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
+}
+
+func Subscription(c *gin.Context) {
+	var parentChildren []interface{}
+	parentChildren = subscription.SubscriptionInfo(parentChildren)
 	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
 }

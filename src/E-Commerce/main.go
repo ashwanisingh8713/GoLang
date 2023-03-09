@@ -4,6 +4,7 @@ import (
 	"E-Commerce/database"
 	"E-Commerce/ec_constant"
 	"E-Commerce/response"
+	"E-Commerce/response/userdata"
 	"E-Commerce/userData"
 	"github.com/gin-gonic/gin"
 )
@@ -33,7 +34,8 @@ func main() {
 	route.GET(ec_constant.ROUTE_HOME, response.Home)
 	route.GET(ec_constant.ROUTE_EXPLORE, response.ExploreTopCategory)
 	route.GET(ec_constant.ROUTE_PRODUCT, response.ExploreTopCategory)
-	//route.GET("/category/explore", response.ExploreCategory)
+	route.GET(ec_constant.ROUTE_PROFILE, userdata.Profile)
+	route.GET(ec_constant.ROUTE_SUBSCRIPTION, response.Subscription)
 
 	// Bakery Items
 	route.Static(ec_constant.BakeryItemsRelativePath4x, ec_constant.BakeryItemsFolderPath4x)
@@ -55,6 +57,8 @@ func main() {
 	route.Static(ec_constant.TopViewpagerRelativePath4x, ec_constant.TopViewpagerFolderPath4x)
 	// Vegetables
 	route.Static(ec_constant.VegetablesRelativePath4x, ec_constant.VegetablesFolderPath4x)
+	// Profile
+	route.Static(ec_constant.ProfileRelativePath4x, ec_constant.ProfileFolderPath4x)
 
 	// User Related Details
 	route.POST("/user", userData.GetUserInfo)

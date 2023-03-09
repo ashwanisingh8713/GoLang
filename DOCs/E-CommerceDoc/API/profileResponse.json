@@ -1,0 +1,145 @@
+{
+  "data": {
+    "user_id": "97a6c53e-b9a6-11ed-bb41-16ab030fa2fa",
+    "profile_pic": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png",
+    "user_name": "String",
+    "user_email": "ashwani@gmail.com",
+    "profile_cta": [
+      {
+        "value": {
+        "thumb_1x": "",
+        "thumb_2x": "",
+        "thumb_3x": "",
+        "thumb_4x": "",
+        "banner_1x": "",
+        "banner_2x": "",
+        "banner_3x": "",
+        "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+        },
+        "title": "My Order",
+        "action": {
+          "method": "",
+          "api": "get",
+          "destination": "Order",
+          "query": "/order"
+        }
+      },
+      {
+        "value": {
+          "thumb_1x": "",
+          "thumb_2x": "",
+          "thumb_3x": "",
+          "thumb_4x": "",
+          "banner_1x": "",
+          "banner_2x": "",
+          "banner_3x": "",
+          "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+        },
+        "title": "My Subscription",
+        "action": {
+          "method": "",
+          "api": "Get",
+          "destination": "Subscription",
+          "query": "/subscription"
+        }
+      },
+      {
+        "value": {
+          "thumb_1x": "",
+          "thumb_2x": "",
+          "thumb_3x": "",
+          "thumb_4x": "",
+          "banner_1x": "",
+          "banner_2x": "",
+          "banner_3x": "",
+          "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+        },
+        "title": "My Addresses",
+        "action": {
+          "method": "",
+          "api": "Get",
+          "destination": "Addresses",
+          "query": "/addresses"
+        }
+      },
+      {
+        "value": {
+          "thumb_1x": "",
+          "thumb_2x": "",
+          "thumb_3x": "",
+          "thumb_4x": "",
+          "banner_1x": "",
+          "banner_2x": "",
+          "banner_3x": "",
+          "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+        },
+        "title": "FAQ",
+        "action": {
+          "method": "",
+          "api": "Get",
+          "destination": "FAQ",
+          "query": "/faq"
+        }
+      },
+      {
+        "value": {
+          "thumb_1x": "",
+          "thumb_2x": "",
+          "thumb_3x": "",
+          "thumb_4x": "",
+          "banner_1x": "",
+          "banner_2x": "",
+          "banner_3x": "",
+          "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+        },
+        "title": "Contact Us",
+        "action": {
+          "method": "",
+          "api": "Get",
+          "destination": "Contact",
+          "query": "/contact"
+        }
+      },
+      {
+        "value": {
+          "thumb_1x": "",
+          "thumb_2x": "",
+          "thumb_3x": "",
+          "thumb_4x": "",
+          "banner_1x": "",
+          "banner_2x": "",
+          "banner_3x": "",
+          "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+        },
+        "title": "About",
+        "action": {
+          "method": "",
+          "api": "GET",
+          "destination": "About",
+          "query": "/about"
+        }
+      },
+      {
+        "value": {
+          "thumb_1x": "",
+          "thumb_2x": "",
+          "thumb_3x": "",
+          "thumb_4x": "",
+          "banner_1x": "",
+          "banner_2x": "",
+          "banner_3x": "",
+          "banner_4x": "http://192.168.13.137:8080/image/top_viewpager/4x/everyday_essentials.png"
+        },
+        "title": "",
+        "action": {
+          "method": "",
+          "api": "",
+          "destination": "",
+          "query": ""
+        }
+      }
+
+    ]
+  }
+}
+

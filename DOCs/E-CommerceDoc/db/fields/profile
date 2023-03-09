@@ -1,0 +1,7 @@
+user_id         text
+profile_pic     text
+user_name       text
+user_email      text
+value           Value
+cta_title       text
+action          Action

@@ -64,6 +64,7 @@ func main() {
 	route.POST("/user", userData.GetUserInfo)
 	route.POST("/address", userData.GetUserAddress)
 	route.POST("/cart_item", userData.GetUserCartItem)
+	route.POST("/subscription", userData.GetUserAllSubscription)
 
 	err := route.Run(ec_constant.IpAddress)
 	if err != nil {

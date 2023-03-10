@@ -3,7 +3,8 @@ package userData
 import (
 	"E-Commerce/database"
 	"E-Commerce/database/table/address"
-	cart_item2 "E-Commerce/database/table/cart_item"
+	"E-Commerce/database/table/cart_item"
+	"E-Commerce/database/table/subscriptions"
 	"E-Commerce/database/table/user"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -21,8 +22,7 @@ func GetUserInfo(c *gin.Context) {
 		return
 	}
 
-	var user = user.Read(database.DbInstance, input.UserId)
-	c.JSON(http.StatusOK, gin.H{"user": user})
+	c.JSON(http.StatusOK, gin.H{"user": user.Read(database.DbInstance, input.UserId)})
 }
 
 // GetUserAddress  /**
@@ -32,8 +32,7 @@ func GetUserAddress(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	var address = address.Read(database.DbInstance, input.UserId)
-	c.JSON(http.StatusOK, gin.H{"data": address})
+	c.JSON(http.StatusOK, gin.H{"data": address.Read(database.DbInstance, input.UserId)})
 }
 
 // GetUserCartItem  /**
@@ -43,6 +42,17 @@ func GetUserCartItem(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	var cartItems = cart_item2.Read(database.DbInstance, input.UserId)
+	var cartItems = cart_item.Read(database.DbInstance, input.UserId)
 	c.JSON(http.StatusOK, gin.H{"data": cartItems})
+}
+
+// GetUserAllSubscription  /**
+func GetUserAllSubscription(c *gin.Context) {
+	var input CreateUserIdInput
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	var subscriptions = subscriptions.ReadAllSubcriptions(database.DbInstance, input.UserId)
+	c.JSON(http.StatusOK, gin.H{"data": subscriptions})
 }

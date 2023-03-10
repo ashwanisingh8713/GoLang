@@ -82,7 +82,7 @@ func Read(session *gocql.Session, userId string) []CartItem {
 		log.Fatal("Address Error :: ", err)
 	}
 
-	// Reading products from Database
+	// Reading products from Product Table
 	for i, v := range productIds {
 		var product = productTable.Read(session, v)
 		cartItemsArray[i].Product = product

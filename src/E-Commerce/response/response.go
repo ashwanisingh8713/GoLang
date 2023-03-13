@@ -10,6 +10,7 @@ import (
 	"E-Commerce/response/chunks/top_categogies"
 	"E-Commerce/response/chunks/top_products"
 	"E-Commerce/response/chunks/top_viewpager"
+	"E-Commerce/response/onboarding"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -72,5 +73,11 @@ func ExploreCategory(c *gin.Context) {
 func Subscription(c *gin.Context) {
 	var parentChildren []interface{}
 	parentChildren = subscription.SubscriptionInfo(parentChildren)
+	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
+}
+
+func OnBoarding(c *gin.Context) {
+	var parentChildren []interface{}
+	parentChildren = onboarding.OnBoarding(parentChildren)
 	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
 }

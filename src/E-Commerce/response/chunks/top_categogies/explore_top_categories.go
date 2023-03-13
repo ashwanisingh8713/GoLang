@@ -19,7 +19,7 @@ func ExploreGroceries(parentChildren []interface{}) []interface{} {
 	var viewGrpChildren []data.Product
 
 	var value1 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.jpg",
+		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.png",
 	}
 
 	var product1 = data.Product{

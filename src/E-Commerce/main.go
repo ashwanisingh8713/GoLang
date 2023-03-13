@@ -36,6 +36,7 @@ func main() {
 	route.GET(ec_constant.ROUTE_PRODUCT, response.ExploreTopCategory)
 	route.GET(ec_constant.ROUTE_PROFILE, userdata.Profile)
 	route.GET(ec_constant.ROUTE_SUBSCRIPTION, response.Subscription)
+	route.GET(ec_constant.ROUTE_ONBOARDING, response.OnBoarding)
 
 	// Bakery Items
 	route.Static(ec_constant.BakeryItemsRelativePath4x, ec_constant.BakeryItemsFolderPath4x)
@@ -59,6 +60,9 @@ func main() {
 	route.Static(ec_constant.VegetablesRelativePath4x, ec_constant.VegetablesFolderPath4x)
 	// Profile
 	route.Static(ec_constant.ProfileRelativePath4x, ec_constant.ProfileFolderPath4x)
+
+	//OnBoarding
+	route.Static(ec_constant.OnBoardingRelativePath4x, ec_constant.OnBoardingFolderPath4x)
 
 	// User Related Details
 	route.POST("/user", userData.GetUserInfo)

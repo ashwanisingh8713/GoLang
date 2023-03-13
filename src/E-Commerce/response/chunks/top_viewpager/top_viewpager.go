@@ -12,7 +12,7 @@ func TopViewpager(parentChildren []interface{}) []interface{} {
 	var viewGrpChildren []data.Product
 
 	var productValue = data.Value{
-		Banner4x: ec_constant.TopViewpagerImagePath4x + top_viewpager.EveryDayEssentials,
+		Banner4x: ec_constant.TopViewpagerImagePath4x + top_viewpager.AnimatedImage,
 	}
 	var action = data.Action{}
 

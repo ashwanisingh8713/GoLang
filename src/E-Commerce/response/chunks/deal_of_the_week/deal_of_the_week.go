@@ -25,7 +25,7 @@ func DealOfTheWeek(parentChildren []interface{}) []interface{} {
 	var viewGrpChildren []data.Product
 
 	var value1 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "soft_drink.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "alarm.json",
 	}
 
 	var product1 = data.Product{

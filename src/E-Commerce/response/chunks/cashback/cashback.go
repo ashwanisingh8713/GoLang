@@ -15,7 +15,7 @@ func Cashback(parentChildren []interface{}) []interface{} {
 	var viewGrpChildren []data.Product
 
 	var value1 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "soft_drink.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "essientials.json",
 	}
 	var productInfo = data.ProductInfo{
 		DisplaySellingScale: "Get 25% Cashback",

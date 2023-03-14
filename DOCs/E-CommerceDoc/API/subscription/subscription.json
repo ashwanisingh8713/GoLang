@@ -1,0 +1,61 @@
+{
+  "data": [
+    {
+      "view_group_type": "VerticalGrid",
+       "children": [
+         {
+           "product_id": "10",
+           "type": "Template_10",
+           "title": "Fortune Rice",
+           "background_color": {
+             "hue": 0,
+             "saturation": 0,
+             "lighting": 0,
+             "alpha": 0
+           },
+           "value": {
+             "thumb_1x": "",
+             "thumb_2x": "",
+             "thumb_3x": "",
+             "thumb_4x": "",
+             "banner_1x": "",
+             "banner_2x": "",
+             "banner_3x": "",
+             "banner_4x": "http://192.168.13.94:8080/image/groceries4x/jaggery.png"
+           },
+           "product_info": {
+             "offer_percentage": "",
+             "quantity": 0,
+             "display_selling_scale": "",
+             "unit_price": 0,
+             "offer_price": 0
+           },
+           "action": {
+             "method": "Get",
+             "api": "",
+             "destination": "Detail",
+             "query": "TopProduct_"
+           },
+           "subscription": {
+             "subscription_id": "",
+             "product_id": "",
+             "order_id": "",
+             "user_id": "",
+             "created_at": "",
+             "start_date": "",
+             "end_date": "",
+             "monday": true,
+             "tuesday": true,
+             "wednesday": false,
+             "thursday": true,
+             "friday": true,
+             "saturday": false,
+             "sunday": true,
+             "pause_dates": ""
+           }
+         }
+       ]
+    }
+
+  ]
+}

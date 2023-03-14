@@ -73,13 +73,23 @@ type SubscriptionInfo struct {
 }
 
 type Product struct {
-	ProductId       string      `json:"product_id"`
-	Type            string      `json:"type"`
-	Title           string      `json:"title"`
-	BackgroundColor Color       `json:"background_color"`
-	Value           Value       `json:"value"`
-	ProductInfo     ProductInfo `json:"product_info"`
-	Action          Action      `json:"action"`
+	ProductId        string           `json:"product_id"`
+	Type             string           `json:"type"`
+	Title            string           `json:"title"`
+	BackgroundColor  Color            `json:"background_color"`
+	Value            Value            `json:"value"`
+	ProductInfo      ProductInfo      `json:"product_info"`
+	Action           Action           `json:"action"`
+	SubscriptionInfo SubscriptionInfo `json:"subscription_info,omitempty"`
+}
+
+type OnBoarding struct {
+	Value Value  `json:"value"`
+	Title string `json:"title"`
+}
+type ViewGroupOnboarding struct {
+	ViewGroupType string       `json:"view_group_type"`
+	Children      []OnBoarding `json:"children"`
 }
 
 type ViewGroup struct {

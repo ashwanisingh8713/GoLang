@@ -19,7 +19,7 @@ func Profile(c *gin.Context) {
 	viewGrpCtaChildren = LogOut(viewGrpCtaChildren)
 
 	var profileInfo = data.Profile{
-		ProfilePic: "",
+		ProfilePic: "https://cdn.pixabay.com/photo/2016/11/18/23/38/child-1837375__340.png",
 		UserId:     "97a6c53e-b9a6-11ed-bb41-16ab030fa2fa",
 		UserName:   "Ninestars",
 		UserEmail:  "ninestars@gmail.com",
@@ -117,7 +117,7 @@ func ContactUs(viewGrpCtaChildren []data.ProfileCta) []data.ProfileCta {
 		API:         "",
 		Query:       "/contact_us",
 		Method:      "Get",
-		Destination: "ContactUs",
+		Destination: "Contact",
 	}
 
 	var profileData = data.ProfileCta{

@@ -50,6 +50,7 @@ func main() {
 	route.GET(ec_constant.ROUTE_PRODUCT, response.ExploreTopCategory)
 	route.GET(ec_constant.ROUTE_PROFILE, userdata.Profile)
 	route.GET(ec_constant.ROUTE_SUBSCRIPTION, response.Subscription)
+	route.GET(ec_constant.ROUTE_ONBOARDING, response.OnBoarding)
 
 	// use ginSwagger middleware to serve the API docs
 	//url := ginSwagger.URL(ec_constant.IpAddress + "/swagger/doc.json") // The url pointing to API definition
@@ -79,6 +80,9 @@ func main() {
 	route.Static(ec_constant.VegetablesRelativePath4x, ec_constant.VegetablesFolderPath4x)
 	// Profile
 	route.Static(ec_constant.ProfileRelativePath4x, ec_constant.ProfileFolderPath4x)
+
+	//OnBoarding
+	route.Static(ec_constant.OnBoardingRelativePath4x, ec_constant.OnBoardingFolderPath4x)
 
 	// User Related Details
 	route.POST("/user", userData.GetUserInfo)

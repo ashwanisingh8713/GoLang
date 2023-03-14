@@ -19,7 +19,7 @@ func ExploreCategory(parentChildren []interface{}) []interface{} {
 	var viewGrpChildren []data.Product
 
 	var value1 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.jpg",
+		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.png",
 	}
 
 	var product1 = data.Product{
@@ -30,77 +30,77 @@ func ExploreCategory(parentChildren []interface{}) []interface{} {
 	}
 
 	var value2 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "saffolagoldoil.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "banana.jpg",
 	}
 	var product2 = data.Product{
 		Type:   templateType,
-		Title:  "Saffola gold oil",
+		Title:  "Banana",
 		Action: data.Action{},
 		Value:  value2,
 	}
 
 	var value3 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "potato.png",
 	}
 	var product3 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Potato",
 		Action: data.Action{},
 		Value:  value3,
 	}
 
 	var value4 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "soft_drink.png",
 	}
 	var product4 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Soft Drink",
 		Action: data.Action{},
 		Value:  value4,
 	}
 
 	var value5 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tea.png",
 	}
 	var product5 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Tea",
 		Action: data.Action{},
 		Value:  value5,
 	}
 
 	var value6 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "banana.jpg",
 	}
 	var product6 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Banana",
 		Action: data.Action{},
 		Value:  value6,
 	}
 
 	var value7 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "potato.png",
 	}
 	var product7 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Potato",
 		Action: data.Action{},
 		Value:  value7,
 	}
 
 	var value8 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tea.png",
 	}
 	var product8 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Tea",
 		Action: data.Action{},
 		Value:  value8,
 	}
 
 	var value9 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.GroceriesImagePath4x + "tataarhardal.png",
 	}
 	var product9 = data.Product{
 		Type:   templateType,
@@ -110,7 +110,7 @@ func ExploreCategory(parentChildren []interface{}) []interface{} {
 	}
 
 	var value10 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.GroceriesImagePath4x + "tataarhardal.png",
 	}
 	var product10 = data.Product{
 		Type:   templateType,
@@ -120,41 +120,23 @@ func ExploreCategory(parentChildren []interface{}) []interface{} {
 	}
 
 	var value11 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.GroceriesImagePath4x + "saffolagoldoil.png",
 	}
 	var product11 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Suffola Gold Oil",
 		Action: data.Action{},
 		Value:  value11,
 	}
 
 	var value12 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
+		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tea.png",
 	}
 	var product12 = data.Product{
 		Type:   templateType,
-		Title:  "TATA Arhar Dal",
+		Title:  "Tea",
 		Action: data.Action{},
 		Value:  value12,
-	}
-	var value13 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
-	}
-	var product13 = data.Product{
-		Type:   templateType,
-		Title:  "TATA Arhar Dal",
-		Action: data.Action{},
-		Value:  value13,
-	}
-	var value14 = data.Value{
-		Banner4x: ec_constant.DealOfTheWeekImagePath4x + "tataarhardal.png",
-	}
-	var product14 = data.Product{
-		Type:   templateType,
-		Title:  "TATA Arhar Dal",
-		Action: data.Action{},
-		Value:  value14,
 	}
 
 	viewGrpChildren = append(viewGrpChildren, product1)
@@ -169,8 +151,6 @@ func ExploreCategory(parentChildren []interface{}) []interface{} {
 	viewGrpChildren = append(viewGrpChildren, product10)
 	viewGrpChildren = append(viewGrpChildren, product11)
 	viewGrpChildren = append(viewGrpChildren, product12)
-	viewGrpChildren = append(viewGrpChildren, product13)
-	viewGrpChildren = append(viewGrpChildren, product14)
 
 	var viewGroup = data.ViewGroup{
 		ViewGroupType: ui_type.VerticalGrid.String(),

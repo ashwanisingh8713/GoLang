@@ -85,7 +85,7 @@ const (
 
 // Groceries
 const (
-	groceriesSubFolder    = "/groceries"
+	groceriesSubFolder    = "/groceries/"
 	groceriesFolderPath   = drawableFolder + groceriesSubFolder
 	groceriesRelativePath = "/image" + groceriesSubFolder
 	groceriesImagePath    = PROTOCOL + IpAddress + groceriesFolderPath
@@ -155,11 +155,23 @@ const (
 )
 
 const (
+	onBoardingSubFolder    = "/onboarding/"
+	onBoardingFolderPath   = drawableFolder + onBoardingSubFolder
+	onBoardingRelativePath = "/image" + onBoardingSubFolder
+	onBoardingImagePath    = PROTOCOL + IpAddress + profileFolderPath
+
+	OnBoardingRelativePath4x = onBoardingRelativePath + x4
+	OnBoardingFolderPath4x   = onBoardingFolderPath + x4
+	OnBoardingImagePath4x    = PROTOCOL + IpAddress + OnBoardingRelativePath4x
+)
+
+const (
 	ROUTE_HOME         = "/ec"
 	ROUTE_EXPLORE      = "/explore"
 	ROUTE_PRODUCT      = "/product"
 	ROUTE_SUBSCRIPTION = "/subscription"
 	ROUTE_PROFILE      = "/profile"
+	ROUTE_ONBOARDING   = "/onboarding"
 )
 
 const (

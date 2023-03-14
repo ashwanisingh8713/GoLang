@@ -79,25 +79,8 @@ func SubscriptionInfo(parentChildren []interface{}) []interface{} {
 		PauseDates:     "",
 	}
 
-	var subcription5 = data.SubscriptionInfo{
-		SubscriptionId: "",
-		ProductId:      "",
-		OrderId:        "",
-		CreatedAt:      "",
-		StartDate:      "",
-		EndDate:        "",
-		Monday:         true,
-		Thursday:       true,
-		Wednesday:      false,
-		Tuesday:        true,
-		Friday:         true,
-		Saturday:       false,
-		Sunday:         true,
-		PauseDates:     "",
-	}
-
 	var value1 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.jpg",
+		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.png",
 	}
 
 	var product1 = data.Product{
@@ -110,10 +93,11 @@ func SubscriptionInfo(parentChildren []interface{}) []interface{} {
 			Method:      "Get",
 			Destination: ec_constant.Destination_Detail,
 		},
-		Value: value1,
+		Value:            value1,
+		SubscriptionInfo: subcription1,
 	}
 	var value2 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.jpg",
+		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.png",
 	}
 
 	var product2 = data.Product{
@@ -125,10 +109,11 @@ func SubscriptionInfo(parentChildren []interface{}) []interface{} {
 			Method:      "Get",
 			Destination: ec_constant.Destination_Detail,
 		},
-		Value: value2,
+		Value:            value2,
+		SubscriptionInfo: subcription2,
 	}
 	var value3 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.jpg",
+		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.png",
 	}
 
 	var product3 = data.Product{
@@ -140,10 +125,11 @@ func SubscriptionInfo(parentChildren []interface{}) []interface{} {
 			Method:      "Get",
 			Destination: ec_constant.Destination_Detail,
 		},
-		Value: value3,
+		Value:            value3,
+		SubscriptionInfo: subcription3,
 	}
 	var value4 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.jpg",
+		Banner4x: ec_constant.GroceriesImagePath4x + "jaggery.png",
 	}
 
 	var product4 = data.Product{
@@ -155,19 +141,14 @@ func SubscriptionInfo(parentChildren []interface{}) []interface{} {
 			Method:      "Get",
 			Destination: ec_constant.Destination_Detail,
 		},
-		Value: value4,
+		Value:            value4,
+		SubscriptionInfo: subcription4,
 	}
 
 	viewGrpChildren = append(viewGrpChildren, product1)
 	viewGrpChildren = append(viewGrpChildren, product2)
 	viewGrpChildren = append(viewGrpChildren, product3)
 	viewGrpChildren = append(viewGrpChildren, product4)
-
-	subscriptions = append(subscriptions, subcription1)
-	subscriptions = append(subscriptions, subcription2)
-	subscriptions = append(subscriptions, subcription3)
-	subscriptions = append(subscriptions, subcription4)
-	subscriptions = append(subscriptions, subcription5)
 
 	var viewGroup = data.ViewGroupSubscription{
 		ViewGroupType: ui_type.VerticalGrid.String(),

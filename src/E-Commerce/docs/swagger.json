@@ -1,0 +1,166 @@
+{
+    "schemes": [
+        "http"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is E-Commerce API Server.",
+        "title": "APIs of E-Commerce Project",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "API Support (Ashwani)",
+            "url": "http://www.swagger.io/support",
+            "email": "support@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0"
+    },
+    "host": "192.168.13.5:8080",
+    "basePath": "/",
+    "paths": {
+        "/get_wishlist": {
+            "post": {
+                "description": "Get the all wishlist of the User.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Shows the all wishlist of the User.",
+                "parameters": [
+                    {
+                        "description": "Request Body to get all Wishlist",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/wishlist.Wishlist"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/wishlist": {
+            "delete": {
+                "description": "To delete the selected product from User's Wishlist.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Deletes the selected wishlistId from the Wishlist Table.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "Query string, wishlist_id value",
+                        "name": "wishlistId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/wishlist.Wishlist"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "userData.CreateUserIdInput": {
+            "type": "object",
+            "required": [
+                "userId"
+            ],
+            "properties": {
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "wishlist.Wishlist": {
+            "type": "object",
+            "properties": {
+                "Created_at": {
+                    "type": "string"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "wishlist_id": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

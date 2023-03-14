@@ -14,4 +14,5 @@ const (
 	TABLE_Sub_category  = "sub_category" // In Progress
 	TABLE_Subscriptions = "subscriptions"
 	TABLE_User          = "user"
+	TABLE_Wishlist      = "wishlist"
 )

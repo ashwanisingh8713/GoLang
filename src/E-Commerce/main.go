@@ -2,11 +2,17 @@ package main
 
 import (
 	"E-Commerce/database"
+	_ "E-Commerce/docs"
 	"E-Commerce/ec_constant"
 	"E-Commerce/response"
 	"E-Commerce/response/userdata"
 	"E-Commerce/userData"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"os"
 )
 
 // @title APIs of E-Commerce Project
@@ -21,7 +27,7 @@ import (
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host 192.168.13.77:8080
+// @host 192.168.13.5:8080
 // @BasePath /
 // @schemes http
 func main() {
@@ -29,13 +35,27 @@ func main() {
 	// It creates singleton cassandra db instance
 	database.CreateDBSession()
 
+	godotenv.Load(".env")
+	port := os.Getenv("PORT")
+	fmt.Println("this is port", port)
+	// Force log's color
+	gin.ForceConsoleColor()
+
 	route := gin.Default()
+	route.Use(CORSMiddleware())
+	//route.Use(cors.Default())
 
 	route.GET(ec_constant.ROUTE_HOME, response.Home)
 	route.GET(ec_constant.ROUTE_EXPLORE, response.ExploreTopCategory)
 	route.GET(ec_constant.ROUTE_PRODUCT, response.ExploreTopCategory)
 	route.GET(ec_constant.ROUTE_PROFILE, userdata.Profile)
 	route.GET(ec_constant.ROUTE_SUBSCRIPTION, response.Subscription)
+
+	// use ginSwagger middleware to serve the API docs
+	//url := ginSwagger.URL(ec_constant.IpAddress + "/swagger/doc.json") // The url pointing to API definition
+	//url := ginSwagger.URL(ec_constant.IpAddress + "/docs/doc.json") // The url pointing to API definition
+	//route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))
+	route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// Bakery Items
 	route.Static(ec_constant.BakeryItemsRelativePath4x, ec_constant.BakeryItemsFolderPath4x)
@@ -65,10 +85,31 @@ func main() {
 	route.POST("/address", userData.GetUserAddress)
 	route.POST("/cart_item", userData.GetUserCartItem)
 	route.POST("/subscription", userData.GetUserAllSubscription)
+	route.POST("/wishlist", userData.CreateWishlist)
+	route.POST("/get_wishlist", userData.GetWishlist)
+	route.DELETE("/wishlist", userData.DeleteWishlist)
 
 	err := route.Run(ec_constant.IpAddress)
 	if err != nil {
 		return
 	}
 
+}
+
+func CORSMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+
+		c.Header("Access-Control-Allow-Origin", "*")
+		//c.Header("Access-Control-Allow-Credentials", "true")
+		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Header("Access-Control-Allow-Methods", "POST,HEAD,PATCH, OPTIONS, GET, PUT, DELETE")
+
+		if c.Request.Method == "OPTIONS" {
+			c.AbortWithStatus(204)
+			return
+		}
+
+		c.Next()
+
+	}
 }

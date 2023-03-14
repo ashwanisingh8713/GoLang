@@ -19,39 +19,6 @@ type User struct {
 	CreatedAt time.Time `json:"created_at"`
 }
 
-func Insert(session *gocql.Session) {
-	var user = User{}
-	user.FirstName = "User - 1 "
-	user.LastName = "Dev Team"
-	user.Mobile = "8390089995"
-	user.Email = "ashwani@gmail.com"
-	user.Password = "Password"
-	user.LoginMode = "Google"
-	user.CreatedAt = time.Now()
-
-	if err := session.Query(`INSERT INTO `+table.TABLE_User+`(
-		`+user_id+`,
-		`+first_name+`,
-		`+last_name+`,
-		`+mobile+`,
-		`+email+`,
-		`+password+`,
-		`+login_mode+`,
-		`+created_at+`
-		) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-		gocql.TimeUUID(),
-		user.FirstName,
-		user.LastName,
-		user.Mobile,
-		user.Email,
-		user.Password,
-		user.LoginMode,
-		user.CreatedAt,
-	).Exec(); err != nil {
-		log.Fatal("Error! insert into User ::::    ", err)
-	}
-}
-
 const (
 	user_id    = "user_id"
 	first_name = "first_name"

@@ -1,7 +1,20 @@
 # To create Table order_item
+# After making payment "order_item" will be created.
 
 CREATE TABLE ecommerce.order_item (
-item_id uuid,
+order_item_id uuid,
+order_id text,
+address_id text,
+products map<text, int>,
+updated timestamp,
+created_date date,
+PRIMARY KEY ((order_item_id), order_id, created_date) )
+WITH comment = 'Q7. Find initiated orders by User';
+
+Below is V-1 #############################################################################################################
+
+CREATE TABLE ecommerce.order_item (
+order_item_id uuid,
 order_id text,
 quantity text,
 address_id text,

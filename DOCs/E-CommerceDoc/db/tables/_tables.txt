@@ -23,4 +23,5 @@ Tables
         - order_status
         - order_items
         - payment
+        - order_product_history
 

@@ -17,3 +17,6 @@ To Filter, Use Index Column in Where Clause
     CREATE INDEX indexname ON tablename  (columnname );
     Example: CREATE INDEX employee_age ON employee (age);
     CREATE INDEX address_userId ON address (user_id);
+
+Insert if message does not exist (https://stackoverflow.com/questions/38619991/how-to-make-sure-write-only-if-data-does-not-exist-in-cassandra)
+    INSERT INTO message( messageId, data ) VALUES ( 1, xyz ) IF NOT EXISTS

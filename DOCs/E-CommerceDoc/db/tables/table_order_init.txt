@@ -1,4 +1,5 @@
-# To create Table order_init
+# To create Table order_init,
+## It only generates order initialisation id, which will be used to track the final delivery of product status.
 
 CREATE TABLE ecommerce.order_init (
 order_id uuid,

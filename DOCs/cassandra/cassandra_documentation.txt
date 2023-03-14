@@ -18,3 +18,6 @@
 
 #### Cassandra Where Clause ********
     https://www.techbrothersit.com/2018/06/use-where-clause-in-cassandra-cassandra.html
+
+CQL :: Insert Into, Update (Example)
+    https://www.guru99.com/cassandra-query-language-cql-insert-update-delete-read-data.html#:~:text=Upsert%20means%20that%20Cassandra%20will,it%20will%20update%20that%20row.

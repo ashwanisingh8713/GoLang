@@ -3,9 +3,10 @@ https://www.youtube.com/watch?v=qXH9XKcsnmg
 https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/useQuerySystemTable.html
 
 To Start cassandra
+    brew services stop cassandra
     brew services start cassandra
     cassandra
-    cqlsh
+    cqlsh 192.168.13.5
 
 To Stop cassandra
     brew services stop cassandra
@@ -24,3 +25,10 @@ cassandra.yaml
     553 - seeds
     764 - listen_address
     860 - rpc_address
+
+#### To Get IP Address
+ifconfig | grep inet
+
+#### CQL shell commands
+    https://docs.datastax.com/en/cql-oss/3.x/cql/cql_reference/cqlshShow.html
+

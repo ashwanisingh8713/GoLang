@@ -1,13 +1,29 @@
 # To create Table wishlist
 
-CREATE TABLE ecommerce.wishlist (
-wishlist_id uuid,
+CREATE TABLE ecommerce.order_product_history (
+order_product_history_id uuid,
 user_id text,
-product_id text,
-quantity int,
+order_id text,
+product_quantity int,
 created_at timestamp,
 modified_at timestamp,
-date date
+date date,
+product_id text,
+category_id text,
+dimension text,
+manufacturer_id text,
+name text,
+picture text,
+price decimal,
+description text,
+seller_id text,
+sku text,
+sub_category_id text,
+weight decimal,
+units  int,
+subscribable boolean,
+seller_name text,
+about_product text,
 PRIMARY KEY ((wishlist_id), user_id, product_id, date) )
-WITH comment = 'Q16. Find wishlist of User'
+WITH comment = 'Q17. Find order history of the User'
 ;

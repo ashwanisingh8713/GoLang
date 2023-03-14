@@ -1,3 +1,8 @@
+## Keeps Coupon data
+## Coupon T&C will not be part of this because coupon must be identical
+## T&C can be created with different table with reference of coupon_id.
+
+
 coupon_id   uuid        (PK)
 coupon_code text
 coupon_desc text

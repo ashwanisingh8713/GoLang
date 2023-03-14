@@ -1,10 +1,9 @@
 address (Insert, Read)
-cart_item (Insert )
+cart_item (Insert, Read )
 category (Insert, Read)
-
-products (Insert)
-
+products (Insert, Read)
 sub_category (Insert, Read)
 seller (Insert)
 user (Insert, Read)
+
 

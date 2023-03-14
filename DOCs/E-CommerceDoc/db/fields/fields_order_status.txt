@@ -1,11 +1,19 @@
-### It will be helpful to track payment and order status in scenario of Cash on delivery
-### When user completed the payment then it takes the order_init_id, and "payment_id"
-parent_order_id     uuid        (PK)
-related_order_id    text
+
+### Once Product or Order is delivered then only this Table will be updated with required entries.
+
+### It will be helpful to track payment and order status in scenario of Cash on delivery.
+
+### When user completed the payment then it takes the order_init_id (related_order_id), and "payment_id"
+
+order_status_id     uuid        (PK)
+order_item_id       text        (CK)
+order_id            text        (CK)
 payment_id          text
 user_id             text
 mobile              text
 email_id            text
 created_at          timestamp    (CK)
+is_delivered        boolean        (CK)
+date                date        (CK)
 
 

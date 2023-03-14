@@ -1,8 +1,28 @@
-wishlist_id     uuid        (PK)
-user_id     text            (CK)
-product_id  text            (CK)
-quantity    int
+## After Payment & delivery done , it holds the record of order_id and relevant products.
+
+order_product_history_id     uuid       (PK)
+user_id     text                (CK)
+order_id  text                  (CK)
+product_quantity    int
 created_at  timestamp
 modified_at timestamp
-date        date            (CK)
+date        date                (CK)
+
+product_id              text  (CK)
+category_id             text  (CK)
+dimension               text
+manufacturer_id         text
+name                    text
+picture                 text
+price                   decimal
+description             text
+seller_id               text    (CK)
+sku                     text
+sub_category_id         text
+weight                  decimal
+units                   int
+last_updated            timestamp
+subscribable            boolean
+seller_name              text
+about_product            text
 

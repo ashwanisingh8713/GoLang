@@ -1,0 +1,16 @@
+Manufacturer => Seller => Product =>
+
+User Profile => Address
+
+User Cart_Item Checkout CTA =>
+     When user initiate the payment then it creates "order_init", and passes to "payment" =>
+           After making payment "order_item" will be created =>
+                  Next, "cart_item" data will be deleted.
+
+Note :  In case of "Cash on Delivery" only "order_init" will be created Not "payment".
+
+
+
+
+
+

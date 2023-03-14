@@ -3,7 +3,17 @@ Pull swagger libraries.
 $ go get -v github.com/swaggo/swag/cmd/swag
 $ go get -v github.com/swaggo/gin-swagger
 $ go get -v github.com/swaggo/files
+$ go install github.com/swaggo/swag/cmd/swag@latest
 
 
 go run ginsimple/main.go
 swag init -g ginsimple/main.go --output docs/ginsimple
+
+
+To Open swagger in Browser
+http://localhost:3000/swagger/index.html
+
+
+
+/////////
+swag init -g main.go --output docs/ec

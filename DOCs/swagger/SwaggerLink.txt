@@ -3,3 +3,13 @@ Tutorial: Generate Swagger Specification and SwaggerUI for Gin Go Web Framework
 
 
     https://peggy-tsai.medium.com/golang-swag-command-not-found-error-handling-52e2cbc5240e
+
+
+## Swagger Official Docs
+    swagger:route ( https://goswagger.io/use/spec/route.html )
+        swagger:route [method] [path pattern] [?tag1 tag2 tag3] [operation id]
+
+How to Install Swagger Editor and UI Locally ?
+    https://www.datasciencelearner.com/how-to-install-swagger-editor-and-ui-locally/
+
+

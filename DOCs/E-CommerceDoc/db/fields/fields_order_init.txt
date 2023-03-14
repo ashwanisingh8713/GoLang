@@ -1,5 +1,7 @@
 ### When user initiate the payment then it creates the order_id, and passes to "payment" table
 
+### It will be useful to track when payment is cancelled or failed from User / App end
+
 order_id            uuid        (PK)
 user_id             text        (CK)
 mobile              text        (CK)

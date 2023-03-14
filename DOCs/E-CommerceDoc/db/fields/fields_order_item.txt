@@ -1,6 +1,20 @@
-## Before making payment this table's items will be created.
+## After making payment this table's items will be created.
 
-item_id         uuid        (PK)
+## It will be useful to get the all orders for particular Product with quantity
+
+## It will be useful to track individual product whether it is available or not in store ( requires more enhancement)
+
+
+order_item_id   uuid        (PK)
+order_id        text        (CK)
+products        map<text, integer>   | i.g.     map<product_id, quantity>
+address_id      text
+updated         timestamp
+created_date    date        (CK)
+
+Below is V-1 #############################################################################################################
+
+order_item_id   uuid        (PK)
 order_id        text        (CK)
 quantity        text
 address_id      text

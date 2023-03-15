@@ -2,12 +2,12 @@ package products
 
 import (
 	"E-Commerce/database/table"
+	"fmt"
 	"github.com/gocql/gocql"
-	"log"
 	"time"
 )
 
-func ProductInsertQuery(session *gocql.Session, sellerId string, sellerName string, catId string, subCatId string) {
+func CreateProduct(session *gocql.Session, sellerId string, sellerName string, catId string, subCatId string) {
 	Insert(session,
 		catId,
 		"",
@@ -65,7 +65,7 @@ type Product struct {
 
 func Insert(session *gocql.Session, pCategoryId string, pDimension string, pManufacturerId string,
 	pName string, pPicture string, pPrice float32, pDescription string, pSellerId string, pSellerName string, pSku string,
-	pSubCategoryId string, pWeight float32, pUnits int, pSubscribable bool) {
+	pSubCategoryId string, pWeight float32, pUnits int, pSubscribable bool) bool {
 
 	println("category_id", pCategoryId)
 	println("dimension", pDimension)
@@ -117,8 +117,10 @@ func Insert(session *gocql.Session, pCategoryId string, pDimension string, pManu
 		time.Now(),
 		pSubscribable,
 	).Exec(); err != nil {
-		log.Fatal("Error! insert into Product ::::    ", err)
+		fmt.Println("Error! insert into Product ::::    ", err)
+		return false
 	}
+	return true
 }
 
 func Read(session *gocql.Session, productId string) Product {
@@ -153,7 +155,8 @@ func Read(session *gocql.Session, productId string) Product {
 		&product.LastUpdated, &product.Subscribable) {
 	}
 	if err := iter.Close(); err != nil {
-		log.Fatal("Address Error :: ", err)
+		fmt.Println("Error! Reading Product :: ", err)
+		return Product{}
 	}
 	return product
 }

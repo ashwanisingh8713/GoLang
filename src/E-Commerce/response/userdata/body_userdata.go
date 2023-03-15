@@ -1,9 +1,4 @@
-package userData
-
-const (
-	USER      = "User"
-	USER_ITEM = "UserItem"
-)
+package userdata
 
 type BodyWishlistInput struct {
 	UserId    string `json:"userId" binding:"required"`

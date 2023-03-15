@@ -1,4 +1,4 @@
-package userData
+package userdata
 
 import (
 	"E-Commerce/database"
@@ -31,9 +31,9 @@ func CreateUser(c *gin.Context) {
 	}
 	var status = user.CreateUser(database.DbInstance, input.FirstName, input.LastName, input.Mobile, input.Email, input.Password, input.LoginMode)
 	if status {
-		c.JSON(http.StatusOK, gin.H{"status": status, "msg": "User input.FirstName is created successfully."})
+		c.JSON(http.StatusOK, gin.H{"status": status, "msg": "User " + input.FirstName + " is created successfully."})
 	} else {
-		c.JSON(http.StatusOK, gin.H{"status": status, "msg": "Failed to create User input.FirstName."})
+		c.JSON(http.StatusOK, gin.H{"status": status, "msg": "Failed to create User " + input.FirstName + "."})
 	}
 
 }

@@ -5,8 +5,8 @@ import (
 	_ "E-Commerce/docs"
 	"E-Commerce/ec_constant"
 	"E-Commerce/response"
+	productRes "E-Commerce/response/products"
 	"E-Commerce/response/userdata"
-	"E-Commerce/userData"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -71,15 +71,19 @@ func main() {
 	route.GET(ec_constant.ROUTE_ONBOARDING, response.OnBoarding)
 
 	// User Related APIs
-	route.POST("/createUser", userData.CreateUser)
-	route.POST("/getAllUsers", userData.GetAllUsers)
-	route.POST("/user", userData.GetUserInfo)
-	route.POST("/address", userData.GetUserAddress)
-	route.POST("/cart_item", userData.GetUserCartItem)
-	route.POST("/subscription", userData.GetUserAllSubscription)
-	route.POST("/c_wishlist", userData.CreateWishlist)
-	route.POST("/r_wishlist", userData.GetWishlist)
-	route.DELETE("/d_wishlist", userData.DeleteWishlist)
+	route.POST("/createUser", userdata.CreateUser)
+	route.POST("/getAllUsers", userdata.GetAllUsers)
+	route.POST("/user", userdata.GetUserInfo)
+	route.POST("/address", userdata.GetUserAddress)
+	route.POST("/cart_item", userdata.GetUserCartItem)
+	route.POST("/subscription", userdata.GetUserAllSubscription)
+	route.POST("/c_wishlist", userdata.CreateWishlist)
+	route.POST("/r_wishlist", userdata.GetWishlist)
+	route.DELETE("/d_wishlist", userdata.DeleteWishlist)
+
+	// Product Related APIs
+	route.POST("/c_product", productRes.CreateProduct)
+	route.POST("/r_product", productRes.GetProduct)
 
 	err := route.Run(ec_constant.IpAddress)
 	if err != nil {

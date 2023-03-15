@@ -59,16 +59,19 @@ func CreateUser(session *gocql.Session, u_firstName, u_lastName, u_mobile, u_ema
 
 func GetUserInfo(session *gocql.Session, userId string) User {
 	var user = User{}
-	iter := session.Query(`SELECT ` +
-		user_id +
-		`,` + first_name +
-		`,` + last_name +
-		`,` + mobile +
-		`,` + email +
-		`,` + password +
-		`,` + login_mode +
-		`,` + created_at +
-		` FROM ` + table.TABLE_User).Iter()
+	iter := session.Query(`SELECT `+
+		user_id+
+		`,`+first_name+
+		`,`+last_name+
+		`,`+mobile+
+		`,`+email+
+		`,`+password+
+		`,`+login_mode+
+		`,`+created_at+
+		` FROM `+table.TABLE_User+
+		` WHERE `+
+		user_id+
+		` = ? `, userId).Iter()
 
 	for iter.Scan(&user.UserId, &user.FirstName, &user.LastName, &user.Mobile,
 		&user.Email,

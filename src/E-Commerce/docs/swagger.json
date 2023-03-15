@@ -285,6 +285,82 @@
                 }
             }
         },
+        "/ec": {
+            "get": {
+                "description": "To get Home's Views Group",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "VIEW_GROUP"
+                ],
+                "summary": "Provides HomePage Views Groups",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ViewGroupMockResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/explore": {
+            "get": {
+                "description": "To get response of Explore Btn CTA",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "VIEW_GROUP"
+                ],
+                "summary": "Explore Click To Action",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.ViewGroupMockResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/getAllUsers": {
             "post": {
                 "description": "To get all Users list (userId = 09876).",
@@ -317,6 +393,82 @@
                             "items": {
                                 "$ref": "#/definitions/user.User"
                             }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/onboarding": {
+            "get": {
+                "description": "To get response of OnBoarding Page ViewGroup",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "VIEW_GROUP"
+                ],
+                "summary": "OnBoarding Page ViewGroup",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.SubscriptionPageMockResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/profile": {
+            "get": {
+                "description": "To get ProfilePage Views Group",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "VIEW_GROUP"
+                ],
+                "summary": "Provides ProfilePage Views Groups",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/data.Profile"
                         }
                     },
                     "400": {
@@ -396,6 +548,42 @@
             }
         },
         "/subscription": {
+            "get": {
+                "description": "To get response of Subscription Page ViewGroup",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "VIEW_GROUP"
+                ],
+                "summary": "Subscription Page ViewGroup",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/response.SubscriptionPageMockResponse"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
             "post": {
                 "description": "To get subscription list.",
                 "consumes": [
@@ -571,6 +759,91 @@
                 }
             }
         },
+        "data.Action": {
+            "type": "object",
+            "properties": {
+                "api": {
+                    "type": "string"
+                },
+                "destination": {
+                    "description": "Screen destination",
+                    "type": "string"
+                },
+                "method": {
+                    "type": "string"
+                },
+                "query": {
+                    "description": "API Query",
+                    "type": "string"
+                }
+            }
+        },
+        "data.Profile": {
+            "type": "object",
+            "properties": {
+                "cta_profile": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/data.ProfileCta"
+                    }
+                },
+                "profile_pic": {
+                    "type": "string"
+                },
+                "user_email": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "data.ProfileCta": {
+            "type": "object",
+            "properties": {
+                "action": {
+                    "$ref": "#/definitions/data.Action"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "value": {
+                    "$ref": "#/definitions/data.Value"
+                }
+            }
+        },
+        "data.Value": {
+            "type": "object",
+            "properties": {
+                "banner_1x": {
+                    "type": "string"
+                },
+                "banner_2x": {
+                    "type": "string"
+                },
+                "banner_3x": {
+                    "type": "string"
+                },
+                "banner_4x": {
+                    "type": "string"
+                },
+                "thumb_1x": {
+                    "type": "string"
+                },
+                "thumb_2x": {
+                    "type": "string"
+                },
+                "thumb_3x": {
+                    "type": "string"
+                },
+                "thumb_4x": {
+                    "type": "string"
+                }
+            }
+        },
         "products.Product": {
             "type": "object",
             "properties": {
@@ -637,6 +910,393 @@
                 "weight": {
                     "description": "13",
                     "type": "number"
+                }
+            }
+        },
+        "response.SubscriptionPageMockResponse": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "children": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "action": {
+                                            "type": "object",
+                                            "properties": {
+                                                "api": {
+                                                    "type": "string"
+                                                },
+                                                "destination": {
+                                                    "type": "string"
+                                                },
+                                                "method": {
+                                                    "type": "string"
+                                                },
+                                                "query": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "background_color": {
+                                            "type": "object",
+                                            "properties": {
+                                                "alpha": {
+                                                    "type": "integer"
+                                                },
+                                                "hue": {
+                                                    "type": "integer"
+                                                },
+                                                "lighting": {
+                                                    "type": "integer"
+                                                },
+                                                "saturation": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "product_id": {
+                                            "type": "string"
+                                        },
+                                        "product_info": {
+                                            "type": "object",
+                                            "properties": {
+                                                "display_selling_scale": {
+                                                    "type": "string"
+                                                },
+                                                "offer_percentage": {
+                                                    "type": "string"
+                                                },
+                                                "offer_price": {
+                                                    "type": "integer"
+                                                },
+                                                "quantity": {
+                                                    "type": "integer"
+                                                },
+                                                "unit_price": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "subscription_info": {
+                                            "type": "object",
+                                            "properties": {
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "end_date": {
+                                                    "type": "string"
+                                                },
+                                                "friday": {
+                                                    "type": "boolean"
+                                                },
+                                                "monday": {
+                                                    "type": "boolean"
+                                                },
+                                                "order_id": {
+                                                    "type": "string"
+                                                },
+                                                "pause_dates": {
+                                                    "type": "string"
+                                                },
+                                                "product_id": {
+                                                    "type": "string"
+                                                },
+                                                "saturday": {
+                                                    "type": "boolean"
+                                                },
+                                                "start_date": {
+                                                    "type": "string"
+                                                },
+                                                "subscription_id": {
+                                                    "type": "string"
+                                                },
+                                                "sunday": {
+                                                    "type": "boolean"
+                                                },
+                                                "thursday": {
+                                                    "type": "boolean"
+                                                },
+                                                "tuesday": {
+                                                    "type": "boolean"
+                                                },
+                                                "user_id": {
+                                                    "type": "string"
+                                                },
+                                                "wednesday": {
+                                                    "type": "boolean"
+                                                }
+                                            }
+                                        },
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "object",
+                                            "properties": {
+                                                "banner_1x": {
+                                                    "type": "string"
+                                                },
+                                                "banner_2x": {
+                                                    "type": "string"
+                                                },
+                                                "banner_3x": {
+                                                    "type": "string"
+                                                },
+                                                "banner_4x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_1x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_2x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_3x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_4x": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "gridColumn": {
+                                "type": "integer"
+                            },
+                            "subscription": {},
+                            "view_group_type": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "response.ViewGroupMockResponse": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "children": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "action": {
+                                            "type": "object",
+                                            "properties": {
+                                                "api": {
+                                                    "type": "string"
+                                                },
+                                                "destination": {
+                                                    "type": "string"
+                                                },
+                                                "method": {
+                                                    "type": "string"
+                                                },
+                                                "query": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        },
+                                        "background_color": {
+                                            "type": "object",
+                                            "properties": {
+                                                "alpha": {
+                                                    "type": "integer"
+                                                },
+                                                "hue": {
+                                                    "type": "integer"
+                                                },
+                                                "lighting": {
+                                                    "type": "integer"
+                                                },
+                                                "saturation": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "product_id": {
+                                            "type": "string"
+                                        },
+                                        "product_info": {
+                                            "type": "object",
+                                            "properties": {
+                                                "display_selling_scale": {
+                                                    "type": "string"
+                                                },
+                                                "offer_percentage": {
+                                                    "type": "string"
+                                                },
+                                                "offer_price": {
+                                                    "type": "integer"
+                                                },
+                                                "quantity": {
+                                                    "type": "integer"
+                                                },
+                                                "unit_price": {
+                                                    "type": "integer"
+                                                }
+                                            }
+                                        },
+                                        "subscription_info": {
+                                            "type": "object",
+                                            "properties": {
+                                                "created_at": {
+                                                    "type": "string"
+                                                },
+                                                "end_date": {
+                                                    "type": "string"
+                                                },
+                                                "friday": {
+                                                    "type": "boolean"
+                                                },
+                                                "monday": {
+                                                    "type": "boolean"
+                                                },
+                                                "order_id": {
+                                                    "type": "string"
+                                                },
+                                                "pause_dates": {
+                                                    "type": "string"
+                                                },
+                                                "product_id": {
+                                                    "type": "string"
+                                                },
+                                                "saturday": {
+                                                    "type": "boolean"
+                                                },
+                                                "start_date": {
+                                                    "type": "string"
+                                                },
+                                                "subscription_id": {
+                                                    "type": "string"
+                                                },
+                                                "sunday": {
+                                                    "type": "boolean"
+                                                },
+                                                "thursday": {
+                                                    "type": "boolean"
+                                                },
+                                                "tuesday": {
+                                                    "type": "boolean"
+                                                },
+                                                "user_id": {
+                                                    "type": "string"
+                                                },
+                                                "wednesday": {
+                                                    "type": "boolean"
+                                                }
+                                            }
+                                        },
+                                        "title": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "type": "string"
+                                        },
+                                        "value": {
+                                            "type": "object",
+                                            "properties": {
+                                                "banner_1x": {
+                                                    "type": "string"
+                                                },
+                                                "banner_2x": {
+                                                    "type": "string"
+                                                },
+                                                "banner_3x": {
+                                                    "type": "string"
+                                                },
+                                                "banner_4x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_1x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_2x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_3x": {
+                                                    "type": "string"
+                                                },
+                                                "thumb_4x": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "gridColumn": {
+                                "type": "integer"
+                            },
+                            "header": {
+                                "type": "object",
+                                "properties": {
+                                    "action": {
+                                        "type": "object",
+                                        "properties": {
+                                            "api": {
+                                                "type": "string"
+                                            },
+                                            "destination": {
+                                                "type": "string"
+                                            },
+                                            "method": {
+                                                "type": "string"
+                                            },
+                                            "query": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "background_color": {
+                                        "type": "object",
+                                        "properties": {
+                                            "alpha": {
+                                                "type": "integer"
+                                            },
+                                            "hue": {
+                                                "type": "integer"
+                                            },
+                                            "lighting": {
+                                                "type": "integer"
+                                            },
+                                            "saturation": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    },
+                                    "ctaTitle": {
+                                        "type": "string"
+                                    },
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            "view_group_type": {
+                                "type": "string"
+                            }
+                        }
+                    }
                 }
             }
         },

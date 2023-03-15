@@ -15,6 +15,16 @@ import (
 	"net/http"
 )
 
+// Home godoc
+// @Summary Provides HomePage Views Groups
+// @Description To get Home's Views Group
+// @Tags VIEW_GROUP
+// @Produce json
+// @Success 200 {object} ViewGroupMockResponse
+// @Failure      400  string Bad Request
+// @Failure      404  string Page Not found
+// @Failure      500  string Internal Server Error
+// @Router /ec [get]
 func Home(c *gin.Context) {
 	var parentChildren []interface{}
 	parentChildren = top_viewpager.TopViewpager(parentChildren)
@@ -26,6 +36,16 @@ func Home(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
 }
 
+// ExploreTopCategory godoc
+// @Summary Explore Click To Action
+// @Description To get response of Explore Btn CTA
+// @Tags VIEW_GROUP
+// @Produce json
+// @Success 200 {object} ViewGroupMockResponse
+// @Failure      400  string Bad Request
+// @Failure      404  string Page Not found
+// @Failure      500  string Internal Server Error
+// @Router /explore [get]
 func ExploreTopCategory(c *gin.Context) {
 	var parentChildren []interface{}
 	var queryKey = c.Query(ec_constant.QUERY_KEY_CATEGORY)
@@ -64,18 +84,32 @@ func ExploreTopCategory(c *gin.Context) {
 	}
 }
 
-func ExploreCategory(c *gin.Context) {
-	var parentChildren []interface{}
-	parentChildren = explore_category.ExploreCategory(parentChildren)
-	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
-}
-
+// Subscription godoc
+// @Summary Subscription Page ViewGroup
+// @Description To get response of Subscription Page ViewGroup
+// @Tags VIEW_GROUP
+// @Produce json
+// @Success 200 {object} SubscriptionPageMockResponse
+// @Failure      400  string Bad Request
+// @Failure      404  string Page Not found
+// @Failure      500  string Internal Server Error
+// @Router /subscription [get]
 func Subscription(c *gin.Context) {
 	var parentChildren []interface{}
 	parentChildren = subscription.SubscriptionInfo(parentChildren)
 	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
 }
 
+// OnBoarding godoc
+// @Summary OnBoarding Page ViewGroup
+// @Description To get response of OnBoarding Page ViewGroup
+// @Tags VIEW_GROUP
+// @Produce json
+// @Success 200 {object} SubscriptionPageMockResponse
+// @Failure      400  string Bad Request
+// @Failure      404  string Page Not found
+// @Failure      500  string Internal Server Error
+// @Router /onboarding [get]
 func OnBoarding(c *gin.Context) {
 	var parentChildren []interface{}
 	parentChildren = onboarding.OnBoarding(parentChildren)

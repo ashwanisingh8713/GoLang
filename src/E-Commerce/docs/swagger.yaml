@@ -44,6 +44,62 @@ definitions:
       user_id:
         type: string
     type: object
+  data.Action:
+    properties:
+      api:
+        type: string
+      destination:
+        description: Screen destination
+        type: string
+      method:
+        type: string
+      query:
+        description: API Query
+        type: string
+    type: object
+  data.Profile:
+    properties:
+      cta_profile:
+        items:
+          $ref: '#/definitions/data.ProfileCta'
+        type: array
+      profile_pic:
+        type: string
+      user_email:
+        type: string
+      user_id:
+        type: string
+      user_name:
+        type: string
+    type: object
+  data.ProfileCta:
+    properties:
+      action:
+        $ref: '#/definitions/data.Action'
+      title:
+        type: string
+      value:
+        $ref: '#/definitions/data.Value'
+    type: object
+  data.Value:
+    properties:
+      banner_1x:
+        type: string
+      banner_2x:
+        type: string
+      banner_3x:
+        type: string
+      banner_4x:
+        type: string
+      thumb_1x:
+        type: string
+      thumb_2x:
+        type: string
+      thumb_3x:
+        type: string
+      thumb_4x:
+        type: string
+    type: object
   products.Product:
     properties:
       category_id:
@@ -94,6 +150,258 @@ definitions:
       weight:
         description: "13"
         type: number
+    type: object
+  response.SubscriptionPageMockResponse:
+    properties:
+      data:
+        items:
+          properties:
+            children:
+              items:
+                properties:
+                  action:
+                    properties:
+                      api:
+                        type: string
+                      destination:
+                        type: string
+                      method:
+                        type: string
+                      query:
+                        type: string
+                    type: object
+                  background_color:
+                    properties:
+                      alpha:
+                        type: integer
+                      hue:
+                        type: integer
+                      lighting:
+                        type: integer
+                      saturation:
+                        type: integer
+                    type: object
+                  product_id:
+                    type: string
+                  product_info:
+                    properties:
+                      display_selling_scale:
+                        type: string
+                      offer_percentage:
+                        type: string
+                      offer_price:
+                        type: integer
+                      quantity:
+                        type: integer
+                      unit_price:
+                        type: integer
+                    type: object
+                  subscription_info:
+                    properties:
+                      created_at:
+                        type: string
+                      end_date:
+                        type: string
+                      friday:
+                        type: boolean
+                      monday:
+                        type: boolean
+                      order_id:
+                        type: string
+                      pause_dates:
+                        type: string
+                      product_id:
+                        type: string
+                      saturday:
+                        type: boolean
+                      start_date:
+                        type: string
+                      subscription_id:
+                        type: string
+                      sunday:
+                        type: boolean
+                      thursday:
+                        type: boolean
+                      tuesday:
+                        type: boolean
+                      user_id:
+                        type: string
+                      wednesday:
+                        type: boolean
+                    type: object
+                  title:
+                    type: string
+                  type:
+                    type: string
+                  value:
+                    properties:
+                      banner_1x:
+                        type: string
+                      banner_2x:
+                        type: string
+                      banner_3x:
+                        type: string
+                      banner_4x:
+                        type: string
+                      thumb_1x:
+                        type: string
+                      thumb_2x:
+                        type: string
+                      thumb_3x:
+                        type: string
+                      thumb_4x:
+                        type: string
+                    type: object
+                type: object
+              type: array
+            gridColumn:
+              type: integer
+            subscription: {}
+            view_group_type:
+              type: string
+          type: object
+        type: array
+    type: object
+  response.ViewGroupMockResponse:
+    properties:
+      data:
+        items:
+          properties:
+            children:
+              items:
+                properties:
+                  action:
+                    properties:
+                      api:
+                        type: string
+                      destination:
+                        type: string
+                      method:
+                        type: string
+                      query:
+                        type: string
+                    type: object
+                  background_color:
+                    properties:
+                      alpha:
+                        type: integer
+                      hue:
+                        type: integer
+                      lighting:
+                        type: integer
+                      saturation:
+                        type: integer
+                    type: object
+                  product_id:
+                    type: string
+                  product_info:
+                    properties:
+                      display_selling_scale:
+                        type: string
+                      offer_percentage:
+                        type: string
+                      offer_price:
+                        type: integer
+                      quantity:
+                        type: integer
+                      unit_price:
+                        type: integer
+                    type: object
+                  subscription_info:
+                    properties:
+                      created_at:
+                        type: string
+                      end_date:
+                        type: string
+                      friday:
+                        type: boolean
+                      monday:
+                        type: boolean
+                      order_id:
+                        type: string
+                      pause_dates:
+                        type: string
+                      product_id:
+                        type: string
+                      saturday:
+                        type: boolean
+                      start_date:
+                        type: string
+                      subscription_id:
+                        type: string
+                      sunday:
+                        type: boolean
+                      thursday:
+                        type: boolean
+                      tuesday:
+                        type: boolean
+                      user_id:
+                        type: string
+                      wednesday:
+                        type: boolean
+                    type: object
+                  title:
+                    type: string
+                  type:
+                    type: string
+                  value:
+                    properties:
+                      banner_1x:
+                        type: string
+                      banner_2x:
+                        type: string
+                      banner_3x:
+                        type: string
+                      banner_4x:
+                        type: string
+                      thumb_1x:
+                        type: string
+                      thumb_2x:
+                        type: string
+                      thumb_3x:
+                        type: string
+                      thumb_4x:
+                        type: string
+                    type: object
+                type: object
+              type: array
+            gridColumn:
+              type: integer
+            header:
+              properties:
+                action:
+                  properties:
+                    api:
+                      type: string
+                    destination:
+                      type: string
+                    method:
+                      type: string
+                    query:
+                      type: string
+                  type: object
+                background_color:
+                  properties:
+                    alpha:
+                      type: integer
+                    hue:
+                      type: integer
+                    lighting:
+                      type: integer
+                    saturation:
+                      type: integer
+                  type: object
+                ctaTitle:
+                  type: string
+                title:
+                  type: string
+                type:
+                  type: string
+              type: object
+            view_group_type:
+              type: string
+          type: object
+        type: array
     type: object
   subscriptions.Subscription:
     properties:
@@ -394,6 +702,56 @@ paths:
       summary: Deletes the selected wishlistId from the Wishlist Table.
       tags:
       - USER_ITEM
+  /ec:
+    get:
+      description: To get Home's Views Group
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ViewGroupMockResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Provides HomePage Views Groups
+      tags:
+      - VIEW_GROUP
+  /explore:
+    get:
+      description: To get response of Explore Btn CTA
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.ViewGroupMockResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Explore Click To Action
+      tags:
+      - VIEW_GROUP
   /getAllUsers:
     post:
       consumes:
@@ -430,6 +788,56 @@ paths:
       summary: Provides All Users.
       tags:
       - USER
+  /onboarding:
+    get:
+      description: To get response of OnBoarding Page ViewGroup
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.SubscriptionPageMockResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: OnBoarding Page ViewGroup
+      tags:
+      - VIEW_GROUP
+  /profile:
+    get:
+      description: To get ProfilePage Views Group
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/data.Profile'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Provides ProfilePage Views Groups
+      tags:
+      - VIEW_GROUP
   /r_wishlist:
     post:
       consumes:
@@ -467,6 +875,30 @@ paths:
       tags:
       - USER_ITEM
   /subscription:
+    get:
+      description: To get response of Subscription Page ViewGroup
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/response.SubscriptionPageMockResponse'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Subscription Page ViewGroup
+      tags:
+      - VIEW_GROUP
     post:
       consumes:
       - application/json

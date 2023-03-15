@@ -7,6 +7,16 @@ import (
 	"net/http"
 )
 
+// Profile godoc
+// @Summary Provides ProfilePage Views Groups
+// @Description To get ProfilePage Views Group
+// @Tags VIEW_GROUP
+// @Produce json
+// @Success 200 {object} data.Profile
+// @Failure      400  string Bad Request
+// @Failure      404  string Page Not found
+// @Failure      500  string Internal Server Error
+// @Router /profile [get]
 func Profile(c *gin.Context) {
 
 	var viewGrpCtaChildren []data.ProfileCta

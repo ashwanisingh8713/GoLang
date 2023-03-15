@@ -34,7 +34,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "User"
+                    "USER"
                 ],
                 "summary": "Get all addresses of the User.",
                 "parameters": [
@@ -44,7 +44,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                            "$ref": "#/definitions/userData.BodyUserIdInput"
                         }
                     }
                 ],
@@ -89,7 +89,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "User"
+                    "USER_ITEM"
                 ],
                 "summary": "Creates wishlist for selected product.",
                 "parameters": [
@@ -99,7 +99,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.CreateWishlistInput"
+                            "$ref": "#/definitions/userData.BodyWishlistInput"
                         }
                     }
                 ],
@@ -141,7 +141,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "User"
+                    "USER_ITEM"
                 ],
                 "summary": "Get all cart products of the User.",
                 "parameters": [
@@ -151,7 +151,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                            "$ref": "#/definitions/userData.BodyUserIdInput"
                         }
                     }
                 ],
@@ -186,6 +186,58 @@ const docTemplate = `{
                 }
             }
         },
+        "/createUser": {
+            "post": {
+                "description": "To get all Users list.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "USER"
+                ],
+                "summary": "Provides All Users.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.BodyCreateUserInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/userData.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/d_wishlist": {
             "delete": {
                 "description": "To delete the selected product from User's Wishlist.",
@@ -196,7 +248,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "User"
+                    "USER_ITEM"
                 ],
                 "summary": "Deletes the selected wishlistId from the Wishlist Table.",
                 "parameters": [
@@ -236,6 +288,61 @@ const docTemplate = `{
                 }
             }
         },
+        "/getAllUsers": {
+            "post": {
+                "description": "To get all Users list (userId = 09876).",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "USER"
+                ],
+                "summary": "Provides All Users.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.BodyUserIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/user.User"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/r_wishlist": {
             "post": {
                 "description": "Get the all wishlist of the User.",
@@ -246,7 +353,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "User"
+                    "USER_ITEM"
                 ],
                 "summary": "Shows the all wishlist of the User.",
                 "parameters": [
@@ -256,7 +363,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                            "$ref": "#/definitions/userData.BodyUserIdInput"
                         }
                     }
                 ],
@@ -301,7 +408,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "User"
+                    "USER_ITEM"
                 ],
                 "summary": "Get all subscribed products of the User.",
                 "parameters": [
@@ -311,7 +418,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                            "$ref": "#/definitions/userData.BodyUserIdInput"
                         }
                     }
                 ],
@@ -356,7 +463,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "User"
+                    "USER"
                 ],
                 "summary": "Get User's information.",
                 "parameters": [
@@ -366,7 +473,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                            "$ref": "#/definitions/userData.BodyUserIdInput"
                         }
                     }
                 ],
@@ -622,7 +729,30 @@ const docTemplate = `{
                 }
             }
         },
-        "userData.CreateUserIdInput": {
+        "userData.BodyCreateUserInput": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "login_mode": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+            }
+        },
+        "userData.BodyUserIdInput": {
             "type": "object",
             "required": [
                 "userId"
@@ -633,7 +763,7 @@ const docTemplate = `{
                 }
             }
         },
-        "userData.CreateWishlistInput": {
+        "userData.BodyWishlistInput": {
             "type": "object",
             "required": [
                 "productId",

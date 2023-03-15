@@ -152,14 +152,29 @@ definitions:
       user_id:
         type: string
     type: object
-  userData.CreateUserIdInput:
+  userData.BodyCreateUserInput:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      login_mode:
+        type: string
+      mobile:
+        type: string
+      password:
+        type: string
+    type: object
+  userData.BodyUserIdInput:
     properties:
       userId:
         type: string
     required:
     - userId
     type: object
-  userData.CreateWishlistInput:
+  userData.BodyWishlistInput:
     properties:
       productId:
         type: string
@@ -217,7 +232,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.CreateUserIdInput'
+          $ref: '#/definitions/userData.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -241,7 +256,7 @@ paths:
             type: string
       summary: Get all addresses of the User.
       tags:
-      - User
+      - USER
   /c_wishlist:
     post:
       consumes:
@@ -253,7 +268,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.CreateWishlistInput'
+          $ref: '#/definitions/userData.BodyWishlistInput'
       produces:
       - application/json
       responses:
@@ -275,7 +290,7 @@ paths:
             type: string
       summary: Creates wishlist for selected product.
       tags:
-      - User
+      - USER_ITEM
   /cart_item:
     post:
       consumes:
@@ -287,7 +302,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.CreateUserIdInput'
+          $ref: '#/definitions/userData.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -311,7 +326,41 @@ paths:
             type: string
       summary: Get all cart products of the User.
       tags:
-      - User
+      - USER_ITEM
+  /createUser:
+    post:
+      consumes:
+      - application/json
+      description: To get all Users list.
+      parameters:
+      - description: It takes UserId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/userData.BodyCreateUserInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/userData.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Provides All Users.
+      tags:
+      - USER
   /d_wishlist:
     delete:
       consumes:
@@ -344,7 +393,43 @@ paths:
             type: string
       summary: Deletes the selected wishlistId from the Wishlist Table.
       tags:
-      - User
+      - USER_ITEM
+  /getAllUsers:
+    post:
+      consumes:
+      - application/json
+      description: To get all Users list (userId = 09876).
+      parameters:
+      - description: It takes UserId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/userData.BodyUserIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/user.User'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Provides All Users.
+      tags:
+      - USER
   /r_wishlist:
     post:
       consumes:
@@ -356,7 +441,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.CreateUserIdInput'
+          $ref: '#/definitions/userData.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -380,7 +465,7 @@ paths:
             type: string
       summary: Shows the all wishlist of the User.
       tags:
-      - User
+      - USER_ITEM
   /subscription:
     post:
       consumes:
@@ -392,7 +477,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.CreateUserIdInput'
+          $ref: '#/definitions/userData.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -416,7 +501,7 @@ paths:
             type: string
       summary: Get all subscribed products of the User.
       tags:
-      - User
+      - USER_ITEM
   /user:
     post:
       consumes:
@@ -428,7 +513,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.CreateUserIdInput'
+          $ref: '#/definitions/userData.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -450,7 +535,7 @@ paths:
             type: string
       summary: Get User's information.
       tags:
-      - User
+      - USER
 schemes:
 - http
 swagger: "2.0"

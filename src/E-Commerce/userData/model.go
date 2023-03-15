@@ -1,13 +1,27 @@
 package userData
 
-type CreateWishlistInput struct {
+const (
+	USER      = "User"
+	USER_ITEM = "UserItem"
+)
+
+type BodyWishlistInput struct {
 	UserId    string `json:"userId" binding:"required"`
 	ProductId string `json:"productId" binding:"required"`
 	Quantity  int    `json:"quantity" binding:"required"`
 }
 
-type CreateUserIdInput struct {
+type BodyUserIdInput struct {
 	UserId string `json:"userId" binding:"required"`
+}
+
+type BodyCreateUserInput struct {
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Mobile    string `json:"mobile"`
+	Email     string `json:"email"`
+	Password  string `json:"password"`
+	LoginMode string `json:"login_mode"`
 }
 
 type StatusMsg struct {

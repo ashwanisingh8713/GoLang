@@ -2,8 +2,8 @@ package seller
 
 import (
 	"E-Commerce/database/table"
+	"fmt"
 	"github.com/gocql/gocql"
-	"log"
 )
 
 const (
@@ -27,6 +27,6 @@ func Insert(session *gocql.Session, sellerName string) {
 		gocql.TimeUUID(),
 		category.Name,
 	).Exec(); err != nil {
-		log.Fatal("Error! insert into Seller ::::    ", err)
+		fmt.Println("Error! insert into Seller ::::    ", err)
 	}
 }

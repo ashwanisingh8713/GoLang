@@ -45,7 +45,7 @@ func main() {
 	route := gin.Default()
 	route.Use(CORSMiddleware())
 
-	// Swagger UI http://192.168.13.119:8080/swagger/index.html
+	// Swagger UI http://IP:8080/swagger/index.html
 	route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// Images Related Static APIs
@@ -71,6 +71,8 @@ func main() {
 	route.GET(ec_constant.ROUTE_ONBOARDING, response.OnBoarding)
 
 	// User Related APIs
+	route.POST("/createUser", userData.CreateUser)
+	route.POST("/getAllUsers", userData.GetAllUsers)
 	route.POST("/user", userData.GetUserInfo)
 	route.POST("/address", userData.GetUserAddress)
 	route.POST("/cart_item", userData.GetUserCartItem)

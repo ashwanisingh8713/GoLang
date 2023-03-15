@@ -69,8 +69,8 @@ func Insert(session *gocql.Session, address Address) {
 	}
 }
 
-func Read(session *gocql.Session, userId string) []interface{} {
-	var addressArray []interface{}
+func Read(session *gocql.Session, userId string) []Address {
+	var addressArray []Address
 	var address = Address{}
 
 	iter := session.Query(`SELECT `+
@@ -87,13 +87,6 @@ func Read(session *gocql.Session, userId string) []interface{} {
 		`,`+Mobile1+
 		`,`+Mobile2+
 		` FROM `+table.TABLE_Address+` WHERE user_id = ?`, userId).Iter()
-
-	/*iter := session.Query(` SELECT
-	    			* FROM `+
-			table.TABLE_Address+
-			` WHERE `+
-			UserId+` = ?`,
-			userId).Iter()*/
 
 	for iter.Scan(&address.AddressId, &address.UserId, &address.AddressType, &address.AddressLine1, &address.AddressLine2,
 		&address.IsPreferred, &address.Zip, &address.City, &address.State, &address.Country,

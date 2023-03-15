@@ -24,7 +24,219 @@ const docTemplate = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/get_wishlist": {
+        "/address": {
+            "post": {
+                "description": "To get address list.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all addresses of the User.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/address.Address"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/c_wishlist": {
+            "post": {
+                "description": "To create wishlist of the User",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Creates wishlist for selected product.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId, ProductId, Quantity",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.CreateWishlistInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/userData.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/cart_item": {
+            "post": {
+                "description": "To get cart list.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get all cart products of the User.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/cart_item.CartItem"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/d_wishlist": {
+            "delete": {
+                "description": "To delete the selected product from User's Wishlist.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Deletes the selected wishlistId from the Wishlist Table.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "wishlist_id value",
+                        "name": "wishlistId",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/userData.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/r_wishlist": {
             "post": {
                 "description": "Get the all wishlist of the User.",
                 "consumes": [
@@ -39,7 +251,7 @@ const docTemplate = `{
                 "summary": "Shows the all wishlist of the User.",
                 "parameters": [
                     {
-                        "description": "Request Body to get all Wishlist",
+                        "description": "It takes UserId",
                         "name": "json",
                         "in": "body",
                         "required": true,
@@ -79,9 +291,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/wishlist": {
-            "delete": {
-                "description": "To delete the selected product from User's Wishlist.",
+        "/subscription": {
+            "post": {
+                "description": "To get subscription list.",
                 "consumes": [
                     "application/json"
                 ],
@@ -91,14 +303,16 @@ const docTemplate = `{
                 "tags": [
                     "User"
                 ],
-                "summary": "Deletes the selected wishlistId from the Wishlist Table.",
+                "summary": "Get all subscribed products of the User.",
                 "parameters": [
                     {
-                        "type": "string",
-                        "description": "Query string, wishlist_id value",
-                        "name": "wishlistId",
-                        "in": "query",
-                        "required": true
+                        "description": "It takes UserId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                        }
                     }
                 ],
                 "responses": {
@@ -107,8 +321,60 @@ const docTemplate = `{
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/wishlist.Wishlist"
+                                "$ref": "#/definitions/subscriptions.Subscription"
                             }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "post": {
+                "description": "To get User's information.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get User's information.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userData.CreateUserIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/user.User"
                         }
                     },
                     "400": {
@@ -134,6 +400,228 @@ const docTemplate = `{
         }
     },
     "definitions": {
+        "address.Address": {
+            "type": "object",
+            "properties": {
+                "addressId": {
+                    "type": "string"
+                },
+                "addressLine1": {
+                    "type": "string"
+                },
+                "addressLine2": {
+                    "type": "string"
+                },
+                "addressType": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "isPreferred": {
+                    "type": "boolean"
+                },
+                "mobile1": {
+                    "type": "string"
+                },
+                "mobile2": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                },
+                "zip": {
+                    "type": "string"
+                }
+            }
+        },
+        "cart_item.CartItem": {
+            "type": "object",
+            "properties": {
+                "cart_item_id": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "modified_at": {
+                    "type": "string"
+                },
+                "product": {
+                    "$ref": "#/definitions/products.Product"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
+        "products.Product": {
+            "type": "object",
+            "properties": {
+                "category_id": {
+                    "description": "2",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "8",
+                    "type": "string"
+                },
+                "dimension": {
+                    "description": "3",
+                    "type": "string"
+                },
+                "last_Updated": {
+                    "description": "15",
+                    "type": "string"
+                },
+                "manufacturer_id": {
+                    "description": "4",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "5",
+                    "type": "string"
+                },
+                "picture": {
+                    "description": "6",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "7",
+                    "type": "number"
+                },
+                "product_id": {
+                    "description": "1",
+                    "type": "string"
+                },
+                "seller_id": {
+                    "description": "9",
+                    "type": "string"
+                },
+                "seller_name": {
+                    "description": "10",
+                    "type": "string"
+                },
+                "sku": {
+                    "description": "11",
+                    "type": "string"
+                },
+                "sub_category_id": {
+                    "description": "12",
+                    "type": "string"
+                },
+                "subscribable": {
+                    "description": "16",
+                    "type": "boolean"
+                },
+                "units": {
+                    "description": "14",
+                    "type": "integer"
+                },
+                "weight": {
+                    "description": "13",
+                    "type": "number"
+                }
+            }
+        },
+        "subscriptions.Subscription": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "endDate": {
+                    "type": "string"
+                },
+                "friday": {
+                    "type": "boolean"
+                },
+                "monday": {
+                    "type": "boolean"
+                },
+                "order_id": {
+                    "description": "This is OrderItemId",
+                    "type": "string"
+                },
+                "pauseDates": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "product": {
+                    "$ref": "#/definitions/products.Product"
+                },
+                "product_id": {
+                    "type": "string"
+                },
+                "saturday": {
+                    "type": "boolean"
+                },
+                "startDate": {
+                    "type": "string"
+                },
+                "subscription_id": {
+                    "type": "string"
+                },
+                "sunday": {
+                    "type": "boolean"
+                },
+                "thursday": {
+                    "type": "boolean"
+                },
+                "tuesday": {
+                    "type": "boolean"
+                },
+                "user_id": {
+                    "type": "string"
+                },
+                "wednesday": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "user.User": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "first_name": {
+                    "type": "string"
+                },
+                "last_name": {
+                    "type": "string"
+                },
+                "login_mode": {
+                    "type": "string"
+                },
+                "mobile": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "user_id": {
+                    "type": "string"
+                }
+            }
+        },
         "userData.CreateUserIdInput": {
             "type": "object",
             "required": [
@@ -142,6 +630,36 @@ const docTemplate = `{
             "properties": {
                 "userId": {
                     "type": "string"
+                }
+            }
+        },
+        "userData.CreateWishlistInput": {
+            "type": "object",
+            "required": [
+                "productId",
+                "quantity",
+                "userId"
+            ],
+            "properties": {
+                "productId": {
+                    "type": "string"
+                },
+                "quantity": {
+                    "type": "integer"
+                },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "userData.StatusMsg": {
+            "type": "object",
+            "properties": {
+                "msg": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "boolean"
                 }
             }
         },
@@ -171,7 +689,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "192.168.13.5:8080",
+	Host:             "192.168.13.119:8080",
 	BasePath:         "/",
 	Schemes:          []string{"http"},
 	Title:            "APIs of E-Commerce Project",

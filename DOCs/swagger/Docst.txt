@@ -1,9 +1,14 @@
 Pull swagger libraries.
+### To Install Swagger client
+    go get -v github.com/swaggo/swag/cmd/swag
+    go get -v github.com/swaggo/gin-swagger
+    go get -v github.com/swaggo/files
+    go install github.com/swaggo/swag/cmd/swag@latest
 
-$ go get -v github.com/swaggo/swag/cmd/swag
-$ go get -v github.com/swaggo/gin-swagger
-$ go get -v github.com/swaggo/files
-$ go install github.com/swaggo/swag/cmd/swag@latest
+### To install Swagger server
+    npm install -g http-server
+    git clone https://github.com/swagger-api/swagger-editor.git
+    http-server -p 8081 swagger-editor
 
 
 go run ginsimple/main.go

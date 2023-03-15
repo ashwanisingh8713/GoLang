@@ -12,4 +12,9 @@ Tutorial: Generate Swagger Specification and SwaggerUI for Gin Go Web Framework
 How to Install Swagger Editor and UI Locally ?
     https://www.datasciencelearner.com/how-to-install-swagger-editor-and-ui-locally/
 
+Serve SwaggerUI within your Golang application
+    https://ribice.medium.com/serve-swaggerui-within-your-golang-application-5486748a5ed4
+
+    https://www.soberkoder.com/swagger-go-api-swaggo/
+
 

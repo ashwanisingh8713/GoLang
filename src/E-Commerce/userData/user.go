@@ -12,8 +12,8 @@ import (
 )
 
 // CreateUser godoc
-// @Summary Provides All Users.
-// @Description To get all Users list.
+// @Summary Creates User .
+// @Description To create and save User Data.
 // @Tags USER
 // @Accept json
 // @Produce json

@@ -44,7 +44,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyUserIdInput"
+                            "$ref": "#/definitions/userdata.BodyUserIdInput"
                         }
                     }
                 ],
@@ -56,6 +56,58 @@ const docTemplate = `{
                             "items": {
                                 "$ref": "#/definitions/address.Address"
                             }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/c_product": {
+            "post": {
+                "description": "To create and save Product Data.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Creates Product .",
+                "parameters": [
+                    {
+                        "description": "All fields are required",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/products.BodyProductInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/userdata.StatusMsg"
                         }
                     },
                     "400": {
@@ -99,7 +151,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyWishlistInput"
+                            "$ref": "#/definitions/userdata.BodyWishlistInput"
                         }
                     }
                 ],
@@ -107,7 +159,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/userData.StatusMsg"
+                            "$ref": "#/definitions/userdata.StatusMsg"
                         }
                     },
                     "400": {
@@ -151,7 +203,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyUserIdInput"
+                            "$ref": "#/definitions/userdata.BodyUserIdInput"
                         }
                     }
                 ],
@@ -206,7 +258,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyCreateUserInput"
+                            "$ref": "#/definitions/userdata.BodyCreateUserInput"
                         }
                     }
                 ],
@@ -214,7 +266,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/userData.StatusMsg"
+                            "$ref": "#/definitions/userdata.StatusMsg"
                         }
                     },
                     "400": {
@@ -264,7 +316,7 @@ const docTemplate = `{
                     "200": {
                         "description": "OK",
                         "schema": {
-                            "$ref": "#/definitions/userData.StatusMsg"
+                            "$ref": "#/definitions/userdata.StatusMsg"
                         }
                     },
                     "400": {
@@ -384,7 +436,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyUserIdInput"
+                            "$ref": "#/definitions/userdata.BodyUserIdInput"
                         }
                     }
                 ],
@@ -495,6 +547,58 @@ const docTemplate = `{
                 }
             }
         },
+        "/r_product": {
+            "post": {
+                "description": "To get Product Data.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Product"
+                ],
+                "summary": "Get Product .",
+                "parameters": [
+                    {
+                        "description": "It takes productId.",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/products.BodyProductIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/products.Product"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/r_wishlist": {
             "post": {
                 "description": "Get the all wishlist of the User.",
@@ -515,7 +619,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyUserIdInput"
+                            "$ref": "#/definitions/userdata.BodyUserIdInput"
                         }
                     }
                 ],
@@ -606,7 +710,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyUserIdInput"
+                            "$ref": "#/definitions/userdata.BodyUserIdInput"
                         }
                     }
                 ],
@@ -661,7 +765,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userData.BodyUserIdInput"
+                            "$ref": "#/definitions/userdata.BodyUserIdInput"
                         }
                     }
                 ],
@@ -844,6 +948,78 @@ const docTemplate = `{
                 },
                 "thumb_4x": {
                     "type": "string"
+                }
+            }
+        },
+        "products.BodyProductIdInput": {
+            "type": "object",
+            "required": [
+                "productId"
+            ],
+            "properties": {
+                "productId": {
+                    "type": "string"
+                }
+            }
+        },
+        "products.BodyProductInput": {
+            "type": "object",
+            "properties": {
+                "category_id": {
+                    "description": "2",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "8",
+                    "type": "string"
+                },
+                "dimension": {
+                    "description": "3",
+                    "type": "string"
+                },
+                "manufacturer_id": {
+                    "description": "4",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "5",
+                    "type": "string"
+                },
+                "picture": {
+                    "description": "6",
+                    "type": "string"
+                },
+                "price": {
+                    "description": "7",
+                    "type": "number"
+                },
+                "seller_id": {
+                    "description": "9",
+                    "type": "string"
+                },
+                "seller_name": {
+                    "description": "10",
+                    "type": "string"
+                },
+                "sku": {
+                    "description": "11",
+                    "type": "string"
+                },
+                "sub_category_id": {
+                    "description": "12",
+                    "type": "string"
+                },
+                "subscribable": {
+                    "description": "15",
+                    "type": "boolean"
+                },
+                "units": {
+                    "description": "14",
+                    "type": "integer"
+                },
+                "weight": {
+                    "description": "13",
+                    "type": "number"
                 }
             }
         },
@@ -1389,7 +1565,7 @@ const docTemplate = `{
                 }
             }
         },
-        "userData.BodyCreateUserInput": {
+        "userdata.BodyCreateUserInput": {
             "type": "object",
             "properties": {
                 "email": {
@@ -1412,7 +1588,7 @@ const docTemplate = `{
                 }
             }
         },
-        "userData.BodyUserIdInput": {
+        "userdata.BodyUserIdInput": {
             "type": "object",
             "required": [
                 "userId"
@@ -1423,7 +1599,7 @@ const docTemplate = `{
                 }
             }
         },
-        "userData.BodyWishlistInput": {
+        "userdata.BodyWishlistInput": {
             "type": "object",
             "required": [
                 "productId",
@@ -1442,7 +1618,7 @@ const docTemplate = `{
                 }
             }
         },
-        "userData.StatusMsg": {
+        "userdata.StatusMsg": {
             "type": "object",
             "properties": {
                 "msg": {

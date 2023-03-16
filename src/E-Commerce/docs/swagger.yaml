@@ -100,6 +100,58 @@ definitions:
       thumb_4x:
         type: string
     type: object
+  products.BodyProductIdInput:
+    properties:
+      productId:
+        type: string
+    required:
+    - productId
+    type: object
+  products.BodyProductInput:
+    properties:
+      category_id:
+        description: "2"
+        type: string
+      description:
+        description: "8"
+        type: string
+      dimension:
+        description: "3"
+        type: string
+      manufacturer_id:
+        description: "4"
+        type: string
+      name:
+        description: "5"
+        type: string
+      picture:
+        description: "6"
+        type: string
+      price:
+        description: "7"
+        type: number
+      seller_id:
+        description: "9"
+        type: string
+      seller_name:
+        description: "10"
+        type: string
+      sku:
+        description: "11"
+        type: string
+      sub_category_id:
+        description: "12"
+        type: string
+      subscribable:
+        description: "15"
+        type: boolean
+      units:
+        description: "14"
+        type: integer
+      weight:
+        description: "13"
+        type: number
+    type: object
   products.Product:
     properties:
       category_id:
@@ -460,7 +512,7 @@ definitions:
       user_id:
         type: string
     type: object
-  userData.BodyCreateUserInput:
+  userdata.BodyCreateUserInput:
     properties:
       email:
         type: string
@@ -475,14 +527,14 @@ definitions:
       password:
         type: string
     type: object
-  userData.BodyUserIdInput:
+  userdata.BodyUserIdInput:
     properties:
       userId:
         type: string
     required:
     - userId
     type: object
-  userData.BodyWishlistInput:
+  userdata.BodyWishlistInput:
     properties:
       productId:
         type: string
@@ -495,7 +547,7 @@ definitions:
     - quantity
     - userId
     type: object
-  userData.StatusMsg:
+  userdata.StatusMsg:
     properties:
       msg:
         type: string
@@ -540,7 +592,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyUserIdInput'
+          $ref: '#/definitions/userdata.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -565,6 +617,40 @@ paths:
       summary: Get all addresses of the User.
       tags:
       - USER
+  /c_product:
+    post:
+      consumes:
+      - application/json
+      description: To create and save Product Data.
+      parameters:
+      - description: All fields are required
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/products.BodyProductInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/userdata.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Creates Product .
+      tags:
+      - Product
   /c_wishlist:
     post:
       consumes:
@@ -576,14 +662,14 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyWishlistInput'
+          $ref: '#/definitions/userdata.BodyWishlistInput'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/userData.StatusMsg'
+            $ref: '#/definitions/userdata.StatusMsg'
         "400":
           description: Bad Request
           schema:
@@ -610,7 +696,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyUserIdInput'
+          $ref: '#/definitions/userdata.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -646,14 +732,14 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyCreateUserInput'
+          $ref: '#/definitions/userdata.BodyCreateUserInput'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/userData.StatusMsg'
+            $ref: '#/definitions/userdata.StatusMsg'
         "400":
           description: Bad Request
           schema:
@@ -686,7 +772,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/userData.StatusMsg'
+            $ref: '#/definitions/userdata.StatusMsg'
         "400":
           description: Bad Request
           schema:
@@ -763,7 +849,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyUserIdInput'
+          $ref: '#/definitions/userdata.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -838,6 +924,40 @@ paths:
       summary: Provides ProfilePage Views Groups
       tags:
       - VIEW_GROUP
+  /r_product:
+    post:
+      consumes:
+      - application/json
+      description: To get Product Data.
+      parameters:
+      - description: It takes productId.
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/products.BodyProductIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/products.Product'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get Product .
+      tags:
+      - Product
   /r_wishlist:
     post:
       consumes:
@@ -849,7 +969,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyUserIdInput'
+          $ref: '#/definitions/userdata.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -909,7 +1029,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyUserIdInput'
+          $ref: '#/definitions/userdata.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -945,7 +1065,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userData.BodyUserIdInput'
+          $ref: '#/definitions/userdata.BodyUserIdInput'
       produces:
       - application/json
       responses:

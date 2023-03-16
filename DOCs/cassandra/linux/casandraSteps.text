@@ -1,0 +1,7 @@
+01. Get the IP address.
+02. Update IPs address cassandra.yaml
+03. Paste cassandra yaml file in etc/cassandra directory
+04. Kill the cassandra service.
+05. Start cassandra service
+06. Hit cassandra in terminal
+07. cqlsh IP

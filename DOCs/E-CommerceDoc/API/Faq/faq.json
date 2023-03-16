@@ -1,0 +1,33 @@
+{
+  "data" : {
+    "hint_text" : "Select Category",
+    "faqs" : [
+      {
+        "title": "Profile",
+        "queries": [
+          {
+            "Q" : "How to recover forgot password?",
+            "A": "Why you forgot your password?"
+          },
+          {
+            "Q" : "How to hack RBI bank server?",
+            "A": "First become a good hacker."
+          }
+        ]
+      },
+      {
+        "title": "Selling",
+        "queries": [
+          {
+            "Q" : "How to sell someones mobile number?",
+            "A": "Why you forgot your password?"
+          },
+          {
+            "Q" : "How to sell to Nabajyoti?",
+            "A": "Everybody can be sold, first we have to be good seller."
+          }
+        ]
+      }
+    ]
+  }
+}

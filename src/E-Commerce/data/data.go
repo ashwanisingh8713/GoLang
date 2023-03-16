@@ -87,6 +87,19 @@ type OnBoarding struct {
 	Value Value  `json:"value"`
 	Title string `json:"title"`
 }
+
+type FAQ struct {
+	HintText string `json:"hint_text"`
+	Faqs     []Faqs `json:"faqs"`
+}
+type Faqs struct {
+	Title   string  `json:"title"`
+	Queries []Query `json:"queries"`
+}
+type Query struct {
+	Question string `json:"question"`
+	Answer   string `json:"answer"`
+}
 type ViewGroupOnboarding struct {
 	ViewGroupType string       `json:"view_group_type"`
 	Children      []OnBoarding `json:"children"`
@@ -108,4 +121,8 @@ type ViewGroupSubscription struct {
 type ViewGroupProfile struct {
 	ViewGroupType string  `json:"view_group_type"`
 	Profile       Profile `json:"profile"`
+}
+type ViewGroupFaq struct {
+	ViewGroupType string `json:"view_group_type"`
+	Child         []Faqs `json:"children"`
 }

@@ -28,7 +28,7 @@ import (
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host 192.168.13.119:8080
+// @host 192.168.77.101:8080
 // @BasePath /
 // @schemes http
 func main() {
@@ -45,7 +45,7 @@ func main() {
 	route := gin.Default()
 	route.Use(CORSMiddleware())
 
-	// Swagger UI http://IP:8080/swagger/index.html
+	// Swagger UI http://192.168.77.101:8080/swagger/index.html
 	route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// Images Related Static APIs
@@ -69,6 +69,7 @@ func main() {
 	route.GET(ec_constant.ROUTE_PROFILE, userdata.Profile)
 	route.GET(ec_constant.ROUTE_SUBSCRIPTION, response.Subscription)
 	route.GET(ec_constant.ROUTE_ONBOARDING, response.OnBoarding)
+	route.GET(ec_constant.ROUTE_FAQ, response.Faq)
 
 	// User Related APIs
 	route.POST("/createUser", userdata.CreateUser)
@@ -94,7 +95,6 @@ func main() {
 
 func CORSMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-
 		c.Header("Access-Control-Allow-Origin", "*")
 		//c.Header("Access-Control-Allow-Credentials", "true")
 		c.Header("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")

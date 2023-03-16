@@ -173,7 +173,7 @@ func LogOut(viewGrpCtaChildren []data.ProfileCta) []data.ProfileCta {
 	var profileData = data.ProfileCta{
 		Value:    valueLogout,
 		Action:   actionLogout,
-		CtaTitle: "About",
+		CtaTitle: "Logout",
 	}
 
 	viewGrpCtaChildren = append(viewGrpCtaChildren, profileData)

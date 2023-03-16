@@ -9,7 +9,7 @@ import (
 )
 
 // CreateProduct godoc
-// @Summary Creates Product .
+// @Summary Creates Product.
 // @Description To create and save Product Data.
 // @Tags Product
 // @Accept json

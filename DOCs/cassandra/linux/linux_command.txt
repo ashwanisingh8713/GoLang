@@ -1,0 +1,5 @@
+To Move one file from "first" location to "second" location
+cat /first/file/same_name > /second/file/same_name
+
+// Kamlesh's Ubuntu Path
+cp /home/kamlesh/go/DOCs/cassandra/linux/cassandra.yaml /etc/cassandra/cassandra.yaml

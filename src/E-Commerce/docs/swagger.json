@@ -18,7 +18,7 @@
         },
         "version": "1.0"
     },
-    "host": "192.168.13.119:8080",
+    "host": "192.168.77.101:8080",
     "basePath": "/",
     "paths": {
         "/address": {
@@ -185,7 +185,7 @@
         },
         "/createUser": {
             "post": {
-                "description": "To get all Users list.",
+                "description": "To create and save User Data.",
                 "consumes": [
                     "application/json"
                 ],
@@ -195,7 +195,7 @@
                 "tags": [
                     "USER"
                 ],
-                "summary": "Provides All Users.",
+                "summary": "Creates User .",
                 "parameters": [
                     {
                         "description": "It takes UserId",

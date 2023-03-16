@@ -10,15 +10,15 @@ func OnBoarding(parentChildren []interface{}) []interface{} {
 
 	var viewGrpChildren []data.OnBoarding
 	var value1 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "logo.png",
+		Banner4x: ec_constant.OnBoardingImagePath4x + "logo.png",
 	}
 
 	var value2 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "logo.png",
+		Banner4x: ec_constant.OnBoardingImagePath4x + "logo.png",
 	}
 
 	var value3 = data.Value{
-		Banner4x: ec_constant.GroceriesImagePath4x + "logo.png",
+		Banner4x: ec_constant.OnBoardingImagePath4x + "logo.png",
 	}
 	var product1 = data.OnBoarding{
 		Value: value1,

@@ -2,7 +2,7 @@ package ec_constant
 
 const (
 	PROTOCOL       = "http://"
-	HOST           = "192.168.13.119"
+	HOST           = "192.168.77.101"
 	IpAddress      = HOST + ":8080"
 	drawableFolder = "/home/kamlesh/go/src/E-Commerce/res/drawable"
 
@@ -172,6 +172,7 @@ const (
 	ROUTE_SUBSCRIPTION = "/subscription"
 	ROUTE_PROFILE      = "/profile"
 	ROUTE_ONBOARDING   = "/onboarding"
+	ROUTE_FAQ          = "/faq"
 )
 
 const (

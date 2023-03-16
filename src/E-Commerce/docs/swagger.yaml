@@ -515,7 +515,7 @@ definitions:
       wishlist_id:
         type: string
     type: object
-host: 192.168.13.119:8080
+host: 192.168.77.101:8080
 info:
   contact:
     email: support@swagger.io
@@ -639,7 +639,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: To get all Users list.
+      description: To create and save User Data.
       parameters:
       - description: It takes UserId
         in: body
@@ -666,7 +666,7 @@ paths:
           description: Internal Server Error
           schema:
             type: string
-      summary: Provides All Users.
+      summary: Creates User .
       tags:
       - USER
   /d_wishlist:

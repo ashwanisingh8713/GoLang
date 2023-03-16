@@ -188,7 +188,7 @@ const docTemplate = `{
         },
         "/createUser": {
             "post": {
-                "description": "To get all Users list.",
+                "description": "To create and save User Data.",
                 "consumes": [
                     "application/json"
                 ],
@@ -198,7 +198,7 @@ const docTemplate = `{
                 "tags": [
                     "USER"
                 ],
-                "summary": "Provides All Users.",
+                "summary": "Creates User .",
                 "parameters": [
                     {
                         "description": "It takes UserId",
@@ -1479,7 +1479,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "192.168.13.119:8080",
+	Host:             "192.168.77.101:8080",
 	BasePath:         "/",
 	Schemes:          []string{"http"},
 	Title:            "APIs of E-Commerce Project",

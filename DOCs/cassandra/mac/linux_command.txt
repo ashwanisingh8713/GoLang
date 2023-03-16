@@ -1,0 +1,7 @@
+To Move one file from "first" location to "second" location
+cat /first/file/same_name > /second/file/same_name
+
+// Ashwani's Mac Path
+cat /Users/ashwani/go/DOCs/cassandra/cassandra.yaml > /opt/homebrew/etc/cassandra/cassandra.yaml
+
+vim /opt/homebrew/etc/cassandra/cassandra.yaml

@@ -5,6 +5,7 @@ import (
 	"E-Commerce/response/chunks/cashback"
 	"E-Commerce/response/chunks/deal_of_the_week"
 	"E-Commerce/response/chunks/explore_category"
+	"E-Commerce/response/chunks/faq"
 	"E-Commerce/response/chunks/featured_items"
 	"E-Commerce/response/chunks/subscription"
 	"E-Commerce/response/chunks/top_categogies"
@@ -114,4 +115,8 @@ func OnBoarding(c *gin.Context) {
 	var parentChildren []interface{}
 	parentChildren = onboarding.OnBoarding(parentChildren)
 	c.JSON(http.StatusOK, gin.H{"data": parentChildren})
+}
+func Faq(c *gin.Context) {
+	var parentChildren = faq.Faq()
+	c.JSON(http.StatusOK, gin.H{"data": parentChildren, "hint_text": "Select Category"})
 }

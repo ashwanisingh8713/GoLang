@@ -4,6 +4,6 @@ category (Insert, Read)
 products (Insert, Read)
 sub_category (Insert, Read)
 seller (Insert)
-user (Insert, Read)
+user (Create, Read, GetAllUsers)
 
 

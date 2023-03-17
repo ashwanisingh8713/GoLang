@@ -91,7 +91,7 @@ const docTemplate = `{
                 "tags": [
                     "Product"
                 ],
-                "summary": "Creates Product .",
+                "summary": "Creates Product.",
                 "parameters": [
                     {
                         "description": "All fields are required",

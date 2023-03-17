@@ -648,7 +648,7 @@ paths:
           description: Internal Server Error
           schema:
             type: string
-      summary: Creates Product .
+      summary: Creates Product.
       tags:
       - Product
   /c_wishlist:

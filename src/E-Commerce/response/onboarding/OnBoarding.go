@@ -14,11 +14,11 @@ func OnBoarding(parentChildren []interface{}) []interface{} {
 	}
 
 	var value2 = data.Value{
-		Banner4x: ec_constant.OnBoardingImagePath4x + "logo.png",
+		Banner4x: ec_constant.OnBoardingImagePath4x + "onboarding.json",
 	}
 
 	var value3 = data.Value{
-		Banner4x: ec_constant.OnBoardingImagePath4x + "logo.png",
+		Banner4x: ec_constant.OnBoardingImagePath4x + "on.json",
 	}
 	var product1 = data.OnBoarding{
 		Value: value1,

@@ -512,6 +512,31 @@ definitions:
       user_id:
         type: string
     type: object
+  userdata.BodyAddressInput:
+    properties:
+      addressLine1:
+        type: string
+      addressLine2:
+        type: string
+      addressType:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      isPreferred:
+        type: boolean
+      mobile1:
+        type: string
+      mobile2:
+        type: string
+      state:
+        type: string
+      userId:
+        type: string
+      zip:
+        type: string
+    type: object
   userdata.BodyCreateUserInput:
     properties:
       email:
@@ -527,14 +552,17 @@ definitions:
       password:
         type: string
     type: object
-  userdata.BodyUserIdInput:
+  userdata.BodyItemUserIdInput:
     properties:
+      productId:
+        type: string
       userId:
         type: string
     required:
+    - productId
     - userId
     type: object
-  userdata.BodyWishlistInput:
+  userdata.BodySelectedProductInput:
     properties:
       productId:
         type: string
@@ -545,6 +573,13 @@ definitions:
     required:
     - productId
     - quantity
+    - userId
+    type: object
+  userdata.BodyUserIdInput:
+    properties:
+      userId:
+        type: string
+    required:
     - userId
     type: object
   userdata.StatusMsg:
@@ -567,7 +602,7 @@ definitions:
       wishlist_id:
         type: string
     type: object
-host: 192.168.77.101:8080
+host: 192.168.13.72:8080
 info:
   contact:
     email: support@swagger.io
@@ -616,7 +651,7 @@ paths:
             type: string
       summary: Get all addresses of the User.
       tags:
-      - USER
+      - User
   /c_product:
     post:
       consumes:
@@ -648,7 +683,7 @@ paths:
           description: Internal Server Error
           schema:
             type: string
-      summary: Creates Product .
+      summary: Creates Product.
       tags:
       - Product
   /c_wishlist:
@@ -662,7 +697,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyWishlistInput'
+          $ref: '#/definitions/userdata.BodySelectedProductInput'
       produces:
       - application/json
       responses:
@@ -684,19 +719,53 @@ paths:
             type: string
       summary: Creates wishlist for selected product.
       tags:
-      - USER_ITEM
-  /cart_item:
+      - Wishlist
+  /createAddress:
     post:
       consumes:
       - application/json
-      description: To get cart list.
+      description: Creates or Add Address of the User.
       parameters:
       - description: It takes UserId
         in: body
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyUserIdInput'
+          $ref: '#/definitions/userdata.BodyAddressInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/userdata.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Creates or Add Address of the User.
+      tags:
+      - User
+  /createCart:
+    post:
+      consumes:
+      - application/json
+      description: Create or Add Cart Item
+      parameters:
+      - description: It takes UserId, productId, quantity
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/userdata.BodySelectedProductInput'
       produces:
       - application/json
       responses:
@@ -718,9 +787,9 @@ paths:
           description: Internal Server Error
           schema:
             type: string
-      summary: Get all cart products of the User.
+      summary: Add item into the Cart of the User.
       tags:
-      - USER_ITEM
+      - Cart
   /createUser:
     post:
       consumes:
@@ -754,7 +823,7 @@ paths:
             type: string
       summary: Creates User .
       tags:
-      - USER
+      - User
   /d_wishlist:
     delete:
       consumes:
@@ -787,7 +856,41 @@ paths:
             type: string
       summary: Deletes the selected wishlistId from the Wishlist Table.
       tags:
-      - USER_ITEM
+      - Wishlist
+  /deleteCart:
+    delete:
+      consumes:
+      - application/json
+      description: Delete cart item from the Cart
+      parameters:
+      - description: It takes userId, productId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/userdata.BodyItemUserIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/userdata.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Delete cart item from the Cart.
+      tags:
+      - Cart
   /ec:
     get:
       description: To get Home's Views Group
@@ -812,7 +915,7 @@ paths:
             type: string
       summary: Provides HomePage Views Groups
       tags:
-      - VIEW_GROUP
+      - ViewGroup
   /explore:
     get:
       description: To get response of Explore Btn CTA
@@ -837,7 +940,7 @@ paths:
             type: string
       summary: Explore Click To Action
       tags:
-      - VIEW_GROUP
+      - ViewGroup
   /getAllUsers:
     post:
       consumes:
@@ -873,7 +976,43 @@ paths:
             type: string
       summary: Provides All Users.
       tags:
-      - USER
+      - User
+  /getCart:
+    post:
+      consumes:
+      - application/json
+      description: To get cart list.
+      parameters:
+      - description: It takes UserId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/userdata.BodyUserIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/cart_item.CartItem'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get all cart products of the User.
+      tags:
+      - Cart
   /onboarding:
     get:
       description: To get response of OnBoarding Page ViewGroup
@@ -898,7 +1037,7 @@ paths:
             type: string
       summary: OnBoarding Page ViewGroup
       tags:
-      - VIEW_GROUP
+      - ViewGroup
   /profile:
     get:
       description: To get ProfilePage Views Group
@@ -923,7 +1062,7 @@ paths:
             type: string
       summary: Provides ProfilePage Views Groups
       tags:
-      - VIEW_GROUP
+      - ViewGroup
   /r_product:
     post:
       consumes:
@@ -993,7 +1132,7 @@ paths:
             type: string
       summary: Shows the all wishlist of the User.
       tags:
-      - USER_ITEM
+      - Wishlist
   /subscription:
     get:
       description: To get response of Subscription Page ViewGroup
@@ -1018,7 +1157,7 @@ paths:
             type: string
       summary: Subscription Page ViewGroup
       tags:
-      - VIEW_GROUP
+      - ViewGroup
     post:
       consumes:
       - application/json
@@ -1053,7 +1192,7 @@ paths:
             type: string
       summary: Get all subscribed products of the User.
       tags:
-      - USER_ITEM
+      - Subscription
   /user:
     post:
       consumes:
@@ -1087,7 +1226,7 @@ paths:
             type: string
       summary: Get User's information.
       tags:
-      - USER
+      - User
 schemes:
 - http
 swagger: "2.0"

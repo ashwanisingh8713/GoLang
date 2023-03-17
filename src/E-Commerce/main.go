@@ -28,7 +28,7 @@ import (
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host 192.168.77.101:8080
+// @host 192.168.13.72:8080
 // @BasePath /
 // @schemes http
 func main() {
@@ -45,7 +45,7 @@ func main() {
 	route := gin.Default()
 	route.Use(CORSMiddleware())
 
-	// Swagger UI http://192.168.77.101:8080/swagger/index.html
+	// Swagger UI http://192.168.13.72:8080/swagger/index.html
 	route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// Images Related Static APIs
@@ -76,7 +76,11 @@ func main() {
 	route.POST("/getAllUsers", userdata.GetAllUsers)
 	route.POST("/user", userdata.GetUserInfo)
 	route.POST("/address", userdata.GetUserAddress)
-	route.POST("/cart_item", userdata.GetUserCartItem)
+	route.POST("/createAddress", userdata.CreateUserAddress)
+	route.DELETE("/deleteAddress", userdata.DeleteAddress)
+	route.POST("/getCart", userdata.GetCartItem)
+	route.POST("/createCart", userdata.CreateCartItem)
+	route.DELETE("/deleteCart", userdata.DeleteCartItem)
 	route.POST("/subscription", userdata.GetUserAllSubscription)
 	route.POST("/c_wishlist", userdata.CreateWishlist)
 	route.POST("/r_wishlist", userdata.GetWishlist)

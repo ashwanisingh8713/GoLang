@@ -34,7 +34,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER"
+                    "User"
                 ],
                 "summary": "Get all addresses of the User.",
                 "parameters": [
@@ -91,7 +91,7 @@ const docTemplate = `{
                 "tags": [
                     "Product"
                 ],
-                "summary": "Creates Product .",
+                "summary": "Creates Product.",
                 "parameters": [
                     {
                         "description": "All fields are required",
@@ -141,7 +141,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER_ITEM"
+                    "Wishlist"
                 ],
                 "summary": "Creates wishlist for selected product.",
                 "parameters": [
@@ -151,7 +151,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userdata.BodyWishlistInput"
+                            "$ref": "#/definitions/userdata.BodySelectedProductInput"
                         }
                     }
                 ],
@@ -183,9 +183,9 @@ const docTemplate = `{
                 }
             }
         },
-        "/cart_item": {
+        "/createAddress": {
             "post": {
-                "description": "To get cart list.",
+                "description": "Creates or Add Address of the User.",
                 "consumes": [
                     "application/json"
                 ],
@@ -193,9 +193,9 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER_ITEM"
+                    "User"
                 ],
-                "summary": "Get all cart products of the User.",
+                "summary": "Creates or Add Address of the User.",
                 "parameters": [
                     {
                         "description": "It takes UserId",
@@ -203,7 +203,59 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/userdata.BodyUserIdInput"
+                            "$ref": "#/definitions/userdata.BodyAddressInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/userdata.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/createCart": {
+            "post": {
+                "description": "Create or Add Cart Item",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Add item into the Cart of the User.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId, productId, quantity",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userdata.BodySelectedProductInput"
                         }
                     }
                 ],
@@ -248,7 +300,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER"
+                    "User"
                 ],
                 "summary": "Creates User .",
                 "parameters": [
@@ -300,7 +352,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER_ITEM"
+                    "Wishlist"
                 ],
                 "summary": "Deletes the selected wishlistId from the Wishlist Table.",
                 "parameters": [
@@ -340,6 +392,58 @@ const docTemplate = `{
                 }
             }
         },
+        "/deleteCart": {
+            "delete": {
+                "description": "Delete cart item from the Cart",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Delete cart item from the Cart.",
+                "parameters": [
+                    {
+                        "description": "It takes userId, productId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userdata.BodyItemUserIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/userdata.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/ec": {
             "get": {
                 "description": "To get Home's Views Group",
@@ -347,7 +451,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "VIEW_GROUP"
+                    "ViewGroup"
                 ],
                 "summary": "Provides HomePage Views Groups",
                 "responses": {
@@ -385,7 +489,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "VIEW_GROUP"
+                    "ViewGroup"
                 ],
                 "summary": "Explore Click To Action",
                 "responses": {
@@ -426,7 +530,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER"
+                    "User"
                 ],
                 "summary": "Provides All Users.",
                 "parameters": [
@@ -471,6 +575,61 @@ const docTemplate = `{
                 }
             }
         },
+        "/getCart": {
+            "post": {
+                "description": "To get cart list.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Cart"
+                ],
+                "summary": "Get all cart products of the User.",
+                "parameters": [
+                    {
+                        "description": "It takes UserId",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/userdata.BodyUserIdInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/cart_item.CartItem"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/onboarding": {
             "get": {
                 "description": "To get response of OnBoarding Page ViewGroup",
@@ -478,7 +637,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "VIEW_GROUP"
+                    "ViewGroup"
                 ],
                 "summary": "OnBoarding Page ViewGroup",
                 "responses": {
@@ -516,7 +675,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "VIEW_GROUP"
+                    "ViewGroup"
                 ],
                 "summary": "Provides ProfilePage Views Groups",
                 "responses": {
@@ -609,7 +768,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER_ITEM"
+                    "Wishlist"
                 ],
                 "summary": "Shows the all wishlist of the User.",
                 "parameters": [
@@ -661,7 +820,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "VIEW_GROUP"
+                    "ViewGroup"
                 ],
                 "summary": "Subscription Page ViewGroup",
                 "responses": {
@@ -700,7 +859,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER_ITEM"
+                    "Subscription"
                 ],
                 "summary": "Get all subscribed products of the User.",
                 "parameters": [
@@ -755,7 +914,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "USER"
+                    "User"
                 ],
                 "summary": "Get User's information.",
                 "parameters": [
@@ -1565,6 +1724,44 @@ const docTemplate = `{
                 }
             }
         },
+        "userdata.BodyAddressInput": {
+            "type": "object",
+            "properties": {
+                "addressLine1": {
+                    "type": "string"
+                },
+                "addressLine2": {
+                    "type": "string"
+                },
+                "addressType": {
+                    "type": "string"
+                },
+                "city": {
+                    "type": "string"
+                },
+                "country": {
+                    "type": "string"
+                },
+                "isPreferred": {
+                    "type": "boolean"
+                },
+                "mobile1": {
+                    "type": "string"
+                },
+                "mobile2": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "userId": {
+                    "type": "string"
+                },
+                "zip": {
+                    "type": "string"
+                }
+            }
+        },
         "userdata.BodyCreateUserInput": {
             "type": "object",
             "properties": {
@@ -1588,18 +1785,22 @@ const docTemplate = `{
                 }
             }
         },
-        "userdata.BodyUserIdInput": {
+        "userdata.BodyItemUserIdInput": {
             "type": "object",
             "required": [
+                "productId",
                 "userId"
             ],
             "properties": {
+                "productId": {
+                    "type": "string"
+                },
                 "userId": {
                     "type": "string"
                 }
             }
         },
-        "userdata.BodyWishlistInput": {
+        "userdata.BodySelectedProductInput": {
             "type": "object",
             "required": [
                 "productId",
@@ -1613,6 +1814,17 @@ const docTemplate = `{
                 "quantity": {
                     "type": "integer"
                 },
+                "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "userdata.BodyUserIdInput": {
+            "type": "object",
+            "required": [
+                "userId"
+            ],
+            "properties": {
                 "userId": {
                     "type": "string"
                 }
@@ -1655,7 +1867,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "192.168.77.101:8080",
+	Host:             "192.168.13.72:8080",
 	BasePath:         "/",
 	Schemes:          []string{"http"},
 	Title:            "APIs of E-Commerce Project",

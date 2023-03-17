@@ -10,7 +10,7 @@ import (
 // Profile godoc
 // @Summary Provides ProfilePage Views Groups
 // @Description To get ProfilePage Views Group
-// @Tags VIEW_GROUP
+// @Tags ViewGroup
 // @Produce json
 // @Success 200 {object} data.Profile
 // @Failure      400  string Bad Request

@@ -3,6 +3,7 @@ package cart_item
 import (
 	"E-Commerce/database/table"
 	productTable "E-Commerce/database/table/products"
+	"fmt"
 	"github.com/gocql/gocql"
 	"log"
 	"time"
@@ -28,7 +29,7 @@ type CartItem struct {
 	Product    productTable.Product `json:"product"`
 }
 
-func Insert(session *gocql.Session, userId string, productId string, productQuantity int) {
+func Insert(session *gocql.Session, userId string, productId string, productQuantity int) bool {
 	var user = CartItem{}
 	user.UserId = userId
 	user.ProductId = productId
@@ -51,8 +52,10 @@ func Insert(session *gocql.Session, userId string, productId string, productQuan
 		user.CreatedAt,
 		user.ModifiedAt,
 	).Exec(); err != nil {
-		log.Fatal("Error! insert into CartItem ::::    ", err)
+		fmt.Println("Error! insert into CartItem ::::    ", err)
+		return false
 	}
+	return true
 }
 
 func Read(session *gocql.Session, userId string) []CartItem {
@@ -88,4 +91,21 @@ func Read(session *gocql.Session, userId string) []CartItem {
 		cartItemsArray[i].Product = product
 	}
 	return cartItemsArray
+}
+
+func Delete(session *gocql.Session, userId string, cartItemId string) (bool, string) {
+	err := session.Query(`Delete from`+
+		` FROM `+table.TABLE_Cart_item+
+		` WHERE `+
+		user_id+
+		`, `+
+		cart_item_id+
+		` = ? `, userId, cartItemId).Exec()
+
+	if err != nil {
+		fmt.Println("Error! cart_item table product delete :: ", err)
+		return false, cartItemId
+	}
+
+	return true, cartItemId
 }

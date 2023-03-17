@@ -69,6 +69,42 @@ func Insert(session *gocql.Session, address Address) {
 	}
 }
 
+func CreateAddress(session *gocql.Session, userId string, addressType string, addressLine1 string, addressLine2 string,
+	isPreferred bool, zip string, city string, state string, country string, mobile1 string, mobile2 string) (bool, string) {
+	addressId := gocql.TimeUUID()
+	if err := session.Query(`INSERT INTO `+table.TABLE_Address+`(
+		`+AddressId+`,
+		`+UserId+`,
+		`+AddressType+`,
+		`+AddressLine1+`,
+		`+AddressLine2+`,
+		`+IsPreferred+`,
+		`+Zip+`,
+		`+City+`,
+		`+State+`,
+		`+Country+`,
+		`+Mobile1+`,
+		`+Mobile2+`
+		) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+		addressId,
+		userId,
+		addressType,
+		addressLine1,
+		addressLine2,
+		isPreferred,
+		zip,
+		city,
+		state,
+		country,
+		mobile1,
+		mobile2,
+	).Exec(); err != nil {
+		fmt.Println("Error!, Address create :: ", err)
+		return false, ""
+	}
+	return true, addressId.String()
+}
+
 func Read(session *gocql.Session, userId string) []Address {
 	var addressArray []Address
 	var address = Address{}
@@ -98,4 +134,21 @@ func Read(session *gocql.Session, userId string) []Address {
 		log.Fatal("Address Error :: ", err)
 	}
 	return addressArray
+}
+
+func Delete(session *gocql.Session, userId string, addressId string) (bool, string) {
+	err := session.Query(`Delete from`+
+		` FROM `+table.TABLE_Address+
+		` WHERE `+
+		UserId+
+		`, `+
+		AddressId+
+		` = ? `, userId, addressId).Exec()
+
+	if err != nil {
+		fmt.Println("Error! Address table address delete :: ", err)
+		return false, addressId
+	}
+
+	return true, addressId
 }

@@ -19,7 +19,7 @@ import (
 // Home godoc
 // @Summary Provides HomePage Views Groups
 // @Description To get Home's Views Group
-// @Tags VIEW_GROUP
+// @Tags ViewGroup
 // @Produce json
 // @Success 200 {object} ViewGroupMockResponse
 // @Failure      400  string Bad Request
@@ -40,7 +40,7 @@ func Home(c *gin.Context) {
 // ExploreTopCategory godoc
 // @Summary Explore Click To Action
 // @Description To get response of Explore Btn CTA
-// @Tags VIEW_GROUP
+// @Tags ViewGroup
 // @Produce json
 // @Success 200 {object} ViewGroupMockResponse
 // @Failure      400  string Bad Request
@@ -88,7 +88,7 @@ func ExploreTopCategory(c *gin.Context) {
 // Subscription godoc
 // @Summary Subscription Page ViewGroup
 // @Description To get response of Subscription Page ViewGroup
-// @Tags VIEW_GROUP
+// @Tags ViewGroup
 // @Produce json
 // @Success 200 {object} SubscriptionPageMockResponse
 // @Failure      400  string Bad Request
@@ -104,7 +104,7 @@ func Subscription(c *gin.Context) {
 // OnBoarding godoc
 // @Summary OnBoarding Page ViewGroup
 // @Description To get response of OnBoarding Page ViewGroup
-// @Tags VIEW_GROUP
+// @Tags ViewGroup
 // @Produce json
 // @Success 200 {object} SubscriptionPageMockResponse
 // @Failure      400  string Bad Request

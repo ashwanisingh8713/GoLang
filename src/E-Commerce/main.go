@@ -5,8 +5,8 @@ import (
 	_ "E-Commerce/docs"
 	"E-Commerce/ec_constant"
 	"E-Commerce/response"
+	"E-Commerce/response/db_apis"
 	productRes "E-Commerce/response/products"
-	"E-Commerce/response/userdata"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -66,29 +66,49 @@ func main() {
 	route.GET(ec_constant.ROUTE_HOME, response.Home)
 	route.GET(ec_constant.ROUTE_EXPLORE, response.ExploreTopCategory)
 	route.GET(ec_constant.ROUTE_PRODUCT, response.ExploreTopCategory)
-	route.GET(ec_constant.ROUTE_PROFILE, userdata.Profile)
+	route.GET(ec_constant.ROUTE_PROFILE, db_apis.Profile)
 	route.GET(ec_constant.ROUTE_SUBSCRIPTION, response.Subscription)
 	route.GET(ec_constant.ROUTE_ONBOARDING, response.OnBoarding)
 	route.GET(ec_constant.ROUTE_FAQ, response.Faq)
 
 	// User Related APIs
-	route.POST("/createUser", userdata.CreateUser)
-	route.POST("/getAllUsers", userdata.GetAllUsers)
-	route.POST("/user", userdata.GetUserInfo)
-	route.POST("/address", userdata.GetUserAddress)
-	route.POST("/createAddress", userdata.CreateUserAddress)
-	route.DELETE("/deleteAddress", userdata.DeleteAddress)
-	route.POST("/getCart", userdata.GetCartItem)
-	route.POST("/createCart", userdata.CreateCartItem)
-	route.DELETE("/deleteCart", userdata.DeleteCartItem)
-	route.POST("/subscription", userdata.GetUserAllSubscription)
-	route.POST("/c_wishlist", userdata.CreateWishlist)
-	route.POST("/r_wishlist", userdata.GetWishlist)
-	route.DELETE("/d_wishlist", userdata.DeleteWishlist)
+	route.POST("/loginUser", db_apis.GetUserLogin)
+	route.POST("/createUser", db_apis.CreateUser)
+	route.POST("/getAllUsers", db_apis.GetAllUsers)
+	route.POST("/user", db_apis.GetUserInfo)
+	route.POST("/getAddress", db_apis.GetUserAddress)
+	route.POST("/createAddress", db_apis.CreateUserAddress)
+	route.DELETE("/deleteAddress", db_apis.DeleteAddress)
+	route.PUT("/updateAddress", db_apis.UpdateAddress)
+	route.POST("/getCart", db_apis.GetCartItem)
+	route.POST("/createCart", db_apis.CreateCartItem)
+	route.DELETE("/deleteCart", db_apis.DeleteCartItem)
+	route.POST("/subscription", db_apis.GetUserAllSubscription)
+	route.POST("/createWishlist", db_apis.CreateWishlist)
+	route.POST("/getWishlist", db_apis.GetWishlist)
+	route.DELETE("/deleteWishlist", db_apis.DeleteWishlist)
 
 	// Product Related APIs
-	route.POST("/c_product", productRes.CreateProduct)
-	route.POST("/r_product", productRes.GetProduct)
+	route.POST("/createProduct", productRes.CreateProduct)
+	route.POST("/getProduct", productRes.GetProduct)
+
+	// Manufacturer Related APIs
+	route.POST("/createManufacturer", db_apis.CreateManufacturer)
+	route.POST("/getAllManufacturer", db_apis.GetAllManufacturer)
+	route.POST("/getManufacturerById", db_apis.GetManufacturerById)
+
+	// Seller Related APIs
+	route.POST("/createSeller", db_apis.CreateSeller)
+	route.POST("/getAllSeller", db_apis.GetAllSeller)
+	route.POST("/getSellerById", db_apis.GetSellerById)
+
+	// SubCategory Related APIs
+	route.POST("/createSubCategory", db_apis.CreateSubCategory)
+	route.POST("/getAllSubCategory", db_apis.GetAllSubCategory)
+	route.POST("/getAllSubCategoryByCateId", db_apis.GetAllSubCategoryByCateId)
+
+
+
 
 	err := route.Run(ec_constant.IpAddress)
 	if err != nil {

@@ -97,10 +97,8 @@ func Delete(session *gocql.Session, userId string, cartItemId string) (bool, str
 	err := session.Query(`Delete from`+
 		` FROM `+table.TABLE_Cart_item+
 		` WHERE `+
-		user_id+
-		`, `+
-		cart_item_id+
-		` = ? `, userId, cartItemId).Exec()
+		user_id+` = ?  AND `+
+		cart_item_id+` = ? `, userId, cartItemId).Exec()
 
 	if err != nil {
 		fmt.Println("Error! cart_item table product delete :: ", err)

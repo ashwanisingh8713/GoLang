@@ -15,11 +15,11 @@ import (
 // @Accept json
 // @Produce json
 // @Param       json  body BodyProductInput true "All fields are required"
-// @Success 200 {object} userdata.StatusMsg
+// @Success 200 {object} db_apis.StatusMsg
 // @Failure      400  string Bad Request
 // @Failure      404  string Page Not found
 // @Failure      500  string Internal Server Error
-// @Router /c_product [post]
+// @Router /createProduct [post]
 func CreateProduct(c *gin.Context) {
 	var in BodyProductInput
 	if err := c.ShouldBindJSON(&in); err != nil {
@@ -69,7 +69,7 @@ func CreateProduct(c *gin.Context) {
 // @Failure      400  string Bad Request
 // @Failure      404  string Page Not found
 // @Failure      500  string Internal Server Error
-// @Router /r_product [post]
+// @Router /getProduct [post]
 func GetProduct(c *gin.Context) {
 	var in BodyProductIdInput
 	if err := c.ShouldBindJSON(&in); err != nil {

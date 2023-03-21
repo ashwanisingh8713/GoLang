@@ -4,7 +4,6 @@ import (
 	"E-Commerce/database/table"
 	"fmt"
 	"github.com/gocql/gocql"
-	"log"
 	"time"
 )
 
@@ -30,13 +29,13 @@ type Category struct {
 	Picture     string
 }
 
-func Insert(session *gocql.Session, catName string, catDescription string, catPicture string) {
-	var category = Category{}
+func CreateCategory(session *gocql.Session, catName string, catDescription string, catPicture string) {
+	/*var category = Category{}
 	category.Name = catName
 	category.Description = catDescription
 	category.CreatedAt = time.Now()
 	category.ModifiedAt = time.Now()
-	category.IsDeleted = false
+	category.IsDeleted = false*/
 
 	if err := session.Query(`INSERT INTO `+table.TABLE_Category+`(
 		`+category_id+`,
@@ -48,28 +47,61 @@ func Insert(session *gocql.Session, catName string, catDescription string, catPi
 		`+picture+`
 		) VALUES (?, ?, ?, ?, ?, ?, ?)`,
 		gocql.TimeUUID(),
-		category.Name,
-		category.Description,
-		category.CreatedAt,
-		category.ModifiedAt,
-		category.IsDeleted,
-		category.Picture,
+		catName,
+		catDescription,
+		time.Now(),
+		time.Now(),
+		true,
+		catPicture,
 	).Exec(); err != nil {
-		log.Fatal("Error! insert into Category ::::    ", err)
+		fmt.Println("Error! insert into Category ::::    ", err)
 	}
 }
 
-func Read(session gocql.Session) {
+func GetAllCategory(session *gocql.Session) (bool, []Category) {
+	var categories []Category
 	var category = Category{}
 	iter := session.Query(`SELECT 
-    			* FROM ` + table.TABLE_Category).Iter()
+    			` + category_id + `,
+		` + name + `,
+		` + description + `,
+		` + created_at + `,
+		` + modified_at + `,
+		` + is_deleted + `,
+		` + picture + `
+				FROM ` + table.TABLE_Category).Iter()
 
-	for iter.Scan(&category.CategoryId, &category.IsDeleted, &category.CreatedAt, &category.DeletedAt,
-		&category.Description,
-		&category.ModifiedAt, &category.Name) {
-		fmt.Println("Address : ", category.CategoryId, category.Name)
+	for iter.Scan(&category.CategoryId, &category.Name, &category.Description, &category.CreatedAt,
+		&category.ModifiedAt,
+		&category.IsDeleted, &category.Picture) {
+		categories = append(categories, category)
 	}
 	if err := iter.Close(); err != nil {
-		log.Fatal(err)
+		return false, []Category{}
 	}
+	return true, categories
+}
+
+func GetCategoryById(session *gocql.Session, categoryId string) (bool, Category) {
+	var category = Category{}
+	err := session.Query(`SELECT `+
+		category_id+
+		`,`+name+
+		`,`+description+
+		`,`+created_at+
+		`,`+modified_at+
+		`,`+deleted_at+
+		`,`+is_deleted+
+		`,`+picture+
+		` FROM `+table.TABLE_Category+
+		` WHERE `+
+		category_id+
+		` = ? `, categoryId).Consistency(gocql.One).Scan(&category.CategoryId, &category.Name, &category.Description, &category.CreatedAt,
+		&category.ModifiedAt,
+		&category.DeletedAt, &category.IsDeleted, &category.Picture)
+	if err != nil {
+		fmt.Println("Category Table, Get Category   Info failed error is ", err)
+		return false, category
+	}
+	return true, category
 }

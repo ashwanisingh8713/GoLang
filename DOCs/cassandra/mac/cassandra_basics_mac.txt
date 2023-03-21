@@ -6,7 +6,7 @@ To Start cassandra
     brew services stop cassandra
     brew services start cassandra
     cassandra
-    cqlsh 192.168.13.119
+    cqlsh 192.168.13.72
 
 To Stop cassandra
     brew services stop cassandra

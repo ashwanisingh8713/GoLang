@@ -4,7 +4,6 @@ import (
 	"E-Commerce/database/table"
 	"fmt"
 	"github.com/gocql/gocql"
-	"log"
 	"time"
 )
 
@@ -30,12 +29,13 @@ type SubCategory struct {
 	Picture       string
 }
 
-func Insert(session *gocql.Session, categoryId string, subCatName string, subCatDescription string) {
+func CreateSubCategory(session *gocql.Session, categoryId string, subCatName string, subCatDescription string) (bool, string) {
 	var subCategory = SubCategory{}
 	subCategory.Name = subCatName
 	subCategory.Description = subCatDescription
 	subCategory.CreatedAt = time.Now()
 	subCategory.ModifiedAt = time.Now()
+	uniqueId := gocql.TimeUUID()
 
 	if err := session.Query(` INSERT INTO `+table.TABLE_Sub_category+`(
 		`+sub_category_id+`,
@@ -46,7 +46,7 @@ func Insert(session *gocql.Session, categoryId string, subCatName string, subCat
 		`+modified_at+`,
 		`+picture+`
 		) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-		gocql.TimeUUID(),
+		uniqueId,
 		categoryId,
 		subCategory.Name,
 		subCategory.Description,
@@ -54,22 +54,57 @@ func Insert(session *gocql.Session, categoryId string, subCatName string, subCat
 		subCategory.ModifiedAt,
 		subCategory.Picture,
 	).Exec(); err != nil {
-		log.Fatal("Error! insert into Sub-Category ::::    ", err)
+		fmt.Println("Error! insert into Sub-Category ::::    ", err)
+		return false, "Failed to create Sub-Category"
 	}
+	return true, uniqueId.String()
 }
 
-func Read(session gocql.Session) {
+func GetAllSubCategory(session *gocql.Session) (bool, []SubCategory) {
+	var subCategories []SubCategory
 	var subCategory = SubCategory{}
 	iter := session.Query(`SELECT 
-    			* FROM ` + table.TABLE_Sub_category).Iter()
+    			` + sub_category_id + `,
+		` + category_id + `,
+		` + name + `,
+		` + description + `,
+		` + created_at + `,
+		` + modified_at + `,
+		` + picture + `
+				FROM ` + table.TABLE_Sub_category).Iter()
 
-	for iter.Scan(&subCategory.SubCategoryId, &subCategory.CategoryId, &subCategory.Name, &subCategory.CreatedAt,
-		&subCategory.DeletedAt,
-		&subCategory.Description,
-		&subCategory.ModifiedAt) {
-		fmt.Println("Address : ", subCategory.CategoryId, subCategory.Name)
+	for iter.Scan(&subCategory.SubCategoryId, &subCategory.CategoryId, &subCategory.Name, &subCategory.Description,
+		&subCategory.CreatedAt, &subCategory.ModifiedAt, &subCategory.Picture) {
+		subCategories = append(subCategories, subCategory)
 	}
 	if err := iter.Close(); err != nil {
-		log.Fatal(err)
+		return false, []SubCategory{}
 	}
+	return true, subCategories
+}
+
+func GetSubCategoryById(session *gocql.Session, subCategoryId string) (bool, []SubCategory) {
+	subCategories := []SubCategory{}
+	var subCategory = SubCategory{}
+	iter := session.Query(`SELECT 
+		`+sub_category_id+
+		`,`+category_id+
+		`,`+name+
+		`,`+description+
+		`,`+created_at+
+		`,`+modified_at+
+		`,`+picture+
+		` FROM `+table.TABLE_Sub_category+
+		` WHERE `+
+		sub_category_id+
+		` = ? `, subCategoryId).Iter()
+
+	for iter.Scan(&subCategory.SubCategoryId, &subCategory.CategoryId,
+		&subCategory.Name, &subCategory.Description, &subCategory.CreatedAt, &subCategory.ModifiedAt, &subCategory.Picture) {
+		subCategories = append(subCategories, subCategory)
+	}
+	if err := iter.Close(); err != nil {
+		return false, []SubCategory{}
+	}
+	return true, subCategories
 }

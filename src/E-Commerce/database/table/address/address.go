@@ -146,9 +146,37 @@ func Delete(session *gocql.Session, userId string, addressId string) (bool, stri
 		` = ? `, userId, addressId).Exec()
 
 	if err != nil {
-		fmt.Println("Error! Address table address delete :: ", err)
+		fmt.Println("Error! Address table delete :: ", err)
 		return false, addressId
 	}
 
+	return true, addressId
+}
+
+func UpdateAddress(session *gocql.Session, userId string, addressId string, addressType string, addressLine1 string, addressLine2 string,
+	isPreferred bool, zip string, city string, state string, country string, mobile1 string, mobile2 string) (bool, string) {
+
+	err := session.Query(`Update `+table.TABLE_Address+
+		` Set `+
+		AddressType+` = ?, `+
+		AddressLine1+` = ?, `+
+		AddressLine2+` = ?, `+
+		IsPreferred+` = ?, `+
+		Zip+` = ?, `+
+		City+` = ?, `+
+		State+` = ?, `+
+		Country+` = ?, `+
+		Mobile1+` = ?, `+
+		Mobile2+` = ? `+
+		` WHERE `+
+		UserId+` =? AND `+
+		AddressId+` = ? `,
+		addressType, addressLine1, addressLine2, isPreferred, zip, city, state, country, mobile1, mobile2,
+		userId, addressId).Exec()
+
+	if err != nil {
+		fmt.Println("Error! Address table update :: ", err)
+		return false, addressId
+	}
 	return true, addressId
 }

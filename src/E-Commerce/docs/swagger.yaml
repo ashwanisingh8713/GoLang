@@ -100,6 +100,130 @@ definitions:
       thumb_4x:
         type: string
     type: object
+  db_apis.BodyActionOnIdInput:
+    properties:
+      actionOnId:
+        type: string
+      userId:
+        type: string
+    required:
+    - actionOnId
+    - userId
+    type: object
+  db_apis.BodyAddressInput:
+    properties:
+      addressLine1:
+        type: string
+      addressLine2:
+        type: string
+      addressType:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      isPreferred:
+        type: boolean
+      mobile1:
+        type: string
+      mobile2:
+        type: string
+      state:
+        type: string
+      userId:
+        type: string
+      zip:
+        type: string
+    type: object
+  db_apis.BodyAddressUpdate:
+    properties:
+      addressId:
+        type: string
+      addressLine1:
+        type: string
+      addressLine2:
+        type: string
+      addressType:
+        type: string
+      city:
+        type: string
+      country:
+        type: string
+      isPreferred:
+        type: boolean
+      mobile1:
+        type: string
+      mobile2:
+        type: string
+      state:
+        type: string
+      userId:
+        type: string
+      zip:
+        type: string
+    type: object
+  db_apis.BodyById:
+    properties:
+      id:
+        type: string
+    type: object
+  db_apis.BodyCreateUserInput:
+    properties:
+      email:
+        type: string
+      first_name:
+        type: string
+      last_name:
+        type: string
+      login_mode:
+        type: string
+      mobile:
+        type: string
+      password:
+        type: string
+    type: object
+  db_apis.BodyNameCreate:
+    properties:
+      name:
+        type: string
+    type: object
+  db_apis.BodySelectedProductInput:
+    properties:
+      productId:
+        type: string
+      quantity:
+        type: integer
+      userId:
+        type: string
+    required:
+    - productId
+    - quantity
+    - userId
+    type: object
+  db_apis.BodyUserIdInput:
+    properties:
+      userId:
+        type: string
+    required:
+    - userId
+    type: object
+  db_apis.BodyUserLoginInput:
+    properties:
+      EmailOrMobile:
+        type: string
+      password:
+        type: string
+    required:
+    - EmailOrMobile
+    - password
+    type: object
+  db_apis.StatusMsg:
+    properties:
+      msg:
+        type: string
+      status:
+        type: boolean
+    type: object
   products.BodyProductIdInput:
     properties:
       productId:
@@ -512,83 +636,6 @@ definitions:
       user_id:
         type: string
     type: object
-  userdata.BodyAddressInput:
-    properties:
-      addressLine1:
-        type: string
-      addressLine2:
-        type: string
-      addressType:
-        type: string
-      city:
-        type: string
-      country:
-        type: string
-      isPreferred:
-        type: boolean
-      mobile1:
-        type: string
-      mobile2:
-        type: string
-      state:
-        type: string
-      userId:
-        type: string
-      zip:
-        type: string
-    type: object
-  userdata.BodyCreateUserInput:
-    properties:
-      email:
-        type: string
-      first_name:
-        type: string
-      last_name:
-        type: string
-      login_mode:
-        type: string
-      mobile:
-        type: string
-      password:
-        type: string
-    type: object
-  userdata.BodyItemUserIdInput:
-    properties:
-      productId:
-        type: string
-      userId:
-        type: string
-    required:
-    - productId
-    - userId
-    type: object
-  userdata.BodySelectedProductInput:
-    properties:
-      productId:
-        type: string
-      quantity:
-        type: integer
-      userId:
-        type: string
-    required:
-    - productId
-    - quantity
-    - userId
-    type: object
-  userdata.BodyUserIdInput:
-    properties:
-      userId:
-        type: string
-    required:
-    - userId
-    type: object
-  userdata.StatusMsg:
-    properties:
-      msg:
-        type: string
-      status:
-        type: boolean
-    type: object
   wishlist.Wishlist:
     properties:
       Created_at:
@@ -616,110 +663,6 @@ info:
   title: APIs of E-Commerce Project
   version: "1.0"
 paths:
-  /address:
-    post:
-      consumes:
-      - application/json
-      description: To get address list.
-      parameters:
-      - description: It takes UserId
-        in: body
-        name: json
-        required: true
-        schema:
-          $ref: '#/definitions/userdata.BodyUserIdInput'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/address.Address'
-            type: array
-        "400":
-          description: Bad Request
-          schema:
-            type: string
-        "404":
-          description: Not Found
-          schema:
-            type: string
-        "500":
-          description: Internal Server Error
-          schema:
-            type: string
-      summary: Get all addresses of the User.
-      tags:
-      - User
-  /c_product:
-    post:
-      consumes:
-      - application/json
-      description: To create and save Product Data.
-      parameters:
-      - description: All fields are required
-        in: body
-        name: json
-        required: true
-        schema:
-          $ref: '#/definitions/products.BodyProductInput'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/userdata.StatusMsg'
-        "400":
-          description: Bad Request
-          schema:
-            type: string
-        "404":
-          description: Not Found
-          schema:
-            type: string
-        "500":
-          description: Internal Server Error
-          schema:
-            type: string
-      summary: Creates Product.
-      tags:
-      - Product
-  /c_wishlist:
-    post:
-      consumes:
-      - application/json
-      description: To create wishlist of the User
-      parameters:
-      - description: It takes UserId, ProductId, Quantity
-        in: body
-        name: json
-        required: true
-        schema:
-          $ref: '#/definitions/userdata.BodySelectedProductInput'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/userdata.StatusMsg'
-        "400":
-          description: Bad Request
-          schema:
-            type: string
-        "404":
-          description: Not Found
-          schema:
-            type: string
-        "500":
-          description: Internal Server Error
-          schema:
-            type: string
-      summary: Creates wishlist for selected product.
-      tags:
-      - Wishlist
   /createAddress:
     post:
       consumes:
@@ -731,14 +674,14 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyAddressInput'
+          $ref: '#/definitions/db_apis.BodyAddressInput'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/userdata.StatusMsg'
+            $ref: '#/definitions/db_apis.StatusMsg'
         "400":
           description: Bad Request
           schema:
@@ -753,7 +696,7 @@ paths:
             type: string
       summary: Creates or Add Address of the User.
       tags:
-      - User
+      - Address
   /createCart:
     post:
       consumes:
@@ -765,7 +708,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodySelectedProductInput'
+          $ref: '#/definitions/db_apis.BodySelectedProductInput'
       produces:
       - application/json
       responses:
@@ -790,6 +733,108 @@ paths:
       summary: Add item into the Cart of the User.
       tags:
       - Cart
+  /createManufacturer:
+    post:
+      consumes:
+      - application/json
+      description: To create Manufacturer
+      parameters:
+      - description: It takes Manufacturer Name
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyNameCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Creates Manufacturer.
+      tags:
+      - Manufacturer
+  /createProduct:
+    post:
+      consumes:
+      - application/json
+      description: To create and save Product Data.
+      parameters:
+      - description: All fields are required
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/products.BodyProductInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Creates Product.
+      tags:
+      - Product
+  /createSeller:
+    post:
+      consumes:
+      - application/json
+      description: To create Seller
+      parameters:
+      - description: It takes Manufacturer Name
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyNameCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Creates Seller.
+      tags:
+      - Seller
   /createUser:
     post:
       consumes:
@@ -801,14 +846,14 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyCreateUserInput'
+          $ref: '#/definitions/db_apis.BodyCreateUserInput'
       produces:
       - application/json
       responses:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/userdata.StatusMsg'
+            $ref: '#/definitions/db_apis.StatusMsg'
         "400":
           description: Bad Request
           schema:
@@ -824,7 +869,109 @@ paths:
       summary: Creates User .
       tags:
       - User
-  /d_wishlist:
+  /createWishlist:
+    post:
+      consumes:
+      - application/json
+      description: To create wishlist of the User
+      parameters:
+      - description: It takes UserId, ProductId, Quantity
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodySelectedProductInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Creates wishlist for selected product.
+      tags:
+      - Wishlist
+  /deleteAddress:
+    delete:
+      consumes:
+      - application/json
+      description: Delete User's Address.
+      parameters:
+      - description: It takes userId, addressId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyActionOnIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Delete User's Address from the Address List.
+      tags:
+      - Address
+  /deleteCart:
+    delete:
+      consumes:
+      - application/json
+      description: Delete cart item from the Cart
+      parameters:
+      - description: It takes userId, productId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyActionOnIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Delete cart item from the Cart.
+      tags:
+      - Cart
+  /deleteWishlist:
     delete:
       consumes:
       - application/json
@@ -841,7 +988,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: '#/definitions/userdata.StatusMsg'
+            $ref: '#/definitions/db_apis.StatusMsg'
         "400":
           description: Bad Request
           schema:
@@ -857,40 +1004,6 @@ paths:
       summary: Deletes the selected wishlistId from the Wishlist Table.
       tags:
       - Wishlist
-  /deleteCart:
-    delete:
-      consumes:
-      - application/json
-      description: Delete cart item from the Cart
-      parameters:
-      - description: It takes userId, productId
-        in: body
-        name: json
-        required: true
-        schema:
-          $ref: '#/definitions/userdata.BodyItemUserIdInput'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/userdata.StatusMsg'
-        "400":
-          description: Bad Request
-          schema:
-            type: string
-        "404":
-          description: Not Found
-          schema:
-            type: string
-        "500":
-          description: Internal Server Error
-          schema:
-            type: string
-      summary: Delete cart item from the Cart.
-      tags:
-      - Cart
   /ec:
     get:
       description: To get Home's Views Group
@@ -941,6 +1054,96 @@ paths:
       summary: Explore Click To Action
       tags:
       - ViewGroup
+  /getAddress:
+    post:
+      consumes:
+      - application/json
+      description: To get address list.
+      parameters:
+      - description: It takes UserId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyUserIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/address.Address'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get all addresses of the User.
+      tags:
+      - Address
+  /getAllManufacturer:
+    post:
+      consumes:
+      - application/json
+      description: To GetAll Manufacturer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: GetAll Manufacturer.
+      tags:
+      - Manufacturer
+  /getAllSeller:
+    post:
+      consumes:
+      - application/json
+      description: To GetAll Manufacturer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: GetAll Manufacturer.
+      tags:
+      - Seller
   /getAllUsers:
     post:
       consumes:
@@ -952,7 +1155,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyUserIdInput'
+          $ref: '#/definitions/db_apis.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -988,7 +1191,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyUserIdInput'
+          $ref: '#/definitions/db_apis.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -1013,6 +1216,178 @@ paths:
       summary: Get all cart products of the User.
       tags:
       - Cart
+  /getManufacturerById:
+    post:
+      consumes:
+      - application/json
+      description: To Get Manufacturer By ID
+      parameters:
+      - description: It takes Manufacturer  Id
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyById'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get Manufacturer By ID.
+      tags:
+      - Manufacturer
+  /getProduct:
+    post:
+      consumes:
+      - application/json
+      description: To get Product Data.
+      parameters:
+      - description: It takes productId.
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/products.BodyProductIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/products.Product'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get Product .
+      tags:
+      - Product
+  /getSellerById:
+    post:
+      consumes:
+      - application/json
+      description: To Get Manufacturer By ID
+      parameters:
+      - description: It takes Seller id
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyById'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get Manufacturer By ID.
+      tags:
+      - Seller
+  /getWishlist:
+    post:
+      consumes:
+      - application/json
+      description: Get the all wishlist of the User.
+      parameters:
+      - description: It takes UserId
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyUserIdInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/wishlist.Wishlist'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Shows the all wishlist of the User.
+      tags:
+      - Wishlist
+  /loginUser:
+    post:
+      consumes:
+      - application/json
+      description: User Login using either email or mobile.
+      parameters:
+      - description: It takes Email or Mobile and Password
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyUserLoginInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user.User'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: User Login.
+      tags:
+      - User
   /onboarding:
     get:
       description: To get response of OnBoarding Page ViewGroup
@@ -1063,76 +1438,6 @@ paths:
       summary: Provides ProfilePage Views Groups
       tags:
       - ViewGroup
-  /r_product:
-    post:
-      consumes:
-      - application/json
-      description: To get Product Data.
-      parameters:
-      - description: It takes productId.
-        in: body
-        name: json
-        required: true
-        schema:
-          $ref: '#/definitions/products.BodyProductIdInput'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            $ref: '#/definitions/products.Product'
-        "400":
-          description: Bad Request
-          schema:
-            type: string
-        "404":
-          description: Not Found
-          schema:
-            type: string
-        "500":
-          description: Internal Server Error
-          schema:
-            type: string
-      summary: Get Product .
-      tags:
-      - Product
-  /r_wishlist:
-    post:
-      consumes:
-      - application/json
-      description: Get the all wishlist of the User.
-      parameters:
-      - description: It takes UserId
-        in: body
-        name: json
-        required: true
-        schema:
-          $ref: '#/definitions/userdata.BodyUserIdInput'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: OK
-          schema:
-            items:
-              $ref: '#/definitions/wishlist.Wishlist'
-            type: array
-        "400":
-          description: Bad Request
-          schema:
-            type: string
-        "404":
-          description: Not Found
-          schema:
-            type: string
-        "500":
-          description: Internal Server Error
-          schema:
-            type: string
-      summary: Shows the all wishlist of the User.
-      tags:
-      - Wishlist
   /subscription:
     get:
       description: To get response of Subscription Page ViewGroup
@@ -1168,7 +1473,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyUserIdInput'
+          $ref: '#/definitions/db_apis.BodyUserIdInput'
       produces:
       - application/json
       responses:
@@ -1193,6 +1498,40 @@ paths:
       summary: Get all subscribed products of the User.
       tags:
       - Subscription
+  /updateAddress:
+    put:
+      consumes:
+      - application/json
+      description: Update User's Address.
+      parameters:
+      - description: All fields are required
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyAddressUpdate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Update User's Address from the Address List.
+      tags:
+      - Address
   /user:
     post:
       consumes:
@@ -1204,7 +1543,7 @@ paths:
         name: json
         required: true
         schema:
-          $ref: '#/definitions/userdata.BodyUserIdInput'
+          $ref: '#/definitions/db_apis.BodyUserIdInput'
       produces:
       - application/json
       responses:

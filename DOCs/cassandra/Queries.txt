@@ -9,6 +9,8 @@ DROP Table
 
 WHERE Clause (without clustering key)
     select * from TableName WHERE lastname = 'Singh' ALLOW FILTERING ;
+    select * from user where email='ashwani@gmail.com';
+
 
 Update Table
     UPDATE ecommerce.products SET units = '10' WHERE product_id = cb3fcd06-b8ec-11ed-81d5-16ab030fa2fa;

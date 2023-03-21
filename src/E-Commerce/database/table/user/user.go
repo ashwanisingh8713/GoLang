@@ -2,6 +2,7 @@ package user
 
 import (
 	"E-Commerce/database/table"
+	"E-Commerce/util"
 	"fmt"
 	"github.com/gocql/gocql"
 	"log"
@@ -30,8 +31,9 @@ const (
 	created_at = "created_at"
 )
 
-func CreateUser(session *gocql.Session, u_firstName, u_lastName, u_mobile, u_email, u_password, u_loginMode string) bool {
+func CreateUser(session *gocql.Session, u_firstName, u_lastName, u_mobile, u_email, u_password, u_loginMode string) (bool, string) {
 	var status = true
+	var uniqueUserId = gocql.TimeUUID()
 	if err := session.Query(`INSERT INTO `+table.TABLE_User+`(
 		`+user_id+`,
 		`+first_name+`,
@@ -42,7 +44,7 @@ func CreateUser(session *gocql.Session, u_firstName, u_lastName, u_mobile, u_ema
 		`+login_mode+`,
 		`+created_at+`
 		) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
-		gocql.TimeUUID(),
+		uniqueUserId,
 		u_firstName,
 		u_lastName,
 		u_mobile,
@@ -54,7 +56,67 @@ func CreateUser(session *gocql.Session, u_firstName, u_lastName, u_mobile, u_ema
 		fmt.Println("Error! insert into User ::::    ", err)
 		status = false
 	}
-	return status
+	return status, uniqueUserId.String()
+}
+
+func GetUserLogin(session *gocql.Session, userEmailOrMobile string, userPassword string) (bool, User) {
+	isValidEmail := util.IsEmail(userEmailOrMobile)
+	var user = User{}
+	if isValidEmail {
+		err := session.Query(`SELECT `+
+			user_id+
+			`,`+first_name+
+			`,`+last_name+
+			`,`+mobile+
+			`,`+email+
+			`,`+password+
+			`,`+login_mode+
+			`,`+created_at+
+			` FROM `+table.TABLE_User+
+			` WHERE `+
+			email+
+			` = ? `+
+			` AND `+
+			password+
+			` = ? ALLOW FILTERING`, userEmailOrMobile, userPassword).Consistency(gocql.One).Scan(&user.UserId, &user.FirstName, &user.LastName, &user.Mobile,
+			&user.Email,
+			&user.Password, &user.LoginMode, &user.CreatedAt)
+
+		if err != nil {
+			fmt.Println("User Table, Get User Login failed error is ", err)
+			return false, user
+		}
+		return true, user
+	} else {
+		isValidMobile := util.IsMobile(userEmailOrMobile)
+		if isValidMobile {
+			err := session.Query(`SELECT `+
+				user_id+
+				`,`+first_name+
+				`,`+last_name+
+				`,`+mobile+
+				`,`+email+
+				`,`+password+
+				`,`+login_mode+
+				`,`+created_at+
+				` FROM `+table.TABLE_User+
+				` WHERE `+
+				mobile+
+				` = ? `+
+				` AND `+
+				password+
+				` = ? ALLOW FILTERING`, userEmailOrMobile, userPassword).Consistency(gocql.One).Scan(&user.UserId, &user.FirstName, &user.LastName, &user.Mobile,
+				&user.Email,
+				&user.Password, &user.LoginMode, &user.CreatedAt)
+			if err != nil {
+				fmt.Println("User Table, Get User Login failed error is ", err)
+				return false, user
+			}
+			return true, user
+		} else {
+			return false, user
+		}
+	}
 }
 
 func GetUserInfo(session *gocql.Session, userId string) User {

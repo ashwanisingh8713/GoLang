@@ -6,6 +6,14 @@ order_id            uuid        (PK)
 user_id             text        (CK)
 mobile              text        (CK)
 email_id            text
+order_at          timestamp     (CK)
+
+
+Below is V-1 #############################################################################################################
+order_id            uuid        (PK)
+user_id             text        (CK)
+mobile              text        (CK)
+email_id            text
 order_date          date        (CK)
 order_at          timestamp     (CK)
 

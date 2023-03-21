@@ -13,7 +13,12 @@ func ExploreGroceries(parentChildren []interface{}) []interface{} {
 		Type:     ui_type.Header_01.String(),
 		Title:    "Groceries",
 		CtaTitle: "See all",
-		Action:   data.Action{},
+		Action: data.Action{
+			API:         "",
+			Query:       ec_constant.QUERY_VALUE_TOPCATEGORY,
+			Method:      "Get",
+			Destination: ec_constant.Destination_SeeAll,
+		},
 	}
 
 	var viewGrpChildren []data.Product
@@ -70,7 +75,12 @@ func ExploreVegetables(parentChildren []interface{}) []interface{} {
 		Type:     ui_type.Header_01.String(),
 		Title:    "Vegetables",
 		CtaTitle: "See All",
-		Action:   data.Action{},
+		Action: data.Action{
+			API:         "",
+			Query:       ec_constant.QUERY_VALUE_TOPCATEGORY,
+			Method:      "Get",
+			Destination: ec_constant.Destination_SeeAll,
+		},
 	}
 
 	var viewGrpChildren []data.Product
@@ -138,7 +148,12 @@ func ExploreFruits(parentChildren []interface{}) []interface{} {
 		Type:     ui_type.Header_01.String(),
 		Title:    "Fruits",
 		CtaTitle: "See All",
-		Action:   data.Action{},
+		Action: data.Action{
+			API:         "",
+			Query:       ec_constant.QUERY_VALUE_TOPCATEGORY,
+			Method:      "Get",
+			Destination: ec_constant.Destination_SeeAll,
+		},
 	}
 
 	var viewGrpChildren []data.Product
@@ -205,7 +220,12 @@ func ExploreDairyProduct(parentChildren []interface{}) []interface{} {
 		Type:     ui_type.Header_01.String(),
 		Title:    "Dairy Products",
 		CtaTitle: "See All",
-		Action:   data.Action{},
+		Action: data.Action{
+			API:         "",
+			Query:       ec_constant.QUERY_VALUE_TOPCATEGORY,
+			Method:      "Get",
+			Destination: ec_constant.Destination_SeeAll,
+		},
 	}
 
 	var viewGrpChildren []data.Product
@@ -272,7 +292,12 @@ func ExploreBakeryProduct(parentChildren []interface{}) []interface{} {
 		Type:     ui_type.Header_01.String(),
 		Title:    "Bakery Items",
 		CtaTitle: "See All",
-		Action:   data.Action{},
+		Action: data.Action{
+			API:         "",
+			Query:       ec_constant.QUERY_VALUE_TOPCATEGORY,
+			Method:      "Get",
+			Destination: ec_constant.Destination_SeeAll,
+		},
 	}
 
 	var viewGrpChildren []data.Product

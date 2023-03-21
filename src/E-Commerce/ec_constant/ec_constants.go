@@ -192,4 +192,5 @@ const (
 const (
 	Destination_Explore = "Explore"
 	Destination_Detail  = "Detail"
+	Destination_SeeAll  = "SeeAll"
 )

@@ -28,7 +28,7 @@ import (
 // @license.name Apache 2.0
 // @license.url http://www.apache.org/licenses/LICENSE-2.0.html
 
-// @host 192.168.13.72:8080
+// @host 192.168.13.119:8080
 // @BasePath /
 // @schemes http
 func main() {
@@ -45,7 +45,7 @@ func main() {
 	route := gin.Default()
 	route.Use(CORSMiddleware())
 
-	// Swagger UI http://192.168.13.72:8080/swagger/index.html
+	// Swagger UI http://192.168.13.119:8080/swagger/index.html
 	route.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	// Images Related Static APIs
@@ -107,8 +107,10 @@ func main() {
 	route.POST("/getAllSubCategory", db_apis.GetAllSubCategory)
 	route.POST("/getAllSubCategoryByCateId", db_apis.GetAllSubCategoryByCateId)
 
-
-
+	// Category Related APIs
+	route.POST("/createCategory", db_apis.CreateCategory)
+	route.POST("/getAllCategory", db_apis.GetAllCategory)
+	route.POST("/getAllCategoryById", db_apis.GetAllCategoryById)
 
 	err := route.Run(ec_constant.IpAddress)
 	if err != nil {

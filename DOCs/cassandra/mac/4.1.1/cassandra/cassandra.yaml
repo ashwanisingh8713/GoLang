@@ -760,7 +760,6 @@ ssl_storage_port: 7001
 #
 # Setting listen_address to 0.0.0.0 is always wrong.
 #
-#listen_address: localhost
 listen_address: 192.168.1.2
 
 # Set listen_address OR listen_interface, not both. Interfaces must correspond
@@ -1161,6 +1160,16 @@ slow_query_log_timeout: 500ms
 # Increase this when you notice that joins are CPU-bound rather that network
 # bound (for example a few nodes with big files).
 # streaming_connections_per_host: 1
+
+# Settings for stream stats tracking; used by system_views.streaming table
+# How long before a stream is evicted from tracking; this impacts both historic and currently running
+# streams.
+# streaming_state_expires: 3d
+# How much memory may be used for tracking before evicting session from tracking; once crossed
+# historic and currently running streams maybe impacted.
+# streaming_state_size: 40MiB
+# Enable/Disable tracking of streaming stats
+# streaming_stats_enabled: true
 
 # Allows denying configurable access (rw/rr) to operations on configured ks, table, and partitions, intended for use by
 # operators to manage cluster health vs application access. See CASSANDRA-12106 and CEP-13 for more details.

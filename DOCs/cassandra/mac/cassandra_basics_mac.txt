@@ -2,11 +2,13 @@
 https://www.youtube.com/watch?v=qXH9XKcsnmg
 https://docs.datastax.com/en/cql-oss/3.3/cql/cql_using/useQuerySystemTable.html
 
+
+
 To Start cassandra
     brew services stop cassandra
     brew services start cassandra
     cassandra
-    cqlsh 192.168.13.72
+    cqlsh 192.168.1.2
 
 To Stop cassandra
     brew services stop cassandra
@@ -25,6 +27,11 @@ cassandra.yaml
     553 - seeds
     764 - listen_address
     860 - rpc_address
+
+
+https://stackoverflow.com/questions/71369553/why-cant-i-connect-to-cassandra-on-my-macos
+#### Cassandra by default listens for client connections on CQL port 9042 configured in cassandra.yaml with:
+    native_transport_port: 9042
 
 #### To Get IP Address
 ifconfig | grep inet

@@ -3,7 +3,6 @@ package db_apis
 import (
 	"E-Commerce/database"
 	"E-Commerce/database/table/category"
-	"E-Commerce/database/table/sub_category"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

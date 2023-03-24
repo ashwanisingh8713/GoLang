@@ -200,6 +200,15 @@ definitions:
     - quantity
     - userId
     type: object
+  db_apis.BodySubCategoryCreate:
+    properties:
+      categoryId:
+        type: string
+      description:
+        type: string
+      name:
+        type: string
+    type: object
   db_apis.BodyUserIdInput:
     properties:
       userId:
@@ -649,7 +658,7 @@ definitions:
       wishlist_id:
         type: string
     type: object
-host: 192.168.13.72:8080
+host: 192.168.13.119:8080
 info:
   contact:
     email: support@swagger.io
@@ -835,6 +844,40 @@ paths:
       summary: Creates Seller.
       tags:
       - Seller
+  /createSubCategory:
+    post:
+      consumes:
+      - application/json
+      description: To create Subcategory
+      parameters:
+      - description: It takes Manufacturer Name
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodySubCategoryCreate'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Creates Subcategory.
+      tags:
+      - Subcategory
   /createUser:
     post:
       consumes:
@@ -1121,7 +1164,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: To GetAll Manufacturer
+      description: To GetAll Seller
       produces:
       - application/json
       responses:
@@ -1141,9 +1184,70 @@ paths:
           description: Internal Server Error
           schema:
             type: string
-      summary: GetAll Manufacturer.
+      summary: GetAll Seller.
       tags:
       - Seller
+  /getAllSubCategory:
+    post:
+      consumes:
+      - application/json
+      description: To GetAll Subcategory
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: GetAll Subcategory.
+      tags:
+      - Subcategory
+  /getAllSubCategoryByCateId:
+    post:
+      consumes:
+      - application/json
+      description: To Get Subcategory By ID
+      parameters:
+      - description: It takes Category id
+        in: body
+        name: json
+        required: true
+        schema:
+          $ref: '#/definitions/db_apis.BodyById'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/db_apis.StatusMsg'
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "404":
+          description: Not Found
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get Subcategory By ID.
+      tags:
+      - Subcategory
   /getAllUsers:
     post:
       consumes:
@@ -1288,7 +1392,7 @@ paths:
     post:
       consumes:
       - application/json
-      description: To Get Manufacturer By ID
+      description: To Get Seller By ID
       parameters:
       - description: It takes Seller id
         in: body
@@ -1315,7 +1419,7 @@ paths:
           description: Internal Server Error
           schema:
             type: string
-      summary: Get Manufacturer By ID.
+      summary: Get Seller By ID.
       tags:
       - Seller
   /getWishlist:

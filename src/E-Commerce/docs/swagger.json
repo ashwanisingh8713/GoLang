@@ -18,7 +18,7 @@
         },
         "version": "1.0"
     },
-    "host": "192.168.13.72:8080",
+    "host": "192.168.13.119:8080",
     "basePath": "/",
     "paths": {
         "/createAddress": {
@@ -253,6 +253,58 @@
                         "required": true,
                         "schema": {
                             "$ref": "#/definitions/db_apis.BodyNameCreate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/createSubCategory": {
+            "post": {
+                "description": "To create Subcategory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Subcategory"
+                ],
+                "summary": "Creates Subcategory.",
+                "parameters": [
+                    {
+                        "description": "It takes Manufacturer Name",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.BodySubCategoryCreate"
                         }
                     }
                 ],
@@ -716,7 +768,7 @@
         },
         "/getAllSeller": {
             "post": {
-                "description": "To GetAll Manufacturer",
+                "description": "To GetAll Seller",
                 "consumes": [
                     "application/json"
                 ],
@@ -726,7 +778,100 @@
                 "tags": [
                     "Seller"
                 ],
-                "summary": "GetAll Manufacturer.",
+                "summary": "GetAll Seller.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllSubCategory": {
+            "post": {
+                "description": "To GetAll Subcategory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Subcategory"
+                ],
+                "summary": "GetAll Subcategory.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllSubCategoryByCateId": {
+            "post": {
+                "description": "To Get Subcategory By ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Subcategory"
+                ],
+                "summary": "Get Subcategory By ID.",
+                "parameters": [
+                    {
+                        "description": "It takes Category id",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.BodyById"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -971,7 +1116,7 @@
         },
         "/getSellerById": {
             "post": {
-                "description": "To Get Manufacturer By ID",
+                "description": "To Get Seller By ID",
                 "consumes": [
                     "application/json"
                 ],
@@ -981,7 +1126,7 @@
                 "tags": [
                     "Seller"
                 ],
-                "summary": "Get Manufacturer By ID.",
+                "summary": "Get Seller By ID.",
                 "parameters": [
                     {
                         "description": "It takes Seller id",
@@ -1701,6 +1846,20 @@
                     "type": "integer"
                 },
                 "userId": {
+                    "type": "string"
+                }
+            }
+        },
+        "db_apis.BodySubCategoryCreate": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
                     "type": "string"
                 }
             }

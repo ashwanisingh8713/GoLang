@@ -29,14 +29,8 @@ type Category struct {
 	Picture     string
 }
 
-func CreateCategory(session *gocql.Session, catName string, catDescription string, catPicture string) {
-	/*var category = Category{}
-	category.Name = catName
-	category.Description = catDescription
-	category.CreatedAt = time.Now()
-	category.ModifiedAt = time.Now()
-	category.IsDeleted = false*/
-
+func CreateCategory(session *gocql.Session, catName string, catDescription string, catPicture string) (bool, string) {
+	uniqueId := gocql.TimeUUID()
 	if err := session.Query(`INSERT INTO `+table.TABLE_Category+`(
 		`+category_id+`,
 		`+name+`,
@@ -46,7 +40,7 @@ func CreateCategory(session *gocql.Session, catName string, catDescription strin
 		`+is_deleted+`,
 		`+picture+`
 		) VALUES (?, ?, ?, ?, ?, ?, ?)`,
-		gocql.TimeUUID(),
+		uniqueId,
 		catName,
 		catDescription,
 		time.Now(),
@@ -55,7 +49,9 @@ func CreateCategory(session *gocql.Session, catName string, catDescription strin
 		catPicture,
 	).Exec(); err != nil {
 		fmt.Println("Error! insert into Category ::::    ", err)
+		return false, "Failed to create category"
 	}
+	return true, uniqueId.String()
 }
 
 func GetAllCategory(session *gocql.Session) (bool, []Category) {

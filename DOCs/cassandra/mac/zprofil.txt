@@ -1,0 +1,13 @@
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export LANG=en_US.UTF-8
+export PATH="$PATH:/Users/ashwani/flutter/bin"
+
+export CASSANDRA_HOME=/opt/homebrew/Cellar/cassandra/4.1.0
+export PATH=$PATH:$CASSANDRA_HOME/bin
+
+export GOPATH=$HOME/go
+PATH=$(go env GOPATH)/bin:$PATH

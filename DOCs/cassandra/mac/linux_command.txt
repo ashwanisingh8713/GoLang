@@ -1,7 +1,13 @@
 To Move one file from "first" location to "second" location
 cat /first/file/same_name > /second/file/same_name
 
+ifconfig | grep inet
+
+
 // Ashwani's Mac Path
-cat /Users/ashwani/go/DOCs/cassandra/mac/cassandra.yaml > /opt/homebrew/etc/cassandra/cassandra.yaml
+cat /Users/ashwani/go/DOCs/cassandra/mac/4.1.1/cassandra/cassandra.yaml > /opt/homebrew/etc/cassandra/cassandra.yaml
+
+cat /Users/ashwani/go/DOCs/cassandra/mac/4.1.1/cassandra/cassandra-env.sh > /opt/homebrew/etc/cassandra/cassandra-env.sh
+cat /Users/ashwani/go/DOCs/cassandra/mac/4.1.1/cassandra/jvm-server.options > /opt/homebrew/etc/cassandra/jvm-server.options
 
 vim /opt/homebrew/etc/cassandra/cassandra.yaml

@@ -2,8 +2,8 @@ package ec_constant
 
 const (
 	PROTOCOL       = "http://"
-	HOST           = "192.168.13.72"
-	IpAddress      = HOST + ":8080"
+	HOST           = "192.168.1.2"
+	IpAddress      = HOST + ":9042"
 	drawableFolder = "/Users/ashwani/go/src/E-Commerce/res/drawable"
 
 	x2 = "2x/"

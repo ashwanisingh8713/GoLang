@@ -1,0 +1,38 @@
+https://docs.oracle.com/javase/9/install/installation-jdk-and-jre-macos.htm#JSJIG-GUID-F9183C70-2E96-40F4-9104-F3814A5A331F
+
+
+See all the Java versions installed on Mac
+    mdfind -name 'java' | grep '/bin/java$'
+    /usr/libexec/java_home -V
+
+Completely Uninstall JDK on macOS
+    https://www.codejava.net/java-se/uninstall-jdk-on-macos
+
+To find the path, where java is installed
+ which java
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+If you need to have this software first in your PATH instead consider running:
+   echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+
+
+openjdk version "19.0.2" 2023-01-17
+OpenJDK Runtime Environment Homebrew (build 19.0.2)
+OpenJDK 64-Bit Server VM Homebrew (build 19.0.2, mixed mode, sharing)
+
+echo 'export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"' >> ~/.zshrc
+
+
+/opt/homebrew/opt/openjdk/bin/java
+/usr/bin/java
+
+ Check JAVA_HOME and PATH environment variables
+
+ If you need to have this software first in your PATH instead consider running:
+   echo 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"' >> ~/.zshrc
+
+
+   brew install coursier/formulas/coursier && cs setup
+
+
+   https://stackoverflow.com/questions/35249204/node-already-installed-its-just-not-linked

@@ -287,6 +287,58 @@ const docTemplate = `{
                 }
             }
         },
+        "/createSubCategory": {
+            "post": {
+                "description": "To create Subcategory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Subcategory"
+                ],
+                "summary": "Creates Subcategory.",
+                "parameters": [
+                    {
+                        "description": "It takes Manufacturer Name",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.BodySubCategoryCreate"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/createUser": {
             "post": {
                 "description": "To create and save User Data.",
@@ -719,7 +771,7 @@ const docTemplate = `{
         },
         "/getAllSeller": {
             "post": {
-                "description": "To GetAll Manufacturer",
+                "description": "To GetAll Seller",
                 "consumes": [
                     "application/json"
                 ],
@@ -729,7 +781,100 @@ const docTemplate = `{
                 "tags": [
                     "Seller"
                 ],
-                "summary": "GetAll Manufacturer.",
+                "summary": "GetAll Seller.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllSubCategory": {
+            "post": {
+                "description": "To GetAll Subcategory",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Subcategory"
+                ],
+                "summary": "GetAll Subcategory.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.StatusMsg"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllSubCategoryByCateId": {
+            "post": {
+                "description": "To Get Subcategory By ID",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Subcategory"
+                ],
+                "summary": "Get Subcategory By ID.",
+                "parameters": [
+                    {
+                        "description": "It takes Category id",
+                        "name": "json",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/db_apis.BodyById"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -974,7 +1119,7 @@ const docTemplate = `{
         },
         "/getSellerById": {
             "post": {
-                "description": "To Get Manufacturer By ID",
+                "description": "To Get Seller By ID",
                 "consumes": [
                     "application/json"
                 ],
@@ -984,7 +1129,7 @@ const docTemplate = `{
                 "tags": [
                     "Seller"
                 ],
-                "summary": "Get Manufacturer By ID.",
+                "summary": "Get Seller By ID.",
                 "parameters": [
                     {
                         "description": "It takes Seller id",
@@ -1708,6 +1853,20 @@ const docTemplate = `{
                 }
             }
         },
+        "db_apis.BodySubCategoryCreate": {
+            "type": "object",
+            "properties": {
+                "categoryId": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
         "db_apis.BodyUserIdInput": {
             "type": "object",
             "required": [
@@ -2385,7 +2544,7 @@ const docTemplate = `{
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
-	Host:             "192.168.13.72:8080",
+	Host:             "192.168.13.119:8080",
 	BasePath:         "/",
 	Schemes:          []string{"http"},
 	Title:            "APIs of E-Commerce Project",

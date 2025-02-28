@@ -3,3 +3,4 @@
 .DS_Store
 /go.mod
 /go.sum
+ ../../pkg/mod/github.com
